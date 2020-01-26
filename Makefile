@@ -14,8 +14,7 @@ CC =	gcc
 
 AR =	ar -rc
 
-FLAG =	-Wall -Wextra -Werror -lbsd
-# REMOVER lbsd e -o
+FLAG =	-Wall -Wextra -Werror
 
 NAME =	libft
 
