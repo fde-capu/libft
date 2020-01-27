@@ -10,13 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC =	gcc
+CC =	gcc -Wall -Wextra -Werror
 
 AR =	ar -rc
 
-FLAG =	-Wall -Wextra -Werror
-
-NAME =	libft
+NAME =	libft.a
 
 SRCS =	ft_memset.c			\
 		ft_bzero.c			\
@@ -60,31 +58,19 @@ SRCS =	ft_memset.c			\
 		ft_lstdelone.c		\
 		ft_lstclear.c		\
 		ft_lstiter.c		\
-		ft_lstmap.c			\
-		main.c			# REMOVER!
+		ft_lstmap.c			
 
 OBJS =	$(SRCS:.c=.o)
 
 all :	$(NAME)
 
 $(NAME) :	$(OBJS)
-	$(AR) $(NAME).a $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME).a
-	rm -f a.out
+	rm -f $(NAME)
 
 re: fclean all
-
-norm:
-	/usr/bin/norminette -R CheckForbiddenSourceHeader $(filter-out main.c, $(SRCS))
-	/usr/bin/norminette -R CheckForbiddenSourceHeader libft.h 
-
-test: fclean all main.c
-	$(CC) $(FLAG) $(OBJS) && ./a.out
-
-grade:
-	~/3rd/Libftest/grademe.sh

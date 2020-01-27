@@ -6,12 +6,11 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 23:02:59 by fde-capu          #+#    #+#             */
-/* U20200126201843 ||::|:                      */
+/* U20200127003613 |||:::                      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static char	*stc_skip_c(char *s, char c)
 {
@@ -20,67 +19,75 @@ static char	*stc_skip_c(char *s, char c)
 	return (s);
 }
 
-static int	stc_word_count(char *s, char c)
+static int	stc_count(char *s, char c)
 {
 	int	n;
 
 	n = 0;
-	s = stc_skip_c(s, c);
+	s = stc_skip_c((char *)s, c);
 	if ((*s) && (*s != c))
 		n++;
 	while ((*s) && (*s != c))
 		s++;
-	return (*s ? n + stc_word_count(s, c) : n);
+	return (*s ? n + stc_count(s, c) : n);
 }
 
-static int	stc_word_len(char *s, char c)
+static int	stc_len(char *s, char c)
 {
 	int	n;
 
 	n = 0;
-//	printf("len: %s --", s);
 	while ((*s) && (*s != c))
 	{
 		s++;
 		n++;
 	}
-//	printf(" %d\n", n);
 	return (n);
+}
+
+static int	stc_lgs(char *s, char c)
+{
+	int	max;
+	int	len;
+
+	max = 0;
+	len = 0;
+	while (*s)
+	{
+		s = stc_skip_c((char *)s, c);
+		while ((*s) && (*s != c))
+		{
+			s++;
+			len++;
+		}
+		max = len > max ? len : max;
+	}
+	return (max);
 }
 
 char		**ft_split(char const *s, char c)
 {
-	char	**split;
-	int		word_count;
-	char	*z;
-	char	*w;
+	char	**spl;
 	int		i;
+	int		w;
+	char	*r;
 
-		//printf("Anal: --%s-- ", s);
-	word_count = stc_word_count((char *)s, c);
-		//printf("WC %d\n", word_count);
-	split = (char **)malloc(sizeof(char) * (word_count + 1));
-		printf("==========\nsplit alloc %d\n", word_count + 1);
-	z = (char *)s;
-	z = stc_skip_c(z, c);
+	r = (char *)s;
+	r = stc_skip_c(r, c);
+	spl = (char **)ft_calloc((stc_lgs(r, c) + 1), (stc_count(r, c) + 1));
 	i = 0;
-	while (*z)
+	while(*r)
 	{
-		w = (char *)malloc(sizeof(char) * (stc_word_len(z, c) + 1));
-		printf("split[%d] alloc %d\n", i, (stc_word_len(z, c) + 1));
-		*(split + i) = w;
-		while ((*z) && (*z != c))
+		spl[i] = (char *)malloc(stc_len(r, c) + 1);
+		w = 0;
+		while ((*r) && (*r != c))
 		{
-//			*w = *z;
-//			w++;
-			z++;
+			spl[i][w] = *r;
+			w++;
+			r++;
 		}
-//		*w = '\0';
-		//printf("split[%d] %s\n", i, split[i]);
 		i++;
-		z = stc_skip_c(z, c);
+		r = stc_skip_c(r, c);
 	}
-//	split[i] = NULL;
-		//printf("split[%d] %s\n", i, split[i]);
-	return (split);
+	return (spl);
 }
