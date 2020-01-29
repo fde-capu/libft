@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 19:05:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/01/23 01:59:14 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/01/27 14:29:44 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	const char	*lasts;
 	char		*lastd;
 
+	if ((!dst) && (!src))
+		return (NULL);
 	d = (char *)dst;
 	s = (const char *)src;
 	if (d < s)

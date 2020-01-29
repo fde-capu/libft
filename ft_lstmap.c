@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/24 04:53:47 by fde-capu          #+#    #+#             */
-/* U20200127003838 |::|||                      */
+/*   Created: 2020/01/27 10:48:25 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/01/29 13:03:35 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,26 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
-	t_list	*np;
+	t_list	**p;
 
-	new = malloc(sizeof(t_list));
-	new->next = 0;
+	if (!lst)
+		return (NULL);
+	new = ft_lstnew(f(lst));
 	if (!new)
 		return (NULL);
-	np = new;
-	while (lst)
+	p = &new;
+	while (lst->next)
 	{
-		lst->content = f(lst->content);
-		np->content = lst->content;
 		lst = lst->next;
-		if (lst)
+		new = ft_lstnew(f(lst));
+		if (new)
 		{
-			np->next = malloc(sizeof(t_list));
-			np->next->next = 0;
-			np = np->next;
+			ft_lstadd_back(p, new);
+		}
+		else
+		{
+			del(lst);
 		}
 	}
-	(void)del;
-	return (new);
+	return (*p);
 }

@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/24 03:47:49 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/01/27 10:53:41 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/01/27 18:01:26 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/01/27 18:06:50 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list			*ft_lstnew(void *content)
+char	*ft_strcpy_bonus(char *dst, const char *src)
 {
-	t_list	*ret;
+	char	*d;
+	char	*s;
 
-	ret = malloc(sizeof(t_list));
-	if (!ret)
-		return (NULL);
-	ret->content = content;
-	ret->next = 0;
-	return (ret);
+	while (*s)
+	{
+		*d = *s;
+		d++;
+		s++;
+	}
+	*d = 0;
+	return (dst);
 }

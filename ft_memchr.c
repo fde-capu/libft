@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 19:28:21 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/01/23 01:59:30 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/01/27 14:28:06 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const char	*r;
-	size_t		ns;
+	const unsigned char	*r;
+	size_t				ns;
 
-	r = (const char *)s;
+	r = (const unsigned char *)s;
 	ns = 0;
 	while (ns < n)
-		if (r[ns] == c)
+		if (r[ns] == (unsigned char)c)
 			return ((void *)&r[ns]);
 		else
 			ns++;

@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 15:34:24 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/01/24 03:29:00 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/01/29 08:55:41 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	guy = malloc(len + 1);
 	if (!guy)
-		return (0);
+		return (NULL);
+	if (ft_strlen(s) < start + len - 1)
+		len = 0;
+	guy[len] = 0;
 	i = 0;
 	while (len--)
 	{

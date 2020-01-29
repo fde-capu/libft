@@ -6,49 +6,77 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 14:17:37 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/01/23 01:55:59 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/01/29 10:42:20 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	st_isinset(char a, char const *set)
+static int		st_inset(char *r, char const *set)
 {
-	char	*r;
+	char	*s;
 
-	r = (char *)set;
-	while (*r)
+	s = (char *)set;
+	while (*s)
 	{
-		if (*r == a)
+		if (*s == *r)
 			return (1);
-		r++;
+		s++;
 	}
 	return (0);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+static char		*st_trimstart(char const *s1, char const *set)
 {
 	char	*r;
-	int		c;
-	char	*m;
-	char	*ma;
 
-	c = 0;
 	r = (char *)s1;
-	while (st_isinset(*r, set))
+	while ((*r) && (st_inset(r, set)))
 		r++;
-	while ((*++r) && (++c))
-		;
-	while ((*--r) && (st_isinset(*r, set)) && (--c))
-		;
-	c++;
-	r = (char *)s1;
-	while (st_isinset(*r, set))
+	return (r);
+}
+
+static size_t	st_trimlen(char const *s1, char const *set)
+{
+	size_t	l;
+	char	*r;
+
+	r = st_trimstart(s1, set);
+	l = 0;
+	while (*r)
+	{
 		r++;
-	ma = malloc(sizeof(char) * (c + 1));
-	m = ma;
-	while (c--)
-		*m++ = *r++;
-	*m = 0;
-	return (ma);
+		l++;
+	}
+	r--;
+	while ((l) && (st_inset(r, set)))
+	{
+		r--;
+		l--;
+	}
+	return (l);
+}
+
+char			*ft_strtrim(char const *s1, char const *set)
+{
+	char	*m;
+	size_t	l;
+	char	*w;
+	char	*r;
+
+	l = st_trimlen(s1, set);
+	m = malloc(l + 1);
+	if (!m)
+		return (NULL);
+	w = m;
+	r = st_trimstart(s1, set);
+	while ((l) && (*r))
+	{
+		*w = *r;
+		w++;
+		r++;
+		l--;
+	}
+	*w = 0;
+	return (m);
 }

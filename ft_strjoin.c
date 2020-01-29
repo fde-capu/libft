@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 14:03:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/01/23 01:58:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/01/29 09:08:22 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char			*w;
 	char			*r;
-	unsigned int	c;
 	char			*m;
 	char			*mw;
 
-	w = (char *)s1;
-	while ((*++w) && (++c))
-		;
-	r = (char *)s2;
-	while ((*++r) && (++c))
-		;
-	m = malloc(sizeof(char) * (c + 2));
+	m = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!m)
 		return (NULL);
 	mw = m;

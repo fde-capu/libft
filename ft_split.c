@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/23 23:02:59 by fde-capu          #+#    #+#             */
-/* U20200127003613 |||:::                      */
+/*   Created: 2020/01/27 10:48:36 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/01/29 09:10:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,49 +45,29 @@ static int	stc_len(char *s, char c)
 	return (n);
 }
 
-static int	stc_lgs(char *s, char c)
-{
-	int	max;
-	int	len;
-
-	max = 0;
-	len = 0;
-	while (*s)
-	{
-		s = stc_skip_c((char *)s, c);
-		while ((*s) && (*s != c))
-		{
-			s++;
-			len++;
-		}
-		max = len > max ? len : max;
-	}
-	return (max);
-}
-
 char		**ft_split(char const *s, char c)
 {
 	char	**spl;
+	char	*z;
 	int		i;
 	int		w;
-	char	*r;
 
-	r = (char *)s;
-	r = stc_skip_c(r, c);
-	spl = (char **)ft_calloc((stc_lgs(r, c) + 1), (stc_count(r, c) + 1));
+	z = (char *)s;
+	spl = (char **)ft_calloc(sizeof(char *) * (stc_count(z, c) + 1), 1);
+	if (!spl)
+		return (NULL);
 	i = 0;
-	while(*r)
+	z = stc_skip_c(z, c);
+	while (*z)
 	{
-		spl[i] = (char *)malloc(stc_len(r, c) + 1);
+		spl[i] = (char *)ft_calloc(stc_len(z, c) + 1, 1);
+		if (!spl[i])
+			return (NULL);
 		w = 0;
-		while ((*r) && (*r != c))
-		{
-			spl[i][w] = *r;
-			w++;
-			r++;
-		}
+		while ((*z) && (*z != c))
+			spl[i][w++] = *z++;
 		i++;
-		r = stc_skip_c(r, c);
+		z = stc_skip_c(z, c);
 	}
 	return (spl);
 }

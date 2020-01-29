@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/20 15:09:44 by fde-capu          #+#    #+#             */
-/* U20200126133059 |||::|                      */
+/*   Created: 2020/01/27 10:49:03 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/01/27 18:04:11 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <errno.h>
 # include <unistd.h>
-# include <bsd/string.h> // REMOVER
 
 typedef struct	s_list
 {
@@ -36,17 +35,17 @@ void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
-void			*ft_memcpy(void *restrict dst, const void *restrict src, \
+void			*ft_memcpy(void *dst, const void *src, \
 					size_t n);
-void			*ft_memccpy(void *restrict dst, const void *restrict src, \
+void			*ft_memccpy(void *dst, const void *src, \
 					int c, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t			ft_strlen(const char *s);
-size_t			ft_strlcpy(char *restrict dst, const char *restrict src, \
+size_t			ft_strlcpy(char *dst, const char *src, \
 					size_t dstsize);
-size_t			ft_strlcat(char *restrict dst, const char *restrict src, \
+size_t			ft_strlcat(char *dst, const char *src, \
 					size_t dstsize);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
@@ -73,5 +72,6 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), \
 					void (*del)(void *));
+char			*ft_strcpy(char *dst, const char *src);
 
 #endif

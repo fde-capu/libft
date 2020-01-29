@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/23 01:41:55 by fde-capu          #+#    #+#             */
-/* U20200126132009 :||:|:                      */
+/*   Created: 2020/01/27 10:47:10 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/01/28 14:46:58 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,9 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*c;
 
-	if (count <= 0 || size <= 0)
-	{
-		count = 1;
-		size = 1;
-	}
 	c = malloc(count * size);
-	if (c)
-	{
-		ft_bzero(c, count * size);
-	}
+	if (!c)
+		return (NULL);
+	ft_bzero(c, count * size);
 	return (c);
 }

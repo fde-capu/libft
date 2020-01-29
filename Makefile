@@ -6,11 +6,13 @@
 #    By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/20 14:30:12 by fde-capu          #+#    #+#              #
-#    Updated: 2020/01/24 03:39:29 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/01/28 16:06:48 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC =	gcc -Wall -Wextra -Werror
+CC =	gcc
+
+FLAGS =	-Wall -Wextra -Werror
 
 AR =	ar -rc
 
@@ -58,11 +60,15 @@ SRCS =	ft_memset.c			\
 		ft_lstdelone.c		\
 		ft_lstclear.c		\
 		ft_lstiter.c		\
-		ft_lstmap.c			
+		ft_lstmap.c			\
+		ft_strcpy_bonus.c
 
 OBJS =	$(SRCS:.c=.o)
 
 all :	$(NAME)
+
+$(SRCS) :
+	$(CC) -o $(OBJS) -c $(SRCS) $(FLAGS) 
 
 $(NAME) :	$(OBJS)
 	$(AR) $(NAME) $(OBJS)
@@ -73,4 +79,4 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean all
+re:		fclean all

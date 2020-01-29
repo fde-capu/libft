@@ -6,17 +6,19 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 22:21:47 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/01/23 01:59:22 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/01/27 19:12:30 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	char		*d;
 	const char	*s;
 
+	if ((!dst) && (!src))
+		return (NULL);
 	d = dst;
 	s = src;
 	while (n--)

@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 12:24:30 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/01/23 01:58:56 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/01/27 14:36:36 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ char	*ft_strchr(const char *s, int c)
 	{
 		while (*p)
 			p++;
-		return ((char *)p);
+		return (p);
 	}
-	while ((*p) && (*p++ != c))
-		;
-	return (*p ? (char *)p - 1 : 0);
+	while ((*p) && (*p != c))
+		p++;
+	return (*p ? p : 0);
 }

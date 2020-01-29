@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 11:34:40 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/01/23 01:56:27 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/01/27 19:07:15 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,22 @@ char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	char	*n;
 	int		nl;
 
-	if (!*needle)
-		return ((char *)haystack);
 	h = (char *)haystack;
 	n = (char *)needle;
+	if (ft_strlen(n) > ft_strlen(h))
+		return (NULL);
+	if ((!*n) || ((*n == 0) && (len == 0)) || (needle == haystack))
+		return (h);
 	nl = 0;
 	while (*++n)
 		nl++;
 	n = (char *)needle;
-	while ((*h) && --len)
+	while (*h && len)
 	{
 		if ((isneedle(h, n)) && ((int)len - nl > 0))
 			return (h);
 		h++;
+		len--;
 	}
 	return (NULL);
 }
