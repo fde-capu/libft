@@ -6,7 +6,7 @@
 #    By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/20 14:30:12 by fde-capu          #+#    #+#              #
-#    Updated: 2020/01/28 16:06:48 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/01/30 10:58:06 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,8 +51,9 @@ SRCS =	ft_memset.c			\
 		ft_putnbr_fd.c		\
 		ft_putstr_fd.c		\
 		ft_split.c			\
-		ft_strmapi.c		\
-		ft_lstnew.c			\
+		ft_strmapi.c
+
+BSRCS = ft_lstnew.c			\
 		ft_lstadd_front.c	\
 		ft_lstsize.c		\
 		ft_lstlast.c		\
@@ -65,18 +66,27 @@ SRCS =	ft_memset.c			\
 
 OBJS =	$(SRCS:.c=.o)
 
+BOBJS = $(BSRCS:.c=.o)
+
 all :	$(NAME)
 
 $(SRCS) :
 	$(CC) -o $(OBJS) -c $(SRCS) $(FLAGS) 
+
+$(BSRCS) :
+	$(CC) -o $(OBJS) -c $(BRCS) $(FLAGS) 
 
 $(NAME) :	$(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS)
+	rm -f $(BOBJS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re:		fclean all
+
+bonus:	all $(BOBJS)
+	$(AR) $(NAME) $(OBJS) $(BOBJS)
