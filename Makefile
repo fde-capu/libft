@@ -6,7 +6,7 @@
 #    By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/20 14:30:12 by fde-capu          #+#    #+#              #
-#    Updated: 2020/02/03 14:21:51 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/01/30 10:58:06 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,6 @@ BSRCS = ft_lstnew.c			\
 		ft_lstclear.c		\
 		ft_lstiter.c		\
 		ft_lstmap.c			\
-		ft_strcmp_bonus.c	\
 		ft_strcpy_bonus.c
 
 OBJS =	$(SRCS:.c=.o)
