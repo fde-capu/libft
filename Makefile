@@ -51,9 +51,8 @@ SRCS =	ft_memset.c			\
 		ft_putnbr_fd.c		\
 		ft_putstr_fd.c		\
 		ft_split.c			\
-		ft_strmapi.c
-
-BSRCS = ft_lstnew.c			\
+		ft_strmapi.c		\
+		ft_lstnew.c			\
 		ft_lstadd_front.c	\
 		ft_lstsize.c		\
 		ft_lstlast.c		\
@@ -62,33 +61,24 @@ BSRCS = ft_lstnew.c			\
 		ft_lstclear.c		\
 		ft_lstiter.c		\
 		ft_lstmap.c			\
-		ft_strcmp_bonus.c	\
-		ft_strcpy_bonus.c	\
-		ft_ltoh_bonus.c
+		ft_strcmp.c			\
+		ft_strcpy.c			\
+		ft_ltoh.c
 
 OBJS =	$(SRCS:.c=.o)
 
-BOBJS = $(BSRCS:.c=.o)
-
-all :	$(NAME) bonus
+all :	$(NAME)
 
 $(SRCS) :
 	$(CC) -o $(OBJS) -c $(SRCS) $(FLAGS) 
-
-$(BSRCS) :
-	$(CC) -o $(OBJS) -c $(BRCS) $(FLAGS) 
 
 $(NAME) :	$(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS)
-	rm -f $(BOBJS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re:		fclean all
-
-bonus:	all $(BOBJS)
-	$(AR) $(NAME) $(OBJS) $(BOBJS)
