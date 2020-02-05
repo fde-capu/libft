@@ -63,13 +63,14 @@ BSRCS = ft_lstnew.c			\
 		ft_lstiter.c		\
 		ft_lstmap.c			\
 		ft_strcmp_bonus.c	\
-		ft_strcpy_bonus.c
+		ft_strcpy_bonus.c	\
+		ft_ltoh_bonus.c
 
 OBJS =	$(SRCS:.c=.o)
 
 BOBJS = $(BSRCS:.c=.o)
 
-all :	$(NAME)
+all :	$(NAME) bonus
 
 $(SRCS) :
 	$(CC) -o $(OBJS) -c $(SRCS) $(FLAGS) 

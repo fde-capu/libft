@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 20:00:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/01/27 17:46:49 by fde-capu         ###   ########.fr       */
+/* U20200204181806 ::||::                      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_itoa(int n)
 {
-	int		len;
-	char	*w;
-	long	t;
-	char	*r;
+	unsigned int	len;
+	char			*w;
+	long			t;
+	char			*r;
 
 	t = n < 0 ? (long)n * -1 : (long)n;
 	len = n < 0 ? 2 : 1;
