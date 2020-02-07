@@ -76,9 +76,9 @@ $(NAME) :	$(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
 clean:
-	cd src && rm -f $(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-	cd src && rm -f $(NAME)
+	rm -f $(NAME)
 
 re:		fclean all
