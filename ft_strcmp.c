@@ -6,7 +6,7 @@
 /*     |::|:| <|::|:|>                         */
 /*                                             */
 /* C20200205182011 |::|:|                      */
-/* U20200205182013 |:|:||                      */
+/* U20200207165334 ||::::                      */
 /*                                             */
 /* ******************************************* */
 
@@ -16,7 +16,7 @@ int		ft_strcmp(const char *s1, const char *s2)
 {
 	int x;
 	
-	x = ft_strlen(s1) > ft_strlen(s2) ? \
+	x = ft_strlen(s1) < ft_strlen(s2) ? \
 		(int)ft_strlen(s1) : (int)ft_strlen(s2);
-	return (ft_strncmp(s1, s2, x));
+	return (ft_strncmp(s1, s2, x) ? 0 : 1);
 }
