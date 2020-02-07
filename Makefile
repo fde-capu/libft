@@ -10,7 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC =	gcc
+CC		=	$(GCC) $(FLAGS) 
+
+GCC =	gcc
 
 FLAGS =	-Wall -Wextra -Werror
 
@@ -70,7 +72,7 @@ OBJS =	$(SRCS:.c=.o)
 all :	$(NAME)
 
 $(SRCS) :
-	$(CC) -o $(OBJS) -c $(SRCS) $(FLAGS) 
+	$(GCC) -o $(OBJS) -c $(SRCS) $(FLAGS) 
 
 $(NAME) :	$(OBJS)
 	$(AR) $(NAME) $(OBJS)
