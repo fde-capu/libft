@@ -6,11 +6,13 @@
 #    By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/20 14:30:12 by fde-capu          #+#    #+#              #
-#    Updated: 2020/01/30 10:58:06 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/02/10 07:19:16 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC =	gcc
+CC		=	$(GCC) $(FLAGS) 
+
+GCC =	gcc
 
 FLAGS =	-Wall -Wextra -Werror
 
@@ -47,13 +49,13 @@ SRCS =	ft_memset.c			\
 		ft_toupper.c		\
 		ft_putchar_fd.c		\
 		ft_itoa.c			\
+		ft_uitoa.c			\
 		ft_putendl_fd.c		\
 		ft_putnbr_fd.c		\
 		ft_putstr_fd.c		\
 		ft_split.c			\
-		ft_strmapi.c
-
-BSRCS = ft_lstnew.c			\
+		ft_strmapi.c		\
+		ft_lstnew.c			\
 		ft_lstadd_front.c	\
 		ft_lstsize.c		\
 		ft_lstlast.c		\
@@ -62,31 +64,26 @@ BSRCS = ft_lstnew.c			\
 		ft_lstclear.c		\
 		ft_lstiter.c		\
 		ft_lstmap.c			\
-		ft_strcpy_bonus.c
+		ft_strcmp.c			\
+		ft_strcpy.c			\
+		ft_ltoh.c			\
+		ft_strinset.c		\
+		ft_whichar.c
 
 OBJS =	$(SRCS:.c=.o)
-
-BOBJS = $(BSRCS:.c=.o)
 
 all :	$(NAME)
 
 $(SRCS) :
-	$(CC) -o $(OBJS) -c $(SRCS) $(FLAGS) 
-
-$(BSRCS) :
-	$(CC) -o $(OBJS) -c $(BRCS) $(FLAGS) 
+	$(GCC) -o $(OBJS) -c $(SRCS) $(FLAGS) 
 
 $(NAME) :	$(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS)
-	rm -f $(BOBJS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re:		fclean all
-
-bonus:	all $(BOBJS)
-	$(AR) $(NAME) $(OBJS) $(BOBJS)
