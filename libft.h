@@ -76,7 +76,7 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), \
 					void (*del)(void *));
 char			*ft_strcpy(char *dst, const char *src);
-int				ft_strinset(char *r, char const *set);
+int				ft_chrinset(char *r, char const *set);
 char			ft_whichar(const char *s, int x);
 
 #endif

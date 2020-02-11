@@ -17,7 +17,7 @@ static char		*st_trimstart(char const *s1, char const *set)
 	char	*r;
 
 	r = (char *)s1;
-	while ((*r) && (ft_strinset(r, set)))
+	while ((*r) && (ft_chrinset(r, set)))
 		r++;
 	return (r);
 }
@@ -35,7 +35,7 @@ static size_t	st_trimlen(char const *s1, char const *set)
 		l++;
 	}
 	r--;
-	while ((l) && (ft_strinset(r, set)))
+	while ((l) && (ft_chrinset(r, set)))
 	{
 		r--;
 		l--;
