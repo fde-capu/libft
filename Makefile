@@ -67,7 +67,7 @@ SRCS =	ft_memset.c			\
 		ft_strcmp.c			\
 		ft_strcpy.c			\
 		ft_ltoh.c			\
-		ft_strinset.c		\
+		ft_chrinset.c		\
 		ft_whichar.c
 
 OBJS =	$(SRCS:.c=.o)
