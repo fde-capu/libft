@@ -6,7 +6,7 @@
 /*     :::::: <::::::>                         */
 /*                                             */
 /* C20200205181938 ::::::                      */
-/* U20200213172800 ::::|:                      */
+/* U20200213174137 :|||::                      */
 /*                                             */
 /* ******************************************* */
 
@@ -14,26 +14,5 @@
 
 char	*ft_ltoh(unsigned long value)
 {
-	int				i;
-	unsigned long	c;
-	int				t;
-	char			*n;
-	char			*r;
-
-	r = ft_calloc(1 + ft_countdigits_base((long long) value, 16), 1);
-	if (!r)
-		return (NULL);
-	n = r;
-	i = 0;
-	c = value;
-	while (c != 0)
-	{
-		t = c % 16;
-		t += t < 10 ? '0' : 'a';
-		n[i] = t;
-		i++;
-		c = c / 16;
-	}
-	n[i] = 0;
-	return (&n[0]);
+	return (ft_ltobase(value, 16));
 }

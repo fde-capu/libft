@@ -6,7 +6,7 @@
 /*     :::|:| <:::|:|>                         */
 /*                                             */
 /* C20200213172548 :::|:|                      */
-/* U20200213172644 :|:||:                      */
+/* U20200213181139 :|:|::                      */
 /*                                             */
 /* ******************************************* */
 
@@ -14,9 +14,10 @@
 
 unsigned int	ft_countdigits_base(long long number, unsigned int base)
 {
-	unsigned int	c;
+	long long	c;
 	
-	c = 1;
+	c = number >= 0 ? 1 : 2;
+	number = ft_abs(number);
 	while (number > base)
 	{
 		c++;

@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 10:49:03 by fde-capu          #+#    #+#             */
-/* U20200213173237 |:|::|                      */
+/* U20200213175612 |::|||                      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,7 @@ int				ft_chrinset(char *r, char const *set);
 char			ft_whichar(const char *s, int x);
 unsigned int	ft_countdigits(long long number);
 unsigned int	ft_countdigits_base(long long number, unsigned int base);
+char			*ft_ltobase(long long value, unsigned int base);
+long long		ft_abs(long long value);
 
 #endif
