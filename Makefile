@@ -50,6 +50,7 @@ SRCS =	ft_memset.c			\
 		ft_putchar_fd.c		\
 		ft_repchar_fd.c		\
 		ft_itoa.c			\
+		ft_ltoa.c			\
 		ft_uitoa.c			\
 		ft_putendl_fd.c		\
 		ft_putnbr_fd.c		\
@@ -69,6 +70,7 @@ SRCS =	ft_memset.c			\
 		ft_strcpy.c			\
 		ft_ltoh.c			\
 		ft_chrinset.c		\
+		ft_countdigits.c	\
 		ft_whichar.c
 
 OBJS =	$(SRCS:.c=.o)
