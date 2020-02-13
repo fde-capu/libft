@@ -6,7 +6,7 @@
 /*     ::::|: <::::|:>                         */
 /*                                             */
 /* C20200213021050 ::::|:                      */
-/* U20200213021256 :|||||                      */
+/* U20200213172726 :::|||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -14,13 +14,5 @@
 
 unsigned int	ft_countdigits(long long number)
 {
-	unsigned int	c;
-	
-	c = 1;
-	while (number > 10)
-	{
-		c++;
-		number /= 10;
-	}
-	return (c);
+	return (ft_countdigits_base(number, 10));
 }
