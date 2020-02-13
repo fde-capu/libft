@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 10:49:03 by fde-capu          #+#    #+#             */
-/* U20200211092535 :|::::                      */
+/* U20200212171222 |:|:::                      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char			*ft_uitoa(unsigned int n);
 char			*ft_ltoh(unsigned long value, char *string);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_putchar_fd(char c, int fd);
-void			ft_repchar_fd(char c, int rpt, int fd);
+void			ft_repchar_fd(char c, unsigned int rpt, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);

@@ -6,15 +6,18 @@
 /*     |::||| <|::|||>                         */
 /*                                             */
 /* C20200211092054 :|::::                      */
-/* U20200211093048 :||:||                      */
+/* U20200212215547 ::::::                      */
 /*                                             */
 /* ******************************************* */
 
 #include "libft.h"
 
-void	ft_repchar_fd(char c, int rpt, int fd)
+void	ft_repchar_fd(char c, unsigned int rpt, int fd)
 {
-	while (rpt--)
+	while (rpt)
+	{
 		ft_putchar_fd(c, fd);
+		rpt--;
+	}
 	return ;
 }
