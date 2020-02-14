@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 00:25:24 by fde-capu          #+#    #+#             */
-/* U20200207125211 ||||:|                      */
+/* U20200214133458 ||::::                      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	st_sum_dign(char *a)
 	return (s);
 }
 
-int			ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
 	char	*a;
 	char	*b;

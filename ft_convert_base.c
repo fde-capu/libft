@@ -1,18 +1,23 @@
 /* ******************************************* */
 /*                                             */
 /*                     ::||||||::|||:::||::|:: */
-/* ft_ltobase.c        ||:||||:||::::|:::|:||| */
+/* ft_convert_base.c   ||:||||:||::::|:::|:||| */
 /*                     :|::|:|:||:|:|::::::||| */
-/*     :::|:| <:::|:|>                         */
+/*     |:||:: <|:||::>                         */
 /*                                             */
-/* C20200213173955 :::|:|                      */
-/* U20200214193814 ::||::                      */
+/* C20200214092047 |:||::                      */
+/* U20200214193557 |:||:|                      */
 /*                                             */
 /* ******************************************* */
 
 #include "libft.h"
 
-char	*ft_ltobase(long long value, unsigned int base)
+char	*ft_convert_base(char *nbr, int base_from, int base_to)
 {
-	return (ft_convert_base(ft_itoa(value), 10, base));
+	char	*d;
+	double	n;
+
+	n = ft_btod(nbr, base_from);
+	d = ft_dtob(n, base_to);
+	return (d);
 }

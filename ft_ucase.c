@@ -1,18 +1,28 @@
 /* ******************************************* */
 /*                                             */
 /*                     ::||||||::|||:::||::|:: */
-/* ft_ltobase.c        ||:||||:||::::|:::|:||| */
+/* ft_ucase.c          ||:||||:||::::|:::|:||| */
 /*                     :|::|:|:||:|:|::::::||| */
-/*     :::|:| <:::|:|>                         */
+/*     ||:|:: <||:|::>                         */
 /*                                             */
-/* C20200213173955 :::|:|                      */
-/* U20200214193814 ::||::                      */
+/* C20200214140539 ||:|::                      */
+/* U20200214194033 |:::||                      */
 /*                                             */
 /* ******************************************* */
 
 #include "libft.h"
 
-char	*ft_ltobase(long long value, unsigned int base)
+char	*ft_ucase(char *str)
 {
-	return (ft_convert_base(ft_itoa(value), 10, base));
+	char	*dst;
+	int		i;
+
+	dst = ft_calloc(ft_strlen(str) + 1, 1);
+	i = 0;
+	while (str[i])
+	{
+		dst[i] = ft_toupper(str[i]);
+		i++;
+	}
+	return (dst);
 }

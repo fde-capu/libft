@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 10:49:03 by fde-capu          #+#    #+#             */
-/* U20200213175612 |::|||                      */
+/* U20200214193915 ::||||                      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
-char			*ft_itoa(int n);
+char			*ft_itoa(long long n);
 char			*ft_ltoa(long n);
 char			*ft_uitoa(unsigned int n);
 char			*ft_ltoh(unsigned long value);
@@ -57,7 +57,7 @@ char			*ft_strnstr(const char *haystack, const char *needle, \
 					size_t len);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_strcmp(const char *s1, const char *s2);
-int				ft_atoi(const char *str);
+long long		ft_atoi(const char *str);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
 int				ft_isalnum(int c);
@@ -81,8 +81,21 @@ char			*ft_strcpy(char *dst, const char *src);
 int				ft_chrinset(char *r, char const *set);
 char			ft_whichar(const char *s, int x);
 unsigned int	ft_countdigits(long long number);
-unsigned int	ft_countdigits_base(long long number, unsigned int base);
+unsigned int	ft_countdigits_ibase(long long number, unsigned int base);
 char			*ft_ltobase(long long value, unsigned int base);
 long long		ft_abs(long long value);
+char			*ft_iho_to_base(char *nbr, int base_to);
+int				ft_ishex(char *str);
+long long		ft_htoi(char *str);
+long long		ft_otoi(char *str);
+int				ft_isoct(char *str);
+char			*ft_lcase(char *str);
+char			*ft_ucase(char *str);
+double			ft_btod_single(char n);
+double			ft_btod(char *nbr, int b_from);
+char			ft_dtob_single(int c);
+char			*ft_dtob(double n, int b_to);
+char			*ft_convert_base(char *nbr, int base_from, int base_to);
+char			*ft_strrev(char *src);
 
 #endif

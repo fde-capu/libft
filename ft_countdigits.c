@@ -14,5 +14,5 @@
 
 unsigned int	ft_countdigits(long long number)
 {
-	return (ft_countdigits_base(number, 10));
+	return (ft_countdigits_ibase(number, 10));
 }

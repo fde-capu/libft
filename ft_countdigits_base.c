@@ -1,18 +1,18 @@
 /* ******************************************* */
 /*                                             */
 /*                     ::||||||::|||:::||::|:: */
-/* ft_countdigits_bas  ||:||||:||::::|:::|:||| */
+/* ft_countdigits_ibas  ||:||||:||::::|:::|:||| */
 /*                     :|::|:|:||:|:|::::::||| */
 /*     :::|:| <:::|:|>                         */
 /*                                             */
 /* C20200213172548 :::|:|                      */
-/* U20200213181139 :|:|::                      */
+/* U20200214125710 |||||:                      */
 /*                                             */
 /* ******************************************* */
 
 #include "libft.h"
 
-unsigned int	ft_countdigits_base(long long number, unsigned int base)
+unsigned int	ft_countdigits_ibase(long long number, unsigned int base)
 {
 	long long	c;
 	
