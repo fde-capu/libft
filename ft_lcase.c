@@ -6,7 +6,7 @@
 /*     :::::| <:::::|>                         */
 /*                                             */
 /* C20200214131257 :::::|                      */
-/* U20200214133743 |:::::                      */
+/* U20200214220306 ::::||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -17,7 +17,7 @@ char	*ft_lcase(char *str)
 	char	*dst;
 	int		i;
 
-	dst = ft_calloc(ft_strlen(str) + 1, 1);
+	dst = ft_calloc(ft_strlen((const char *)str) + 1, 1);
 	i = 0;
 	while (str[i])
 	{

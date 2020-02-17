@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 10:49:03 by fde-capu          #+#    #+#             */
-/* U20200214193915 ::||||                      */
+/* U20200215172926 |:||||                      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdlib.h>
 # include <errno.h>
 # include <unistd.h>
+# include <stdio.h> // REM
+# include <stdarg.h>
 
 typedef struct	s_list
 {
@@ -28,9 +30,7 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
 char			*ft_itoa(long long n);
-char			*ft_ltoa(long n);
 char			*ft_uitoa(unsigned int n);
-char			*ft_ltoh(unsigned long value);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_putchar_fd(char c, int fd);
 void			ft_repchar_fd(char c, unsigned int rpt, int fd);
@@ -82,20 +82,12 @@ int				ft_chrinset(char *r, char const *set);
 char			ft_whichar(const char *s, int x);
 unsigned int	ft_countdigits(long long number);
 unsigned int	ft_countdigits_ibase(long long number, unsigned int base);
-char			*ft_ltobase(long long value, unsigned int base);
 long long		ft_abs(long long value);
-char			*ft_iho_to_base(char *nbr, int base_to);
-int				ft_ishex(char *str);
-long long		ft_htoi(char *str);
-long long		ft_otoi(char *str);
-int				ft_isoct(char *str);
 char			*ft_lcase(char *str);
 char			*ft_ucase(char *str);
-double			ft_btod_single(char n);
-double			ft_btod(char *nbr, int b_from);
-char			ft_dtob_single(int c);
-char			*ft_dtob(double n, int b_to);
-char			*ft_convert_base(char *nbr, int base_from, int base_to);
+long long		ft_btod(char *nbr, int b_from);
+char			*ft_dtob(long long n, int b_to);
+char			*ft_convert_base(const char *bdata, ...);
 char			*ft_strrev(char *src);
 
 #endif
