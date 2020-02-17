@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 00:25:24 by fde-capu          #+#    #+#             */
-/* U20200207125211 ||||:|                      */
+/* U20200215172727 ::|||:                      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ static int	st_sum_dign(char *a)
 	return (s);
 }
 
-int			ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
-	char	*a;
-	char	*b;
-	int		l;
-	long	r;
-	int		neg;
+	char		*a;
+	char		*b;
+	int			l;
+	long long	r;
+	int			neg;
 
 	a = ft_strtrim((char *)str, " \t\n\r\v\f");
 	neg = *a == '-' ? 1 : 0;
@@ -56,5 +56,5 @@ int			ft_atoi(const char *str)
 		a++;
 	}
 	r *= neg ? -1 : 1;
-	return ((int)r);
+	return (r);
 }
