@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 10:49:03 by fde-capu          #+#    #+#             */
-/* U20200215172926 |:||||                      */
+/* U20200217183426 ::::|:                      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char			*ft_lcase(char *str);
 char			*ft_ucase(char *str);
 long long		ft_btod(char *nbr, int b_from);
 char			*ft_dtob(long long n, int b_to);
-char			*ft_convert_base(const char *bdata, ...);
+char			*ft_convert_base(const void *bdata, ...);
 char			*ft_strrev(char *src);
 
 #endif
