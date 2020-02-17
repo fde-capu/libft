@@ -23,4 +23,3 @@ int		ft_strinset(char *r, char const *set)
 	}
 	return (0);
 }
-
