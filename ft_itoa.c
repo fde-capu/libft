@@ -6,20 +6,20 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 20:00:04 by fde-capu          #+#    #+#             */
-/* U20200214155217 |:::||                      */
+/* U20200218111311 :|||:|                      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(long long n)
+char	*ft_itoa(int n)
 {
 	unsigned int	len;
 	char			*w;
-	long long		t;
+	long			t;
 	char			*r;
 
-	t = n < 0 ? n * -1 : n;
+	t = n < 0 ? (long)n * -1 : (long)n;
 	len = n < 0 ? 2 : 1;
 	while (t /= 10)
 		len++;
@@ -31,7 +31,7 @@ char	*ft_itoa(long long n)
 	*w = '0';
 	if (!n)
 		return (r);
-	t = n < 0 ? n * -10 : n * 10;
+	t = n < 0 ? (long)n * -10 : (long)n * 10;
 	while (t /= 10)
 		*w-- = (t % 10) + '0';
 	if (n < 0)
