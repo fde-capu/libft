@@ -6,13 +6,13 @@
 /*     |:||:: <|:||::>                         */
 /*                                             */
 /* C20200214092047 |:||::                      */
-/* U20200215173124 :|||::                      */
+/* U20200217183426 ::::|:                      */
 /*                                             */
 /* ******************************************* */
 
 #include "libft.h"
 
-char	*ft_convert_base(const char *bdata, ...)
+char	*ft_convert_base(const void *bdata, ...)
 {
 	va_list	bd;
 	char	*nbr;
@@ -21,7 +21,7 @@ char	*ft_convert_base(const char *bdata, ...)
 	char	*dec;
 
 	va_start(bd, bdata);
-	nbr = va_arg(bd, char *);
+	nbr = va_arg(bd, void *);
 	b_fr = va_arg(bd, int);
 	b_to = va_arg(bd, int);
 	va_end(bd);

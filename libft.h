@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 10:49:03 by fde-capu          #+#    #+#             */
-/* U20200215172926 |:||||                      */
+/* U20200218121709 ||||||                      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
-char			*ft_itoa(long long n);
+char			*ft_itoa(int n);
+char			*ft_ltoa(long n);
+char			*ft_ultoa(unsigned long n);
 char			*ft_uitoa(unsigned int n);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_putchar_fd(char c, int fd);
@@ -87,7 +89,7 @@ char			*ft_lcase(char *str);
 char			*ft_ucase(char *str);
 long long		ft_btod(char *nbr, int b_from);
 char			*ft_dtob(long long n, int b_to);
-char			*ft_convert_base(const char *bdata, ...);
+char			*ft_convert_base(const void *bdata, ...);
 char			*ft_strrev(char *src);
 
 #endif
