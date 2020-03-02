@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   fde-capu <fde-capu@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/21 01:58:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/02 11:50:21 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/03/02 16:21:34 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <errno.h>
 # include <unistd.h>
-# include <stdio.h> // REM
 # include <stdarg.h>
 
 typedef struct	s_list

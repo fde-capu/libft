@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   fde-capu <fde-capu@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/21 02:09:11 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/02/21 02:09:27 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/03/02 16:26:30 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/03/02 16:26:40 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ double	ft_pow(double a, double e)
 	r = e > 0 ? a : 1;
 	while ((long long)e)
 	{
-		r = e < 0 ? r / r : r * r; 
+		r = e < 0 ? r / r : r * r;
 		e = e < 0 ? e + 1 : e - 1;
 	}
 	return (r);

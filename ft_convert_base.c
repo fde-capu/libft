@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:27:28 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/02 14:27:30 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/02 16:28:12 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ char	*ft_convert_base(const void *bdata, ...)
 		return (ft_itoa(ft_btod(nbr, b_to)));
 	dec = ft_itoa(ft_btod(nbr, b_fr));
 	dec = ft_dtob(ft_atoi(dec), b_to);
-	return(dec);
+	return (dec);
 }

@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:43:29 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/02 14:43:30 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/02 16:31:03 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ long long		ft_btod(char *nbr, int b_from)
 	c = c > 0 ? c : 0;
 	while (c)
 	{
-		v += (ft_btod_single(nbr[c]) * e); 
+		v += (ft_btod_single(nbr[c]) * e);
 		e *= b_from;
 		c--;
 	}
