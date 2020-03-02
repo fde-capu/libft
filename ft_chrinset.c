@@ -15,7 +15,7 @@ int		ft_chrinset(char *r, char const *set)
 	char	*s;
 
 	s = (char *)set;
-	while (*s)
+	while ((s) && (*s))
 	{
 		if (*s == *r)
 			return (1);
