@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_repchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 19:18:03 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/02 10:03:09 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/03/02 11:49:07 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/03/02 11:56:16 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(const char *dst, const char *src)
+char	*ft_repchar(char c, unsigned int rpt)
 {
-	char	*ret;
-	char	*r;
-	char	*w;
+	char	*str;
+	char	cc[2];
 
-	ret = ft_calloc(ft_strlen(dst) + ft_strlen(src) + 1, 1);
-	r = (char *)dst;
-	w = (char *)ret;
-	while ((r) && (*r))
+	cc[0] = c;
+	cc[1] = 0;
+	str = ft_strcat("", "");
+	while (rpt)
 	{
-		*w = *r;
-		w++;
-		r++;
+		str = ft_strcat(str, cc);
+		rpt--;
 	}
-	r = (char *)src;
-	while ((r) && (*r))
-	{
-		*w = *r;
-		w++;
-		r++;
-	}
-	return (ret);
+	return (str);
 }

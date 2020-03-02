@@ -6,7 +6,7 @@
 /*   fde-capu <fde-capu@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 01:58:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/02 09:02:19 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/02 11:50:21 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putstr(char *s);
+char			*ft_repchar(char c, unsigned int rpt);
 void			ft_repchar_fd(char c, unsigned int rpt, int fd);
 char			**ft_split(char const *s, char c);
 char			*ft_strcat(const char *dst, const char *src);
