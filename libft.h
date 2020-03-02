@@ -6,7 +6,7 @@
 /*   fde-capu <fde-capu@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 01:58:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/02 07:08:07 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/02 08:41:34 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memset(void *b, int c, size_t len);
 double			ft_pow(double a, double e);
+void			ft_putchar(char c);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
