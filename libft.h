@@ -6,7 +6,7 @@
 /*   fde-capu <fde-capu@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 01:58:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/02 08:51:22 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/02 09:02:19 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ char			**ft_split(char const *s, char c);
 char			*ft_strcat(const char *dst, const char *src);
 char			*ft_strchr(const char *s, int c);
 int				ft_strcmp(const char *s1, const char *s2);
+char			*ft_strchrcat(const char *dst, const char src);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strdup(const char *s1);
 char			*ft_strjoin(char const *s1, char const *s2);
