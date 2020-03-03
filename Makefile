@@ -6,7 +6,7 @@
 #    By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/20 14:30:12 by fde-capu          #+#    #+#              #
-#    Updated: 2020/02/10 07:19:16 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/03/02 17:41:37 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ GCC =	gcc
 
 FLAGS =	-Wall -Wextra -Werror
 
-AR =	ar -rc
+AR =	ar -rcs
 
 NAME =	libft.a
 
