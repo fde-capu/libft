@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/02 19:14:05 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/03 12:51:39 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int				ft_strcmp(const char *s1, const char *s2);
 char			*ft_strchrcat(const char *dst, const char src);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strdup(const char *s1);
+int				ft_stridentical(const char *s1, const char *s2);
 char			*ft_strjoin(char const *s1, char const *s2);
 size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
