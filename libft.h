@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/03 12:51:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/04 03:00:58 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ char			*ft_strnstr(const char *haystack, const char *needle, \
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strrev(char *src);
 char			*ft_strtrim(char const *s1, char const *set);
+char			*ft_strtrunc(char *str, int pos);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_tolower(int c);
 int				ft_toupper(int c);

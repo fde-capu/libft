@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrunc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/20 15:34:24 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/04 02:12:47 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/03/04 02:13:46 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/03/04 03:00:56 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strtrunc(char *str, int pos)
 {
-	char	*guy;
-	size_t	i;
-
-	guy = malloc(len + 1);
-	if (!guy)
-		return (NULL);
-	if (ft_strlen(s) < start + len - 1)
-		len = 0;
-	guy[len] = 0;
-	i = 0;
-	while (len--)
-	{
-		guy[i] = s[start + i];
-		i++;
-	}
-	return (guy);
+	*(str + pos) = 0;
+	return (str);
 }
