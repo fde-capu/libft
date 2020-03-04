@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:44:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/02 16:27:54 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/04 04:18:58 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,5 @@ char		*ft_dtob(long long numb, int b_to)
 		*p = '-';
 	p = ft_strrev(dst);
 	free(dst);
-	return (p);
+	return (*p ? p : "0");
 }
