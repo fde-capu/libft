@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/05 01:49:43 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/05 03:57:39 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ char			*ft_repchar(char c, unsigned int rpt);
 void			ft_repchar_fd(char c, unsigned int rpt, int fd);
 char			**ft_split(char const *s, char c);
 char			*ft_strcat(const char *dst, const char *src);
+char			*ft_strcatx(char *dst, char *src);
+char			*ft_strcatxl(char *s1, char *s2);
+char			*ft_strcatxl(char *s1, char *s2);
 char			*ft_strchr(const char *s, int c);
 int				ft_strcmp(const char *s1, const char *s2);
 char			*ft_strchrcat(const char *dst, const char src);
@@ -98,5 +101,6 @@ char			*ft_ulltoa(unsigned long long n);
 char			*ft_ultoa(unsigned long n);
 char			*ft_ultoa(unsigned long n);
 char			ft_whichar(const char *s, int x);
+void			*ft_xlloc(void *arg1, void *arg2);
 
 #endif
