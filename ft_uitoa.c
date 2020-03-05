@@ -6,12 +6,15 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 19:21:01 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/02 16:23:30 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/05 04:23:24 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+** Returns allocated unsigned int to char *.
+*/
 char	*ft_uitoa(unsigned int n)
 {
 	unsigned int	len;

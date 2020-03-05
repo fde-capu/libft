@@ -6,12 +6,15 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:24:12 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/02 16:24:13 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/05 04:28:43 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+** Returns allocated char* upper-cased.
+*/
 char	*ft_ucase(char *str)
 {
 	char	*dst;

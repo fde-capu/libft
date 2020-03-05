@@ -6,13 +6,13 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 03:56:47 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/05 03:57:05 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/05 04:46:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcatxl(char *s1, char *s2)
+char	*ft_strcatxr(char *s1, char *s2)
 {
 	char	*x;
 
