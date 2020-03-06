@@ -6,14 +6,14 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 09:01:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/05 04:18:31 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/06 08:20:18 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Returns allocated concatenation of `dst` with first figure of `src`.
+** Returns allocated concatenation of `dst` with figure `src`.
 */
 char	*ft_strchrcat(const char *dst, const char src)
 {

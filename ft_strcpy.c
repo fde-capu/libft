@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:24:58 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/04 03:01:02 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/06 08:29:32 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strcpy(char *dst, const char *src)
 
 	s = (char *)src;
 	d = (char *)dst;
-	while (*s)
+	while ((s) && (*s))
 	{
 		*d = *s;
 		d++;

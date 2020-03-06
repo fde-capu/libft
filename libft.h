@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/05 04:43:54 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/06 08:10:56 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t			ft_strlen(const char *s);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
-char			*ft_strnew(void);
+char			*ft_strnew(const char *str);
 char			*ft_strnstr(const char *haystack, const char *needle, \
 					size_t len);
 char			*ft_strrchr(const char *s, int c);
