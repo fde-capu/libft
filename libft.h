@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/06 08:10:56 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/09 14:06:02 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ long long		ft_btod(char *nbr, int b_from);
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t count, size_t size);
 int				ft_chrinset(char *r, char const *set);
+char			*ft_chrtostr(char chr);
 char			*ft_convert_base(const void *bdata, ...);
 unsigned int	ft_countdigits(long long number);
 unsigned int	ft_countdigits_ibase(long long number, unsigned int base);
@@ -52,6 +53,10 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), \
 t_list			*ft_lstnew(void *content);
 int				ft_lstsize(t_list *lst);
 char			*ft_ltoa(long n);
+void			*ft_memcat(void *m1, void *m2, int s1, int s2);
+void			*ft_memcatx(void *m1, void *m2, int s1, int s2);
+void			*ft_memcatxl(void *m1, void *m2, int s1, int s2);
+void			*ft_memcatxr(void *m1, void *m2, int s1, int s2);
 void			*ft_memccpy(void *dst, const void *src, \
 					int c, size_t n);
 void			*ft_memchr(const void *s, int c, size_t n);
