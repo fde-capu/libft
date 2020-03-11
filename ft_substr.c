@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 15:34:24 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/05 04:33:43 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/11 15:29:41 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*
 ** Returns allocated substring, keeps original as is.
 */
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*guy;

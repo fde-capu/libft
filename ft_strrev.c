@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:24:29 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/05 04:20:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/11 15:29:54 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*
 **	Returns allocated reversed string.
 */
+
 char	*ft_strrev(char *src)
 {
 	char	*dst;

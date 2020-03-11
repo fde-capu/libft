@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:44:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/11 12:22:25 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/03/11 15:31:42 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static char	ft_dtob_single(int c)
 /*
 ** Returns allocated decimal to base conversion.
 */
+
 char		*ft_dtob(long long numb, int b_to)
 {
 	int			fsp;
