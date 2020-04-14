@@ -6,13 +6,13 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 19:21:17 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/04/13 17:37:52 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/02/20 19:21:18 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_utoa(unsigned long n)
+char	*ft_ultoa(unsigned long n)
 {
 	unsigned int		len;
 	char				*w;
