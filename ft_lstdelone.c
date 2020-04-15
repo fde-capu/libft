@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 10:48:14 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/01/27 10:48:16 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/04/15 11:40:03 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	del(lst);
-	free(lst->content);
+	del(lst->content);
+	free(lst);
 	return ;
 }
