@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrunc.c                                      :+:      :+:    :+:   */
+/*   ft_findstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/22 12:06:03 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/04/22 12:06:20 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/05/19 20:25:22 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/05/19 20:25:25 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+/*
+** returns the position of a string if found
+**  or -1 if not found
+*/
 
-char	*ft_strtrunc(char *dst, char trunc)
+int		ft_findstr(char *str, char c)
 {
-	int		i;
-	char	*out;
+	int i;
 
-	out = ft_strdup(dst);
 	i = 0;
-	while (*(out + i) && (*(out + i) != trunc))
+	while (str && str[i])
+	{
+		if (str[i] == c)
+			return (i);
 		i++;
-	*(out + i) = 0;
-	return (out);
+	}
+	if (str[i] == c)
+		return (i);
+	return (-1);
 }

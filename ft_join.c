@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrunc.c                                      :+:      :+:    :+:   */
+/*   ft_join.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/22 12:06:03 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/04/22 12:06:20 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/04/22 17:19:22 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/04/22 17:19:45 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrunc(char *dst, char trunc)
+char	*ft_join(char **split)
 {
-	int		i;
-	char	*out;
+	char	*join;
 
-	out = ft_strdup(dst);
-	i = 0;
-	while (*(out + i) && (*(out + i) != trunc))
-		i++;
-	*(out + i) = 0;
-	return (out);
+	join = ft_strdup("");
+	while (*split)
+	{
+		join = ft_strcatxl(join, *split);
+		split++;
+	}
+	return (join);
 }

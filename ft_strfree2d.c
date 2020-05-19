@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrunc.c                                      :+:      :+:    :+:   */
+/*   ft_strfree2d.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/22 12:06:03 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/04/22 12:06:20 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/04/23 11:26:36 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/04/23 11:26:58 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrunc(char *dst, char trunc)
+void	ft_strfree2d(char **str)
 {
-	int		i;
-	char	*out;
+	char	**p;
 
-	out = ft_strdup(dst);
-	i = 0;
-	while (*(out + i) && (*(out + i) != trunc))
-		i++;
-	*(out + i) = 0;
-	return (out);
+	p = str;
+	while (*p)
+		free(*p++);
+	free(str);
+	return ;
 }
