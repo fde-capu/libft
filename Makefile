@@ -6,36 +6,36 @@
 #    By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/20 14:30:12 by fde-capu          #+#    #+#              #
-#    Updated: 2020/03/02 17:41:37 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/06/02 13:35:59 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		=	$(GCC) $(FLAGS) 
 
-GCC =	gcc
+GCC		=	clang
 
-FLAGS =	-Wall -Wextra -Werror
+FLAGS	=	-Wall -Wextra -Werror
 
-AR =	ar -rcs
+AR		=	ar -rcs
 
-NAME =	libft.a
+NAME	=	libft.a
 
-SRCS =	$(shell find . -name '*.c')	
+SRCS	=	$(shell find . -name '*.c' ! -name "main.c")	
 
-OBJS =	$(SRCS:.c=.o)
+OBJS	=	$(SRCS:.c=.o)
 
-all :	$(NAME)
+all		:	$(NAME)
 
-$(SRCS) :
+$(SRCS)	:
 	$(GCC) -o $(OBJS) -c $(SRCS) $(FLAGS) 
 
-$(NAME) :	$(OBJS)
+$(NAME)	:	$(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-clean:
+clean	:
 	rm -f $(OBJS)
 
-fclean: clean
+fclean	:	clean
 	rm -f $(NAME)
 
-re:		fclean all
+re		:	fclean all

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/05/19 20:31:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/02 13:21:18 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,9 @@ char			*ft_ultoa(unsigned long n);
 char			*ft_ultoa(unsigned long n);
 char			ft_whichar(const char *s, int x);
 void			*ft_xlloc(void *arg1, void *arg2);
+u_int8_t		ft_bit8_get(u_int8_t *data, u_int8_t bit);
+void			ft_bit8_set(u_int8_t *data, u_int8_t bit, u_int8_t val);
+void			ft_bit8_tog(u_int8_t *data, u_int8_t bit);
+char			*ft_bit8_str(u_int8_t data);
 
 #endif
