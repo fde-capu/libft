@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:29:16 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/02 16:29:17 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 00:40:51 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,30 @@ static int	st_sum_dign(char *a)
 
 long long	ft_atoi(const char *str)
 {
-	char		*a;
+	char		*a[2];
 	char		*b;
 	int			l;
 	long long	r;
 	int			neg;
 
-	a = ft_strtrim((char *)str, " \t\n\r\v\f");
-	neg = *a == '-' ? 1 : 0;
-	a += *a == '-' || *a == '+' ? 1 : 0;
-	b = a;
-	l = 0 + st_sum_dign(a);
-	a += st_sum_dign(a);
+	a[0] = ft_strtrim((char *)str, " \t\n\r\v\f");
+	a[1] = a[0];
+	neg = *a[1] == '-' ? 1 : 0;
+	a[1] += *a[1] == '-' || *a[1] == '+' ? 1 : 0;
+	b = a[1];
+	l = 0 + st_sum_dign(a[1]);
+	a[1] += st_sum_dign(a[1]);
 	r = 0;
-	a = b;
-	while ((l--) && (ft_isdigit(*a)))
+	a[1] = b;
+	while ((l--) && (ft_isdigit(*a[1])))
 	{
-		r += (*a - '0');
+		r += (*a[1] - '0');
 		if (((!neg) && (r > INT_MAX)) || ((neg) && (r * -1 < INT_MIN)))
 			return (!neg ? -1 : 0);
 		r *= l ? 10 : 1;
-		a++;
+		a[1]++;
 	}
 	r *= neg ? -1 : 1;
+	free(a[0]);
 	return (r);
 }

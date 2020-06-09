@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/08 22:40:34 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 01:11:58 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int				ft_isprint(int c);
 char			*ft_itoa(int n);
 char			*ft_join(char **split);
 char			*ft_lastchar(char *str);
+int				ft_lastchar_eq(char *str, char chr);
 char			*ft_lcase(char *str);
 char			*ft_lltoa(signed long long n);
 void			ft_lstadd_back(t_list **lst, t_list *new);
@@ -76,6 +77,7 @@ void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putstr(char *s);
+void			ft_putstr_nl(char *s);
 char			*ft_removequotes(char *quoted);
 char			*ft_repchar(char c, unsigned int rpt);
 void			ft_repchar_fd(char c, unsigned int rpt, int fd);
