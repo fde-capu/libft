@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 10:28:30 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 13:45:00 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ unsigned int	ft_countdigits_ibase(long long number, unsigned int base);
 char			*ft_dtob(long long n, int b_to);
 int				ft_findstr(char *str, char c);
 char			*ft_get_word(char *line);
+t_i2d			ft_i2d(int x, int y);
 void			ft_init(void);
 int				ft_is_comment(char *str);
 int				ft_isalnum(int c);
