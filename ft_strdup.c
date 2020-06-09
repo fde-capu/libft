@@ -6,29 +6,24 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 03:12:02 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/01/28 16:07:01 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 10:11:21 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(const char *str)
 {
-	char	*cm;
-	char	*w;
-	char	*r;
+	char	*new;
 
-	cm = malloc(ft_strlen(s1) + 1);
-	if (!cm)
+	new = ft_calloc(ft_strlen(str) + 1, 1);
+	if (!new)
 		return (NULL);
-	w = cm;
-	r = (char *)s1;
-	while (*r)
-	{
-		*w = *r;
-		w++;
-		r++;
-	}
-	*w = 0;
-	return (cm);
+	ft_strcpy(new, str);
+	return (new);
+}
+
+char	*ft_strnew(void)
+{
+	return (ft_strdup(""));
 }
