@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 10:16:14 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 10:28:30 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char			*ft_dtob(long long n, int b_to);
 int				ft_findstr(char *str, char c);
 char			*ft_get_word(char *line);
 void			ft_init(void);
-int				ft_is_comment(char **str);
+int				ft_is_comment(char *str);
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
 int				ft_isascii(int c);
@@ -106,6 +106,7 @@ char			*ft_strnstr(const char *haystack, const char *needle, \
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strrev(char *src);
 char			*ft_strtrim(char const *s1, char const *set);
+char			*ft_strtrimx(char *s1, char *set);
 char			*ft_strtrunc(char *dst, char trunc);
 char			*ft_strtrunc_pos(char *str, int pos);
 char			*ft_strx(char *s1, char *s2);

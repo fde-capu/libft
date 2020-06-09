@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 07:18:41 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 10:03:24 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 10:26:07 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,13 @@ char			*ft_strtrim(char const *s1, char const *set)
 	}
 	*w = 0;
 	return (m);
+}
+
+char		*ft_strtrimx(char *s1, char *set)
+{
+	char	*trd;
+
+	trd = ft_strtrim(s1, set);
+	free(s1);
+	return (trd);
 }
