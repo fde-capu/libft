@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 01:25:53 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 10:03:28 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 # include <errno.h>
 # include <unistd.h>
 # include <stdarg.h>
+
 # include "libft_types.h"
+# include "debug.h"
 
 long long		ft_abs(long long value);
 long long		ft_atoi(const char *str);
@@ -32,6 +34,8 @@ unsigned int	ft_countdigits_ibase(long long number, unsigned int base);
 char			*ft_dtob(long long n, int b_to);
 int				ft_findstr(char *str, char c);
 char			*ft_get_word(char *line);
+void			ft_init(void);
+int				ft_is_comment(char **str);
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
 int				ft_isascii(int c);
@@ -119,5 +123,8 @@ u_int8_t		ft_bit8_get(u_int8_t *data, u_int8_t bit);
 void			ft_bit8_set(u_int8_t *data, u_int8_t bit, u_int8_t val);
 void			ft_bit8_tog(u_int8_t *data, u_int8_t bit);
 char			*ft_bit8_str(u_int8_t data);
+
+# define TRIM_SET		"\t "
+# define COMMENT_SET	"#"
 
 #endif
