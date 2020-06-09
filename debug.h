@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 07:20:32 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 12:07:09 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 14:50:13 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 # define DEBINT		debug_int
 # define VERBSTR	debug_str
 # define VERBINT	debug_int
+# define DEBDBL		debug_double
+# define DEBRGB		debug_rgb
 # define VERBOSE	verbose
 # define DEB		debug_str_only
 # define VERB		debug_str_only
@@ -41,5 +43,7 @@ void	debug_body(char *str, char *val, int ival);
 void	debug_int(char *str, int ival);
 void	debug_str(char *str, char *val);
 void	debug_str_only(char *str);
+void	debug_double(char *str, double val);
+void	debug_rgb(char *str, t_rgb rgb);
 
 #endif

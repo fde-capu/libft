@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 22:40:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 12:42:04 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 14:28:03 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,12 @@ typedef struct		s_double3d
 	double			y;
 	double			z;
 }					t_d3d;
+
+typedef struct		s_rgb
+{
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
+}					t_rgb;
 
 #endif

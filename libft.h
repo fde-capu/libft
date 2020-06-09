@@ -6,9 +6,13 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 13:45:00 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 15:20:31 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** Note: this program includes <math.h> and you can not be sure it is allowed.
+*/
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -17,12 +21,15 @@
 # include <errno.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <math.h>
 
 # include "libft_types.h"
 # include "debug.h"
 
 long long		ft_abs(long long value);
+double			ft_atod(const char *str);
 long long		ft_atoi(const char *str);
+t_rgb			ft_atorgb(char *str);
 long long		ft_btod(char *nbr, int b_from);
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t count, size_t size);
@@ -31,8 +38,9 @@ char			*ft_chrtostr(char chr);
 char			*ft_convert_base(const void *bdata, ...);
 unsigned int	ft_countdigits(long long number);
 unsigned int	ft_countdigits_ibase(long long number, unsigned int base);
+char			*ft_dtoa(double d);
 char			*ft_dtob(long long n, int b_to);
-int				ft_findstr(char *str, char c);
+char			*ft_findstr(char *str, char c);
 char			*ft_get_word(char *line);
 t_i2d			ft_i2d(int x, int y);
 void			ft_init(void);
@@ -81,13 +89,15 @@ void			ft_putstr_nl(char *s);
 char			*ft_removequotes(char *quoted);
 char			*ft_repchar(char c, unsigned int rpt);
 void			ft_repchar_fd(char c, unsigned int rpt, int fd);
+t_rgb			ft_rgb(unsigned char r, unsigned char b, unsigned char g);
+char			*ft_rgbtoa(t_rgb rgb);
 char			**ft_split(char const *s, char c);
 char			*ft_strcat(const char *dst, const char *src);
 char			*ft_strcatchrx(char *dst, char *c);
 char			*ft_strcatx(char *dst, char *src);
 char			*ft_strcatxl(char *s1, char *s2);
 char			*ft_strcatxr(char *s1, char *s2);
-char			*ft_strchr(const char *s, int c);
+# define		ft_strchr ft_findstr
 int				ft_strcmp(const char *s1, const char *s2);
 char			*ft_strchrcat(const char *dst, const char src);
 char			*ft_strcpy(char *dst, const char *src);
@@ -99,6 +109,7 @@ size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t			ft_strlen(const char *s);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+# define		ft_strnchr ft_findstr
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 char			*ft_str(char *str);
 char			*ft_strnew(void);
@@ -127,7 +138,10 @@ void			ft_bit8_set(u_int8_t *data, u_int8_t bit, u_int8_t val);
 void			ft_bit8_tog(u_int8_t *data, u_int8_t bit);
 char			*ft_bit8_str(u_int8_t data);
 
-# define TRIM_SET		"\t "
-# define COMMENT_SET	"#"
+# define TRIM_SET			"\t "
+# define COMMENT_SET		"#"
+# define DIV				" :: "
+# define DOUBLE_PRECISION	10
+# define DECIMAL_POINT		"."
 
 #endif
