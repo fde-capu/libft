@@ -6,24 +6,24 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/18 15:21:14 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/18 16:59:45 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 12:30:19 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libbezier.h"
 
-t_point		linint(t_point a, t_point b, double t)
+t_d2d		linint(t_d2d a, t_d2d b, double t)
 {
-	t_point	p;
+	t_d2d	p;
 
 	p.x = (a.x + ((b.x - a.x) * t));
 	p.y = (a.y + ((b.y - a.y) * t));
 	return (p);
 }
 
-t_point		cubic_bez(t_cub_bez bez, double t)
+t_d2d		cubic_bez(t_cub_bez bez, double t)
 {
-	t_point	p[6];
+	t_d2d	p[6];
 
 	p[0] = linint(bez.a, bez.b, t);
 	p[1] = linint(bez.b, bez.c, t);
