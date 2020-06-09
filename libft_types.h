@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 22:40:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 12:26:57 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 12:42:04 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,24 @@ typedef struct		s_int2d
 	int				y;
 }					t_i2d;
 
-typedef struct		s_double2d
+typedef struct		s_int3d
 {
 	int				x;
 	int				y;
+	int				z;
+}					t_i3d;
+
+typedef struct		s_double2d
+{
+	double			x;
+	double			y;
 }					t_d2d;
+
+typedef struct		s_double3d
+{
+	double			x;
+	double			y;
+	double			z;
+}					t_d3d;
 
 #endif
