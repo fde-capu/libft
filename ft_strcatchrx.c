@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_strcatchrx.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/27 10:48:14 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/04/15 11:40:03 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/04/23 13:23:00 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/04/23 13:23:16 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+char	*ft_strcatchrx(char *dst, char *c)
 {
-	del(lst->content);
-	free(lst);
-	return ;
+	char	*x;
+
+	x = ft_strdup(c);
+	x[1] = 0;
+	dst = ft_strcatx(dst, x);
+	return (dst);
 }

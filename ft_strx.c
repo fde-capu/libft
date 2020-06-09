@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_strx.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/27 10:48:14 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/04/15 11:40:03 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/04/23 13:59:19 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/06/02 13:21:15 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+/*
+** ft_strx
+** Usage: new_str = ft_strx(new_val, str_to_free);
+** Usually: str = (new_str, str);
+*/
+
+char	*ft_strx(char *s1, char *s2)
 {
-	del(lst->content);
-	free(lst);
-	return ;
+	char	*x1;
+	char	*x2;
+
+	x1 = s1;
+	x2 = s2;
+	s2 = ft_strdup(s1);
+	free(x1);
+	free(x2);
+	return (s2);
 }

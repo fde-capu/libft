@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/16 15:52:18 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 10:28:30 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-typedef struct	s_list
-{
-	void			*content;
-	struct s_list	*next;
-}				t_list;
+# include "libft_types.h"
+# include "debug.h"
+
 long long		ft_abs(long long value);
 long long		ft_atoi(const char *str);
 long long		ft_btod(char *nbr, int b_from);
@@ -34,12 +32,19 @@ char			*ft_convert_base(const void *bdata, ...);
 unsigned int	ft_countdigits(long long number);
 unsigned int	ft_countdigits_ibase(long long number, unsigned int base);
 char			*ft_dtob(long long n, int b_to);
+int				ft_findstr(char *str, char c);
+char			*ft_get_word(char *line);
+void			ft_init(void);
+int				ft_is_comment(char *str);
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
 int				ft_isascii(int c);
 int				ft_isdigit(int c);
 int				ft_isprint(int c);
 char			*ft_itoa(int n);
+char			*ft_join(char **split);
+char			*ft_lastchar(char *str);
+int				ft_lastchar_eq(char *str, char chr);
 char			*ft_lcase(char *str);
 char			*ft_lltoa(signed long long n);
 void			ft_lstadd_back(t_list **lst, t_list *new);
@@ -71,10 +76,13 @@ void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putstr(char *s);
+void			ft_putstr_nl(char *s);
+char			*ft_removequotes(char *quoted);
 char			*ft_repchar(char c, unsigned int rpt);
 void			ft_repchar_fd(char c, unsigned int rpt, int fd);
 char			**ft_split(char const *s, char c);
 char			*ft_strcat(const char *dst, const char *src);
+char			*ft_strcatchrx(char *dst, char *c);
 char			*ft_strcatx(char *dst, char *src);
 char			*ft_strcatxl(char *s1, char *s2);
 char			*ft_strcatxr(char *s1, char *s2);
@@ -83,6 +91,7 @@ int				ft_strcmp(const char *s1, const char *s2);
 char			*ft_strchrcat(const char *dst, const char src);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strdup(const char *s1);
+void			ft_strfree2d(char **str);
 int				ft_stridentical(const char *s1, const char *s2);
 char			*ft_strjoin(char const *s1, char const *s2);
 size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
@@ -90,13 +99,17 @@ size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t			ft_strlen(const char *s);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
-char			*ft_strnew(const char *str);
+char			*ft_str(char *str);
+char			*ft_strnew(void);
 char			*ft_strnstr(const char *haystack, const char *needle, \
 					size_t len);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strrev(char *src);
 char			*ft_strtrim(char const *s1, char const *set);
-char			*ft_strtrunc(char *str, int pos);
+char			*ft_strtrimx(char *s1, char *set);
+char			*ft_strtrunc(char *dst, char trunc);
+char			*ft_strtrunc_pos(char *str, int pos);
+char			*ft_strx(char *s1, char *s2);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
@@ -108,5 +121,12 @@ char			*ft_ultoa(unsigned long n);
 char			*ft_ultoa(unsigned long n);
 char			ft_whichar(const char *s, int x);
 void			*ft_xlloc(void *arg1, void *arg2);
+u_int8_t		ft_bit8_get(u_int8_t *data, u_int8_t bit);
+void			ft_bit8_set(u_int8_t *data, u_int8_t bit, u_int8_t val);
+void			ft_bit8_tog(u_int8_t *data, u_int8_t bit);
+char			*ft_bit8_str(u_int8_t data);
+
+# define TRIM_SET		"\t "
+# define COMMENT_SET	"#"
 
 #endif

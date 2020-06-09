@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_strtrunc_pos.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/27 10:48:14 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/04/15 11:40:03 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/05/19 20:31:18 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/05/19 20:31:20 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+char	*ft_strtrunc_pos(char *str, int pos)
 {
-	del(lst->content);
-	free(lst);
-	return ;
+	*(str + pos) = 0;
+	return (str);
 }

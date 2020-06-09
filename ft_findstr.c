@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_findstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/27 10:48:14 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/04/15 11:40:03 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/05/19 20:25:22 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/05/19 20:25:25 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+/*
+** returns the position of a string if found
+**  or -1 if not found
+*/
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+int		ft_findstr(char *str, char c)
 {
-	del(lst->content);
-	free(lst);
-	return ;
+	int i;
+
+	i = 0;
+	while (str && str[i])
+	{
+		if (str[i] == c)
+			return (i);
+		i++;
+	}
+	if (str[i] == c)
+		return (i);
+	return (-1);
 }

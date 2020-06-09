@@ -6,41 +6,43 @@
 #    By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/20 14:30:12 by fde-capu          #+#    #+#              #
-#    Updated: 2020/03/18 17:24:12 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/06/09 12:19:06 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		=	$(GCC) $(FLAGS) 
 
-GCC =	gcc
+GCC		=	clang
 
-FLAGS =	-Wall -Wextra -Werror
+FLAGS	=	-Wall -Wextra -Werror -g
 
-AR =	ar -rcs
+AR		=	ar -rcs
 
-NAME =	libft.a
+NAME	=	libft.a
 
-SRCS =	$(shell find . -name '*.c')	
+SRCS	=	$(shell find . -name '*.c' ! -name "main.c")
 
-OBJS =	$(SRCS:.c=.o)
+HEADS	=	$(shell find . -name '*.h')
 
-CHILD =	libbezier
+CHILD	=	libbezier
 
-all :	$(NAME) $(CHILD)
+OBJS	=	$(SRCS:.c=.o)
 
-$(SRCS) :
+all		:	$(HEADS) $(CHILD) $(NAME)
+
+$(SRCS)	:
 	$(GCC) -o $(OBJS) -c $(SRCS) $(FLAGS) 
 
-$(NAME) :	$(OBJS)
+$(NAME)	:	$(OBJS) $(HEADS)
 	$(AR) $(NAME) $(OBJS)
 
 $(CHILD) :
 	cd $(CHILD) && $(MAKE)
 
-clean:
+clean	:
 	rm -f $(OBJS)
 
-fclean: clean
+fclean	:	clean
 	rm -f $(NAME)
 
-re:		fclean all
+re		:	fclean all

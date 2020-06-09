@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   libft_types.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/27 10:48:14 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/04/15 11:40:03 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/06/08 22:40:42 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/06/09 01:27:31 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFT_TYPES_H
+# define LIBFT_TYPES_H
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+typedef struct	s_list
 {
-	del(lst->content);
-	free(lst);
-	return ;
-}
+	void			*content;
+	struct s_list	*next;
+}				t_list;
+
+typedef struct	s_int2d
+{
+	int			x;
+	int			y;
+}				t_i2d;
+
+#endif

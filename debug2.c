@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   debug2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/27 10:48:14 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/04/15 11:40:03 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/06/09 11:04:45 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/06/09 11:07:46 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	debug_body(char *str, char *val, int ival)
 {
-	del(lst->content);
-	free(lst);
+	char	*sval;
+
+	if (!debug_pass())
+		return ;
+	sval = ft_itoa(ival);
+	ft_putstr(str);
+	ft_putstr(DEB_DIV);
+	ft_putstr(val);
+	ft_putstr(DEB_DIV);
+	ft_putstr(sval);
+	ft_putstr("\n");
+	free(sval);
 	return ;
 }
+
+

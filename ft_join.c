@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_join.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/05 01:47:38 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/09 10:09:15 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/04/22 17:19:22 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/04/22 17:19:45 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(const char *str)
+char	*ft_join(char **split)
 {
-	char	*new;
+	char	*join;
 
-	new = ft_calloc(ft_strlen(str) + 1, 1);
-	if (!new)
-		return (NULL);
-	ft_strcpy(new, str);
-	return (new);
+	join = ft_strdup("");
+	while (*split)
+	{
+		join = ft_strcatxl(join, *split);
+		split++;
+	}
+	return (join);
 }
