@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/02 13:21:18 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/08 22:40:34 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <errno.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include "libft_types.h"
 
 typedef struct	s_list
 {
