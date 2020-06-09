@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 07:20:32 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 11:05:51 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 12:07:09 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 
 # include "libft.h"
 
-# define DEB_DIV		"\t :: \t"
-# define KEY_RELEASED	"Key released"
-# define RX				"Resolution X"
-# define RY				"Resolution Y"
+# define DEB_DIV			"\t :: \t"
+# define MSG_KEY_RELEASED	"Key released"
+# define MSG_RX				"Resolution X"
+# define MSG_RY				"Resolution Y"
 
 # define DEBUG		debug
 # define DEBSTR		debug_str
