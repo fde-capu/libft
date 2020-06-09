@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 01:11:58 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 01:25:53 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@
 # include <stdarg.h>
 # include "libft_types.h"
 
-typedef struct	s_list
-{
-	void			*content;
-	struct s_list	*next;
-}				t_list;
 long long		ft_abs(long long value);
 long long		ft_atoi(const char *str);
 long long		ft_btod(char *nbr, int b_from);

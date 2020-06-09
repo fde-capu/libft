@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:29:16 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 00:40:51 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 01:25:06 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ static int	st_sum_dign(char *a)
 
 long long	ft_atoi(const char *str)
 {
-	char		*a[2];
-	char		*b;
+	char		*a[3];
 	int			l;
 	long long	r;
 	int			neg;
@@ -43,11 +42,11 @@ long long	ft_atoi(const char *str)
 	a[1] = a[0];
 	neg = *a[1] == '-' ? 1 : 0;
 	a[1] += *a[1] == '-' || *a[1] == '+' ? 1 : 0;
-	b = a[1];
+	a[2] = a[1];
 	l = 0 + st_sum_dign(a[1]);
 	a[1] += st_sum_dign(a[1]);
 	r = 0;
-	a[1] = b;
+	a[1] = a[2];
 	while ((l--) && (ft_isdigit(*a[1])))
 	{
 		r += (*a[1] - '0');

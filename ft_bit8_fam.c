@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/02 11:45:03 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/02 13:30:56 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 01:24:02 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 u_int8_t	ft_bit8_get(u_int8_t *data, u_int8_t bit)
 {
-	return ((*data >> bit ) & 1);
+	return ((*data >> bit) & 1);
 }
 
 void		ft_bit8_set(u_int8_t *data, u_int8_t bit, u_int8_t val)
