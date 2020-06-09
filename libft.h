@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 15:20:31 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 15:30:01 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ int				ft_tolower(int c);
 int				ft_toupper(int c);
 double			ft_trig(double a_is_to, double b_as, double this_is_to_x);
 char			*ft_ucase(char *str);
+char			*ft_uctoa(unsigned char uc);
 char			*ft_uitoa(unsigned int n);
 char			*ft_ulltoa(unsigned long long n);
 char			*ft_ultoa(unsigned long n);

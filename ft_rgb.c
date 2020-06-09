@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 14:30:27 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 15:15:24 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 15:32:02 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,10 @@ char	*ft_rgbtoa(t_rgb rgb)
 {
 	char	*o;
 
-	//o = ft_itoa(&rbg.r);
-	o = ft_itoa(1);
+	o = ft_uctoa(rgb.r);
 	o = ft_strcatxl(o, DIV);
-	//o = ft_strcatxl(o, &rgb.g);
-	o = ft_strcatxl(o, "2");
+	o = ft_strcatxl(o, ft_uctoa(rgb.g));
 	o = ft_strcatxl(o, DIV);
-	//o = ft_strcatxl(o, &rgb.b);
-	o = ft_strcatxl(o, "3");
-	(void)rgb;
+	o = ft_strcatxl(o, ft_uctoa(rgb.b));
 	return (o);
 }
