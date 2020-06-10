@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 22:40:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 14:28:03 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 16:39:16 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct		s_double3d
 	double			y;
 	double			z;
 }					t_d3d;
+typedef t_d3d		t_vec;
 
 typedef struct		s_rgb
 {

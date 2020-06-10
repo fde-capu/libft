@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 07:18:41 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 10:26:07 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/10 10:59:47 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 	char	*r;
 
 	l = st_trimlen(s1, set);
-	m = malloc(l + 1);
+	m = ft_calloc(l + 1, 1);
 	if (!m)
 		return (NULL);
 	w = m;
@@ -63,7 +63,6 @@ char			*ft_strtrim(char const *s1, char const *set)
 		r++;
 		l--;
 	}
-	*w = 0;
 	return (m);
 }
 
@@ -74,4 +73,9 @@ char		*ft_strtrimx(char *s1, char *set)
 	trd = ft_strtrim(s1, set);
 	free(s1);
 	return (trd);
+}
+
+char		*ft_trim(char *str)
+{
+	return (ft_strtrimx(str, TRIM_SET));
 }

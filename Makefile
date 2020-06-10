@@ -6,7 +6,7 @@
 #    By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/20 14:30:12 by fde-capu          #+#    #+#              #
-#    Updated: 2020/06/09 12:19:06 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/06/10 07:33:23 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,3 +46,6 @@ fclean	:	clean
 	rm -f $(NAME)
 
 re		:	fclean all
+
+fcleano	:	fclean
+	rm -f *.o

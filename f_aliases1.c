@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcatxl.c                                      :+:      :+:    :+:   */
+/*   f_aliases1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/05 03:55:26 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/11 15:30:33 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/06/09 17:16:15 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/06/10 11:30:02 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcatxl(char *s1, char *s2)
+char	*ft_strchr(char *str, char c)
 {
-	char	*x;
+	return (ft_findstr(str, c));
+}
 
-	x = ft_strcat(s1, s2);
-	free(s1);
-	return (x);
+char	*ft_strnchr(char *str, char c)
+{
+	return (ft_findstr(str, c));
 }

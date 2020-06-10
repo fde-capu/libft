@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 07:00:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 11:07:16 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/10 07:39:33 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	debug(char *str, char *val, int *ival)
 {
 	if (!debug_pass())
 		return ;
-	return (debug_body(str, val, *ival));
+	return (debug_body(str, val ? val : 0, ival ? *ival : 0));
 }
 
 void	debug_str_only(char *str)
@@ -39,7 +39,15 @@ void	debug_str_only(char *str)
 
 void	debug_str(char *str, char *val)
 {
-	return (debug(str, val, NULL));
+	if (!debug_pass())
+		return ;
+	ft_putstr(str);
+	ft_putstr(DEB_DIV);
+	ft_putstr(DEB_STR_ENCLOSURE);
+	ft_putstr(val);
+	ft_putstr(DEB_STR_ENCLOSURE);
+	ft_putstr("\n");
+	return ;
 }
 
 void	debug_int(char *str, int val)

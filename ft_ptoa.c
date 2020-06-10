@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vectors1.c                                         :+:      :+:    :+:   */
+/*   ft_ptoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/09 13:46:38 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 16:24:15 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/06/10 08:10:14 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/06/10 08:42:07 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_i2d	ft_i2d(int x, int y)
+char	*ft_ptoa(void *p)
 {
-	t_i2d	o;
+	char		*o;
+	long long	add_val;
 
-	o.x = x;
-	o.y = y;
-	return (o);
-}
-
-t_d3d	ft_d3d(double x, double y, double z)
-{
-	t_d3d	o;
-
-	o.x = x;
-	o.y = y;
-	o.z = z;
+	add_val = (long long)&p;
+	o = ft_dtob(add_val, 16);
 	return (o);
 }

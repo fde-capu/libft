@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:29:16 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 01:25:06 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/09 17:35:17 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ long long	ft_atoi(const char *str)
 	long long	r;
 	int			neg;
 
-	a[0] = ft_strtrim((char *)str, " \t\n\r\v\f");
+	if ((!str) || (!*str))
+		return (0);
+	a[0] = ft_strtrim((char *)str, TRIM_SET);
 	a[1] = a[0];
 	neg = *a[1] == '-' ? 1 : 0;
 	a[1] += *a[1] == '-' || *a[1] == '+' ? 1 : 0;
