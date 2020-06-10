@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/10 08:40:04 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/10 14:05:13 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int				ft_isascii(int c);
 int				ft_isdigit(int c);
 int				ft_isprint(int c);
 char			*ft_itoa(int n);
+t_rgb			ft_itorgb(int i);
 char			*ft_join(char **split);
 char			*ft_lastchar(char *str);
 int				ft_lastchar_eq(char *str, char chr);
@@ -96,6 +97,7 @@ char			*ft_repchar(char c, unsigned int rpt);
 void			ft_repchar_fd(char c, unsigned int rpt, int fd);
 t_rgb			ft_rgb(unsigned char r, unsigned char b, unsigned char g);
 char			*ft_rgbtoa(t_rgb rgb);
+int				ft_rgbtoi(t_rgb rgb);
 char			**ft_split(char const *s, char c);
 char			*ft_strcat(const char *dst, const char *src);
 char			*ft_strcatchrx(char *dst, char *c);
