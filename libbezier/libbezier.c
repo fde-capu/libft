@@ -6,13 +6,13 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/18 15:21:14 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 12:30:19 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/10 12:32:45 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libbezier.h"
 
-t_d2d		linint(t_d2d a, t_d2d b, double t)
+t_d2d			linint(t_d2d a, t_d2d b, double t)
 {
 	t_d2d	p;
 
@@ -21,7 +21,7 @@ t_d2d		linint(t_d2d a, t_d2d b, double t)
 	return (p);
 }
 
-t_d2d		cubic_bez(t_cub_bez bez, double t)
+t_d2d			cubic_bez(t_cub_bez bez, double t)
 {
 	t_d2d	p[6];
 
@@ -34,17 +34,17 @@ t_d2d		cubic_bez(t_cub_bez bez, double t)
 	return (p[5]);
 }
 
-t_cub_bez	bez_cub_feed(double ax, double ay, double bx, double by, \
-	double cx, double cy, double dx, double dy)
+t_cub_bez		bez_init(t_d2d a, t_d2d b, t_d2d c, t_d2d d)
 {
 	t_cub_bez	f;
-	f.a.x = ax;
-	f.a.y = ay;
-	f.b.x = bx;
-	f.b.y = by;
-	f.c.x = cx;
-	f.c.y = cy;
-	f.d.x = dx;
-	f.d.y = dy;
+
+	f.a.x = a.x;
+	f.a.y = a.y;
+	f.b.x = b.x;
+	f.b.y = b.y;
+	f.c.x = c.x;
+	f.c.y = c.y;
+	f.d.x = d.x;
+	f.d.y = d.y;
 	return (f);
 }
