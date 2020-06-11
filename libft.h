@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/10 14:05:13 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/11 14:22:23 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 
 # include "libft_types.h"
 # include "debug.h"
+# include "keys.h"
 
 long long		ft_abs(long long value);
 double			ft_atod(const char *str);

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 07:20:32 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/10 11:14:51 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/11 14:11:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define DEBUG		debug
 # define DEBSTR		debug_str
 # define DEBINT		debug_int
+# define DEBINT2	debug_int2
 # define VERBSTR	debug_str
 # define VERBINT	debug_int
 # define DEBDBL		debug_double
@@ -44,6 +45,7 @@ int		debug_pass(void);
 void	debug(char *str, char *val, int *ival);
 void	debug_body(char *str, char *val, int ival);
 void	debug_int(char *str, int ival);
+void	debug_int2(char *str, int val, int val2);
 void	debug_str(char *str, char *val);
 void	debug_str_only(char *str);
 void	debug_double(char *str, double val);
