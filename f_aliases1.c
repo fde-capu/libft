@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   f_aliases1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/23 03:12:02 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 10:15:54 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/06/09 17:16:15 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/06/10 11:30:02 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *str)
+char	*ft_strchr(char *str, char c)
 {
-	char	*new;
-
-	new = ft_calloc(ft_strlen(str) + 1, 1);
-	if (!new)
-		return (NULL);
-	ft_strcpy(new, str);
-	return (new);
+	return (ft_findstr(str, c));
 }
 
-char	*ft_strnew(void)
+char	*ft_strnchr(char *str, char c)
 {
-	return (ft_strdup(""));
-}
-
-char	*ft_str(char *str)
-{
-	return (ft_strdup(str));
+	return (ft_findstr(str, c));
 }

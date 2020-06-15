@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcatxl.c                                      :+:      :+:    :+:   */
+/*   debug3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/05 03:55:26 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/11 15:30:33 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/06/11 14:07:49 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/06/11 14:10:41 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcatxl(char *s1, char *s2)
+void	debug_int2(char *str, int val, int val2)
 {
-	char	*x;
+	char	*o;
 
-	x = ft_strcat(s1, s2);
-	free(s1);
-	return (x);
+	if (!debug_pass())
+		return ;
+	ft_putstr(str);
+	ft_putstr(DEB_DIV);
+	o = ft_itoa(val);
+	ft_putstr(o);
+	ft_putstr(DEB_DIV);
+	o = ft_x(o, ft_itoa(val2));
+	ft_putstr(o);
+	ft_putstr("\n");
+	free (o);
+	return ;
 }

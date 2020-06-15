@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lastchar.c                                      :+:      :+:    :+:   */
+/*   libbezier.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/22 17:23:35 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/08 23:57:45 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/03/18 15:16:17 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/06/10 12:34:21 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBBEZIER_H
+# define LIBBEZIER_H
 
-char	*ft_lastchar(char *str)
-{
-	if ((!str) || (!*str))
-		return (str);
-	while (*str)
-	{
-		if (!*(str + 1))
-			return (str);
-		str++;
-	}
-	return (str);
-}
+# include "../libft.h"
 
-int		ft_lastchar_eq(char *str, char chr)
+typedef	struct	s_cubic_bezier
 {
-	return (*ft_lastchar(str) == chr ? 1 : 0);
-}
+	t_d2d		a;
+	t_d2d		b;
+	t_d2d		c;
+	t_d2d		d;
+}				t_cub_bez;
+
+t_d2d			linint(t_d2d a, t_d2d b, double t);
+t_d2d			cubic_bez(t_cub_bez bez, double t);
+t_cub_bez		bez_init(t_d2d a, t_d2d b, t_d2d c, t_d2d d);
+
+#endif

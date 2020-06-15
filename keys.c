@@ -1,33 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_findstr.c                                       :+:      :+:    :+:   */
+/*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/19 20:25:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/09 14:13:22 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/06/10 19:07:30 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/06/11 14:16:16 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** returns the position in a string if found
-**  or NULL if not found
-** a.k.a. ft_strnchr(); ft_strchr();
-*/
+#include "keys.h"
 
-char	*ft_findstr(char *str, char c)
+int		*on_press(int kc)
 {
-	int i;
-
-	i = 0;
-	while (str && str[i])
-	{
-		if (str[i] == c)
-			return (&str[i]);
-		i++;
-	}
-	if (str[i] == c)
-		return (&str[i]);
+	key(kc)->st = KEY_ON;
+	DEBINT2("pressed", kc, key(kc)->st);
 	return (0);
+}
+
+int		*on_release(int kc)
+{
+	key(kc)->st = KEY_OFF;
+	DEBINT2("release", kc, key(kc)->st);
+	return (0);
+}
+
+int		keys_init(void)
+{
+	g_key = ft_calloc(sizeof(t_key) * (KEYS_LAST - KEYS_FIRST), 1);
+	return (1);
+}
+
+int		keys_destroy(void)
+{
+	free(g_key);
+	return (1);
+}
+
+t_key	*key(int id)
+{
+	return (&g_key[id]);
 }

@@ -3,49 +3,35 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/01/20 14:30:12 by fde-capu          #+#    #+#              #
-#    Updated: 2020/06/11 14:45:23 by fde-capu         ###   ########.fr        #
+#    Created: 2020/03/18 16:51:00 by fde-capu          #+#    #+#              #
+#    Updated: 2020/06/09 13:09:54 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	libft.a
+NAME	=	libbezier.a
 
-CC		=	$(GCC) $(FLAGS) 
-
-GCC		=	clang
-
-FLAGS	=	-Wall -Wextra -Werror -g
+GCC		=	clang -Wall -Werror -Wextra -O3 -g
 
 AR		=	ar -rcs
 
-SRCS	=	$(shell find . -name '*.c' ! -name "main.c")
+SRC		=	$(shell find . -name '*.c')	
 
-HEADS	=	$(shell find . -name '*.h')
+OBJ		=	$(SRC:.c=.o)
 
-CHILD	=	libbezier
+all		:	$(NAME)
 
-OBJS	=	$(SRCS:.c=.o)
+$(NAME)	:	$(OBJ)
+	$(AR) $(NAME) $(OBJ)	
 
-all		:	$(HEADS) $(CHILD) $(NAME)
-
-$(SRCS)	:
-	$(GCC) -o $(OBJS) -c $(SRCS) $(FLAGS) 
-
-$(NAME)	:	$(OBJS) $(HEADS)
-	$(AR) $(NAME) $(OBJS)
-
-$(CHILD) :
-	cd $(CHILD) && $(MAKE)
+$(SRC)	:
+	$(GCC) -o $(OBJ) -c $(SRC)
 
 clean	:
-	rm -f $(OBJS)
+	rm -f $(OBJ)
 
 fclean	:	clean
 	rm -f $(NAME)
 
 re		:	fclean all
-
-fcleano	:	fclean
-	rm -f *.o
