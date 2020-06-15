@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/02 13:21:18 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/04 16:56:25 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int				ft_isalnum(int c);
 int				ft_isalpha(int c);
 int				ft_isascii(int c);
 int				ft_isdigit(int c);
+int				ft_isnumber(char *str);
 int				ft_isprint(int c);
 char			*ft_itoa(int n);
 char			*ft_join(char **split);
@@ -121,5 +122,6 @@ u_int8_t		ft_bit8_get(u_int8_t *data, u_int8_t bit);
 void			ft_bit8_set(u_int8_t *data, u_int8_t bit, u_int8_t val);
 void			ft_bit8_tog(u_int8_t *data, u_int8_t bit);
 char			*ft_bit8_str(u_int8_t data);
+char			*ft_removequotes(char *quoted);
 
 #endif
