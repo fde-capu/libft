@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 07:05:10 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/16 07:16:11 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/16 07:22:15 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,6 @@ static int	setstc_len(char *s, const char *c)
 	}
 	return (n);
 }
-
-/*
-** The use of ft_strlen is cheap solution.
-*/
 
 char		**ft_split_set(char const *s, const char *c)
 {
