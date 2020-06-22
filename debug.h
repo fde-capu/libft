@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 07:20:32 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/22 17:01:11 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/22 17:03:26 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@
 # include "libft.h"
 
 # define DEB_DIV			"\t :: \t"
-# define MSG_KEY_RELEASED	"Key released"
-# define MSG_RX				"Resolution X"
-# define MSG_RY				"Resolution Y"
 
 # define DEBUG		debug
 # define DEBSTR		debug_str
+# define DEBSTR2	debug_str2
 # define DEBINT		debug_int
 # define DEBINT2	debug_int2
 # define VERBSTR	debug_str
@@ -35,6 +33,7 @@
 # define DEBD3D		debug_vector
 # define VERBOSE	verbose
 # define DEB		debug_str_only
+# define DEB2		debug_str_str
 # define VERB		debug_str_only
 # define DEBSTRADD	debug_str_add
 
@@ -44,10 +43,12 @@ void	debug_body(char *str, char *val, int ival);
 void	debug_int(char *str, int ival);
 void	debug_int2(char *str, int val, int val2);
 void	debug_str(char *str, char *val);
+void	debug_str2(char *str, char *val, char *val2);
 void	debug_str_only(char *str);
 void	debug_double(char *str, double val);
 void	debug_rgb(char *str, t_rgb rgb);
 void	debug_vector(char *str, t_vec vec);
 void	debug_str_add(char *str, void *add);
+void	debug_str_str(char *str1, char *str2);
 
 #endif

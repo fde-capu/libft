@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_head_read.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/24 03:51:21 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/22 09:02:32 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/06/22 14:15:05 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/06/22 14:35:02 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_head_read(char **h, char *r, char *key)
 {
-	new->next = *lst;
-	*lst = new;
-	return ;
+	if (ft_strbegins(r, key))
+	{
+		*h += ft_strlen(key);
+		return (1);
+	}
+	return (0);
 }

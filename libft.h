@@ -6,9 +6,16 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/15 08:14:32 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/22 14:38:19 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** v0.0.1
+** Incompatibility!
+** ft_chrinset used to be `(char *, char *)`, now is `(char, char *)`.
+** Change previous version to `ft_strchrinset (char *, char *)` to fix it.
+*/
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -31,7 +38,9 @@ t_vec			ft_atovec(const char *str);
 long long		ft_btod(char *nbr, int b_from);
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t count, size_t size);
-int				ft_chrinset(char *r, char const *set);
+char			*ft_check(char *str, char *reg);
+int				ft_chrinset(char r, char const *set);
+int				ft_chrsame(char a, char b);
 char			*ft_chrtostr(char chr);
 char			*ft_convert_base(const void *bdata, ...);
 unsigned int	ft_countdigits(long long number);
@@ -40,17 +49,25 @@ t_d3d			ft_d3d(double x, double y, double z);
 char			*ft_d3dtoa(t_d3d vec);
 char			*ft_dtoa(double d);
 char			*ft_dtob(long long n, int b_to);
+int				ft_enclosure(char *io, char h);
 char			*ft_findstr(char *str, char c);
 char			*ft_get_word(char *line);
+int				ft_head_read(char **h, char *r, char *key);
 t_i2d			ft_i2d(int x, int y);
 void			ft_init(void);
+char			*ft_inside(char *h);
+char			*ft_inskip(char *h);
+int				ft_insp_count(char *h, char x);
+char			**ft_insplit(const char *str, char x);
 int				ft_is_comment(char *str);
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
 int				ft_isascii(int c);
 int				ft_isdigit(int c);
+int				ft_islower(int c);
 int				ft_isnumber(char *str);
 int				ft_isprint(int c);
+int				ft_isupper(int c);
 char			*ft_itoa(int n);
 t_rgb			ft_itorgb(int i);
 char			*ft_join(char **split);
@@ -81,28 +98,35 @@ void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memset(void *b, int c, size_t len);
 double			ft_pow(double a, double e);
+double			ft_pow2(double a, double e);
 char			*ft_ptoa(void *p);
 void			ft_putchar(char c);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+void			ft_putnbr(int n);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putstr(char *s);
 void			ft_putstr_nl(char *s);
 char			*ft_removequotes(char *quoted);
 char			*ft_repchar(char c, unsigned int rpt);
 void			ft_repchar_fd(char c, unsigned int rpt, int fd);
-t_rgb			ft_rgb(unsigned char r, unsigned char b, unsigned char g);
+t_rgb			ft_rgb(unsigned char r, unsigned char g, unsigned char b);
 char			*ft_rgbtoa(t_rgb rgb);
 int				ft_rgbtoi(t_rgb rgb);
 char			**ft_split(char const *s, char c);
+char			**ft_split_set(char const *s, const char *c);
+size_t			ft_strarrlen(char **s);
+int				ft_strbegins(const char *str, const char *beg);
 char			*ft_strcat(const char *dst, const char *src);
 char			*ft_strcatchrx(char *dst, char *c);
 char			*ft_strcatx(char *dst, char *src);
 char			*ft_strcatxl(char *s1, char *s2);
 char			*ft_strcatxr(char *s1, char *s2);
 int				ft_strcmp(const char *s1, const char *s2);
+char			*ft_strchr(char *str, char c);
 char			*ft_strchrcat(const char *dst, const char src);
+int				ft_strchrinset(char *t, char const *sset);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strdup(const char *s1);
 void			ft_strfree2d(char **str);
@@ -114,13 +138,13 @@ size_t			ft_strlen(const char *s);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 char			*ft_str(char *str);
-char			*ft_strchr(char *str, char c);
 char			*ft_strnchr(char *str, char c);
 char			*ft_strnew(void);
 char			*ft_strnstr(const char *haystack, const char *needle, \
 					size_t len);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strrev(char *src);
+char			*ft_strstr(const char *a, const char *b);
 char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_strtrimx(char *s1, char *set);
 char			*ft_strtrunc(char *dst, char trunc);
@@ -137,6 +161,8 @@ char			*ft_uitoa(unsigned int n);
 char			*ft_ulltoa(unsigned long long n);
 char			*ft_ultoa(unsigned long n);
 char			*ft_ultoa(unsigned long n);
+t_vec			ft_vec(double x, double y, double z);
+t_vec			ft_vector(double x, double y, double z);
 char			ft_whichar(const char *s, int x);
 void			*ft_x(void *a1, void *a2);
 void			*ft_xlloc(void *arg1, void *arg2);
@@ -147,10 +173,35 @@ char			*ft_bit8_str(u_int8_t data);
 char			*ft_removequotes(char *quoted);
 
 # define TRIM_SET			" \t\n\r\v\f"
+# define SPLIT_SET			" \t"
 # define COMMENT_SET		"#"
 # define DIV				" :: "
 # define DOUBLE_PRECISION	10
 # define DECIMAL_POINT		"."
 # define DEB_STR_ENCLOSURE	"\""
+# define ENCLOSE_OPEN		"([{"
+# define ENCLOSURES			"()[]{}"
+
+/*
+** Regex related.
+*/
+
+int				rgx_fun_in(int fun);
+void			rgx_maybe_free(char *blk, int fun);
+int				rgx_function_n(char *rh);
+char			*rgx_chk_function(int mode, char *sh, char *blk);
+void			rgx_set_rep(int *mm, char *mod);
+char			*rgx_sk_mod(char *mod);
+int				rgx_mm_manual(int pos, char *keys);
+void			rgx_mm_mod(int *mm, int oblig, int optio);
+
+/*
+** ft_check related:
+*/
+
+# define FUN_DIG			1
+# define FUN_PAR			2
+# define FUN_SET			3
+# define FUN_CHR			4
 
 #endif

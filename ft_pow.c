@@ -6,11 +6,17 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:26:30 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/02 16:26:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/06/15 17:23:02 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** `ft_pow` is currently not working.
+** Use `ft_pow2` instead.
+** (Currently only `int a` and posisive int `e`.
+*/
 
 double	ft_pow(double a, double e)
 {
@@ -25,4 +31,13 @@ double	ft_pow(double a, double e)
 		e = e < 0 ? e + 1 : e - 1;
 	}
 	return (r);
+}
+
+double	ft_pow2(double a, double e)
+{
+	if (e > 1)
+		return (a * ft_pow2(a, e - 1));
+	if (e == 1)
+		return (a);
+	return (1);
 }
