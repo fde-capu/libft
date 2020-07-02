@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 07:20:32 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/29 10:00:55 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/07/02 09:33:20 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	debug_str2(char *str, char *val, char *val2);
 void	debug_str_only(char *str);
 void	debug_double(char *str, double val);
 void	debug_rgb(char *str, t_rgb rgb);
-void	debug_vector(char *str, t_vec vec);
+void	debug_vector(char *str, t_vec *vec);
 void	debug_str_add(char *str, void *add);
 void	debug_str_str(char *str1, char *str2);
 

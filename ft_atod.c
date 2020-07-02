@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 13:53:17 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/15 13:48:17 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/07/02 09:29:06 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,6 @@ double	ft_atod(const char *str)
 	free(n);
 	return (lod + dec);
 }
-
-/*
-** ft_atod3d aka ft_atovec
-*/
 
 t_d3d	ft_atod3d(const char *str)
 {
@@ -62,7 +58,42 @@ char	*ft_d3dtoa(t_d3d vec)
 	return (o);
 }
 
-t_vec	ft_atovec(const char *str)
+char	*ft_vtoa(t_vec *vec)
 {
-	return ((t_vec)ft_atod3d(str));
+	char	*o;
+	t_dbl	*h;
+
+	o = ft_strnew();
+	h = vec->i;
+	while (h)
+	{
+		o = ft_strcatx(o, ft_dtoa(h->d));
+		h = h->nx;
+		if (h)
+			o = ft_strcatxl(o, DIV);
+	}
+	return (o);
+}
+
+t_vec	*ft_atov(char *str)
+{
+	t_vec	*vec;
+	char	*h;
+	char	*s;
+	double	d;
+
+	h = str;
+	s = str;
+	vec = 0;
+	while ((*h) && (h = ft_check(h, REG_DOUBLE)))
+	{
+		d = ft_atod(s);
+		if (!vec)
+			vec = ft_vec(d);
+		else
+			ft_lstdbl_addlast(vec->i, d);
+		h++;
+		s = h;
+	}
+	return (vec);
 }
