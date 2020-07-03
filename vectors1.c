@@ -6,50 +6,60 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 13:46:38 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/07/02 08:42:14 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/07/03 08:05:16 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_i2d	ft_i2d(int x, int y)
+void	ft_vec_destroy(t_vec *vec)
 {
-	t_i2d	o;
-
-	o.x = x;
-	o.y = y;
-	return (o);
+	if (!vec)
+		return ;
+	ft_lstdbl_destroy(vec->i);
+	free(vec);
+	return ;
 }
 
-t_d3d	ft_d3d(double x, double y, double z)
-{
-	t_d3d	o;
-
-	o.x = x;
-	o.y = y;
-	o.z = z;
-	return (o);
-}
-
-t_vec	*ft_vec(double f_arg, ...)
+t_vec	*ft_vec(int len, ...)
 {
 	va_list	ap;
 	t_vec	*vec;
-	int		n;
 	double	d;
 
-	va_start(ap, f_arg);
+	va_start(ap, len);
 	vec = ft_calloc(sizeof(t_mat), 1);
 	vec->i = ft_lstdbl_new(va_arg(ap, double));
-	n = 1;
-	while ((d = va_arg(ap, double)))
+	vec->m = 1;
+	vec->n = 1;
+	while (--len)
 	{
-		n++;
+		d = va_arg(ap, double);
 		ft_lstdbl_addlast(vec->i, d);
+		vec->n++;
 	}
 	va_end(ap);
-	vec->n = n;
+	return (vec);
+}
+
+t_vec	*ft_veci(int len, ...)
+{
+	va_list	ap;
+	t_vec	*vec;
+	double	d;
+
+	va_start(ap, len);
+	vec = ft_calloc(sizeof(t_mat), 1);
+	vec->i = ft_lstdbl_new((double)va_arg(ap, int));
 	vec->m = 1;
+	vec->n = 1;
+	while (--len)
+	{
+		d = (double)va_arg(ap, int);
+		ft_lstdbl_addlast(vec->i, d);
+		vec->n++;
+	}
+	va_end(ap);
 	return (vec);
 }
 
