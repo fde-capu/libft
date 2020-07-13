@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 13:11:49 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/07/08 17:55:27 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/07/10 17:20:35 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ double	ft_det(t_mat *a)
 	det = 0;
 	while (c <= a->n)
 	{
-		det += mult * (ft_m(a, 1, c) * ft_det(ft_subm(a, 1, c)));
+		det += mult * (matrix_get_elem(a, 1, c) * ft_det(matrix_minor(a, 1, c)));
 		c++;
 		mult *= -1;
 	}
 	return (det);
 }
 
-t_mat	*ft_subm(t_mat *a, int i, int j)
+t_mat	*matrix_minor(t_mat *a, int i, int j)
 {
 	t_mat	*new;
 	int		m;
@@ -50,8 +50,8 @@ t_mat	*ft_subm(t_mat *a, int i, int j)
 			if ((m != i) && (n != j))
 			{
 				new->i = !new->i ? \
-					ft_lstdbl_new(ft_m(a, i, j)) : \
-					ft_lstdbl_addlast(new->i, ft_m(a, i, j));
+					ft_lstdbl_new(matrix_get_elem(a, i, j)) : \
+					ft_lstdbl_addlast(new->i, matrix_get_elem(a, i, j));
 			}
 			n++;
 		}
@@ -62,14 +62,14 @@ t_mat	*ft_subm(t_mat *a, int i, int j)
 	return (new);
 }
 
-t_mat	*ft_msum(t_mat *a, t_mat *b)
+t_mat	*matrix_sum(t_mat *a, t_mat *b)
 {
 	t_mat	*new;
 	int		c;
 
 	if ((a->m != b->m) || (a->n != b->n))
 		return (0);
-	new = ft_mat(a->m, a->i->d + b->i->d);
+	new = matrix_build(a->m, a->i->d + b->i->d);
 	new->n = a->n;
 	c = 2;
 	while (c++ <= new->m * new->n)
@@ -77,7 +77,7 @@ t_mat	*ft_msum(t_mat *a, t_mat *b)
 	return (new);
 }
 
-t_vec	*ft_vsum(t_vec *a, t_vec *b)
+t_vec	*vector_sum(t_vec *a, t_vec *b)
 {
-	return ((t_vec *)ft_msum((t_mat *)a, (t_mat *)b));
+	return ((t_vec *)matrix_sum((t_mat *)a, (t_mat *)b));
 }
