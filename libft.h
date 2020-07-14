@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/07/14 16:41:12 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/07/14 17:06:30 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,6 +217,7 @@ t_vec			*vector_sum(t_vec *a, t_vec *b);
 t_vec			*vectorx(t_vec *old, t_vec *new);
 double			vector_magnitude(t_vec *v);
 char			*primitive_type_number(int type);
+t_dbl			*matrix_goto_element(t_mat *mat, int m, int n);
 double			matrix_get_element(t_mat *mat, int i, int j);
 t_vec			*matvec_get_element(t_mvec *mv, int i, int j);
 void			matvec_insert_at_pos(t_mvec *mv, int i, int j, t_vec *vec);
@@ -239,5 +240,7 @@ t_mat			*matrix_copy(t_mat *a);
 t_mat			*matrix_transpose(t_mat *a);
 t_mat			*matrix_multiply_scalar(t_mat *b, double s);
 void			matrix_switch_elem(t_mat *mat, t_vec *tvec);
+t_mat			*matrix_empty(int m, int n);
+void			matrix_screen(t_mat *dst, t_mat *src);
 
 #endif
