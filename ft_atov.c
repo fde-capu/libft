@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_repertoir6.c                                :+:      :+:    :+:   */
+/*   ft_atov.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/17 17:03:06 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/07/17 17:06:57 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/08/03 16:13:48 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/08/03 16:14:12 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_mat	*matrix_of_minors(t_mat *a)
+t_vec	*ft_atov(char *str)
 {
-	t_mat	*mom;
-	int		i;
-	int		j;
+	t_vec	*vec;
+	char	*h;
+	char	*s;
+	double	d;
+	int		n;
 
-	mom = ft_calloc(sizeof(t_mat), 1);
-	i = 1;
-	while (i <= a->m)
+	h = str;
+	s = str;
+	vec = 0;
+	n = 0;
+	while ((*h) && (h = ft_check(h, REG_DOUBLE)))
 	{
-		j = 1;
-		while (j <= a->n)
-		{
-			mom->i = !mom->i ? \
-				lstdbl_new(matrix_determinant(matrix_minor(a, i, j))) : \
-				lstdbl_addlast(mom->i,
-					matrix_determinant(matrix_minor(a, i, j)));
-			j++;
-		}
-		i++;
+		d = ft_atod(s);
+		if (!vec)
+			vec = vector_build(1, d);
+		else
+			vec->i = lstdbl_addlast(vec->i, d);
+		h += *h == ',' ? 1 : 0;
+		s = h;
+		n++;
 	}
-	mom->m = a->m;
-	mom->n = a->n;
-	return (mom);
+	vec->m = n;
+	vec->n = 1;
+	return (vec);
 }

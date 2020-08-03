@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_repertoir.c                                 :+:      :+:    :+:   */
+/*   matrix_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/14 13:25:56 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/07/17 16:51:09 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/08/01 15:59:37 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/08/02 16:51:41 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,6 @@ t_mat	*matrix_sum(t_mat *a, t_mat *b)
 	summed->n = a->n;
 	c = 1;
 	while (c++ <= summed->m * summed->n)
-		lstdbl_addlast(summed->i, a->i->d + b->i->d);
+		summed->i = lstdbl_addlast(summed->i, a->i->d + b->i->d);
 	return (summed);
 }

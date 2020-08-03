@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dtoa.c                                          :+:      :+:    :+:   */
+/*   matrix_6.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/09 15:16:37 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/07/31 13:05:33 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/08/01 16:00:20 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/08/01 16:00:20 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_dtoa(double d)
+t_mat	*matrix_of_minors(t_mat *a)
 {
-	char	*o;
-	int		neg;
+	t_mat	*mom;
+	int		i;
+	int		j;
 
-	neg = (int)d < 0 ? 1 : 0;
-	d = ft_abs(d);
-	o = ft_itoa((int)d);
-	d -= (int)d;
-	d *= DOUBLE_PRECISION;
-	o = ft_strcatxl(o, DECIMAL_POINT);
-	o = ft_strcatx(o, ft_itoa(d));
-	if (neg)
-		o = ft_strcatxr("-", o);
-	return (o);
+	mom = ft_calloc(sizeof(t_mat), 1);
+	i = 1;
+	while (i <= a->m)
+	{
+		j = 1;
+		while (j <= a->n)
+		{
+			mom->i = !mom->i ? \
+				lstdbl_new(matrix_determinant(matrix_minor(a, i, j))) : \
+				lstdbl_addlast(mom->i,
+					matrix_determinant(matrix_minor(a, i, j)));
+			j++;
+		}
+		i++;
+	}
+	mom->m = a->m;
+	mom->n = a->n;
+	return (mom);
 }
