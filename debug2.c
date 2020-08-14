@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 11:04:45 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/08/14 13:51:08 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/08/14 16:00:58 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,11 @@ void	debug_vector(char *str, t_vec *vec)
 		ft_putstr("\n");
 		return ;
 	}
+	debug_matrix_single_line(vec);
+	ft_putstr(DEB_DIV);
 	o = ft_itoa((int)vec->m);
 	ft_putstr(o);
-	ft_putstr(", ");
-	o = ft_x(o, ft_itoa((int)vec->n));
-	ft_putstr(o);
-	ft_putstr(DEB_DIV);
-	debug_matrix_single_line(vec);
+	free(o);
 	ft_putstr("\n");
 	return ;
 }
@@ -104,7 +102,7 @@ void	debug_matrix_single_line(t_mat *mat)
 		o = ft_strcatx(o, ft_dtoa(h->d));
 		h = h->nx;
 		if (h)
-			o = ft_strcatxl(o, ", ");
+			o = ft_strcatxl(o, " ");
 	}
 	ft_putstr(o);
 	free(o);

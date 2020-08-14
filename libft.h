@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/08/14 13:41:44 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/08/14 16:16:28 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,6 +230,7 @@ t_vec			*vector_scalar_multiply(t_vec *a, double scalar);
 t_vec			*vector_scale(t_vec *vec, t_vec *xyz);
 t_vec			*vector_subtract(t_vec *a, t_vec *b);
 t_vec			*vector_sum(t_vec *a, t_vec *b);
+void			vector_transform(t_vec **vec, t_mat *trans);
 t_mat			*vector_transpose(t_vec *v);
 t_vec			*vector_translate(t_vec *vec, t_vec *xyz);
 double			vector_vector_angle_deg(t_vec *x, t_vec *y);
