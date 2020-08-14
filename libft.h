@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/08/14 11:48:42 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/08/14 13:41:44 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -302,7 +302,8 @@ void			debug_str_add(char *str, void *add);
 void			debug_str_str(char *str1, char *str2);
 void			debug_t_dbl(char *str, t_dbl *dbl);
 void			debug_matrix(char *str, t_mat *mat);
-void			debug_matrix_of_vectors(char *str, t_mvec *mat);
 void			debug_matrix_2(t_mat *mat);
+void			debug_matrix_of_vectors(char *str, t_mvec *mat);
+void			debug_matrix_single_line(t_mat *mat);
 
 #endif
