@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 16:00:11 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/08/14 11:58:29 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/08/14 22:34:25 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,14 @@ t_dbl	*matrix_goto_element(t_mat *mat, int m, int n)
 	int		c;
 
 	h = mat->i;
+	if (!h)
+		mat->i = lstdbl_addlast(mat->i, 0.0);
 	c = ((n - 1) * mat->m) + m;
 	while (--c)
+	{
 		h = h->nx;
+		if (!h)
+			mat->i = lstdbl_addlast(mat->i, 0.0);
+	}
 	return (h);
 }
