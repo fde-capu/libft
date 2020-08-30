@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/08/29 16:56:16 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/08/30 00:27:48 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,6 +226,9 @@ void			verbose_scene(t_scn *scn);
 ** Math related:
 */
 
+void	triangle_rotate_in_place(t_tri *tri, t_mat *rot);
+void	primitive_rotate_in_place(t_prm *prm, t_mat *rot);
+t_vec			*triangle_center(t_vec *a, t_vec *b, t_vec *c);
 t_mat			*axis_angle_rotation(t_vec *axis, double theta);
 t_vec			*vector_halfway(t_vec *a, t_vec *b);
 t_vec			*vector_inverse_translate(t_vec *vec, t_vec *trans);

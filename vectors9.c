@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/29 16:58:11 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/08/29 17:30:42 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/08/29 17:53:39 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,9 @@ t_vec	*vector_origin_scale(t_vec *a, t_vec *o, double factor)
 {
 	t_vec	*scaled;
 
-	DEBVEC("a", a);
-	DEBVEC("o", o);
 	scaled = vector_inverse_translate(a, o);
-	DEBVEC("scaled", scaled);
 	scaled = vectorx(scaled, vector_scalar_multiply(scaled, factor));
-	DEBVEC("scaled2", scaled);
 	scaled = vectorx(scaled, vector_translate(scaled, o));
-	DEBVEC("finally", scaled);
 	return (scaled);
 }
 
@@ -67,13 +62,8 @@ t_vec	*vector_halfway(t_vec *a, t_vec *b)
 {
 	t_vec	*half;
 
-	DEBVEC("a", a);
-	DEBVEC("b", b);
 	half = vector_subtract(b, a);
-	DEBVEC("half", half);
 	half = vectorx(half, vector_scalar_multiply(half, 0.5));
-	DEBVEC("half", half);
 	half = vectorx(half, vector_sum(half, a));
-	DEBVEC("found", half);
 	return (half);
 }
