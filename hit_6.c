@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/30 01:44:29 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/08/30 01:57:07 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/09/02 17:27:09 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ double	can_see_light_primitive(t_mrt *mrt, t_hit *hit, t_vec *l)
 
 	ray = ray_build(hit->phit, l);
 	light_distance = vector_vector_distance(hit->phit, l);
+	light_distance *= (1 - EPSILON);
 	primitive = mrt->scn->primitives;
 	while (primitive)
 	{
@@ -58,11 +59,12 @@ double	can_see_light_triangle(t_mrt *mrt, t_hit *hit, t_vec *l)
 
 	ray = ray_build(hit->phit, l);
 	light_distance = vector_vector_distance(hit->phit, l);
+	light_distance *= (1 - EPSILON);
 	tri = mrt->scn->faces;
 	while (tri)
 	{
 		test = hit_triangle(ray, tri);
-		if (test && test <= light_distance)
+		if (test && test < light_distance)
 			return (ray_destroy_and_return(ray, 0.0));
 		tri = tri->nx;
 	}
