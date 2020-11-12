@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/22 14:38:19 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/08/30 00:23:31 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,9 @@ void			ft_bit8_set(u_int8_t *data, u_int8_t bit, u_int8_t val);
 void			ft_bit8_tog(u_int8_t *data, u_int8_t bit);
 char			*ft_bit8_str(u_int8_t data);
 char			*ft_removequotes(char *quoted);
+void			primitive_zzz_position(t_prm *cyl, t_ray *ray);
+void			triangle_zzz_position(t_tri *tri);
+void	triangle_rotate_in_place(t_tri *tri, t_mat *rot);
 
 # define TRIM_SET			" \t\n\r\v\f"
 # define SPLIT_SET			" \t"
