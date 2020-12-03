@@ -22,7 +22,7 @@ Please refer to the header `.h` files for the prototypes. There is a simple intu
 
 *this project is part of the 42 São Paulo cursus*
 
-[![fde-capu's 42Project Score](https://badge42.herokuapp.com/api/project/fde-capu/libft)](https://github.com/JaeSeoKim/badge42)
+[![fde-capu's 42Project Score](https://badge42.herokuapp.com/api/project/fde-capu/Libft)](https://github.com/JaeSeoKim/badge42)
 
 (Thou you should know I have implemented many other *possibly broken* codes.)
 
