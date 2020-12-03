@@ -18,7 +18,15 @@ ft_lstnew, ft_lstadd_front, ft_lstsize, ft_lstlast, ft_lstadd_back, ft_lstdelone
 ### Random extra functions (made just because):
 Please refer to the header `.h` files for the prototypes. There is a simple intuitive bezier curve implementation, key-press handling, math conversions, string operations (even a mequetrefious regex implementation), color operators, many custom structs and types, memory management tricks, vector and matrices algorithms, debug helpers.
 
+---
+
 *this project is part of the 42 São Paulo cursus*
+
+[![fde-capu's 42Project Score](https://badge42.herokuapp.com/api/project/fde-capu/libft)](https://github.com/JaeSeoKim/badge42)
+
+(Thou you should know I have implemented many other *possibly broken* codes.)
+
+---
 
 Copyright 2020 fde-capu
 
