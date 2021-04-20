@@ -6,11 +6,11 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 19:18:03 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/10 07:57:17 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/09 14:45:25 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "common.h"
 
 char	*ft_strcat(const char *dst, const char *src)
 {
@@ -43,5 +43,24 @@ char	*ft_strcatxl(char *s1, char *s2)
 
 	x = ft_strcat(s1, s2);
 	free(s1);
+	return (x);
+}
+
+char	*ft_strcatxr(char *s1, char *s2)
+{
+	char	*x;
+
+	x = ft_strcat(s1, s2);
+	free(s2);
+	return (x);
+}
+
+char	*ft_strcatxx(char *s1, char *s2)
+{
+	char	*x;
+
+	x = ft_strcat(s1, s2);
+	free(s1);
+	free(s2);
 	return (x);
 }

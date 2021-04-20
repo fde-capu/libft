@@ -6,11 +6,18 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 11:04:45 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/15 13:49:15 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/08/20 14:53:03 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	debug(char *str, char *val, int *ival)
+{
+	if (!debug_pass())
+		return ;
+	return (debug_body(str, val ? val : 0, ival ? *ival : 0));
+}
 
 void	debug_body(char *str, char *val, int ival)
 {
@@ -29,21 +36,6 @@ void	debug_body(char *str, char *val, int ival)
 	return ;
 }
 
-void	debug_double(char *str, double val)
-{
-	char	*o;
-
-	if (!debug_pass())
-		return ;
-	ft_putstr(str);
-	ft_putstr(DEB_DIV);
-	o = ft_dtoa(val);
-	ft_putstr(o);
-	ft_putstr("\n");
-	free(o);
-	return ;
-}
-
 void	debug_rgb(char *str, t_rgb rgb)
 {
 	char	*o;
@@ -59,7 +51,7 @@ void	debug_rgb(char *str, t_rgb rgb)
 	return ;
 }
 
-void	debug_vector(char *str, t_vec vec)
+void	debug_vector(char *str, t_vec *vec)
 {
 	char	*o;
 
@@ -67,25 +59,36 @@ void	debug_vector(char *str, t_vec vec)
 		return ;
 	ft_putstr(str);
 	ft_putstr(DEB_DIV);
-	o = ft_d3dtoa(vec);
+	if (!vec)
+	{
+		ft_putstr(VOID_MSG);
+		ft_putstr("\n");
+		return ;
+	}
+	debug_matrix_single_line(vec);
+	ft_putstr(DEB_DIV);
+	o = ft_itoa((int)vec->m);
 	ft_putstr(o);
-	ft_putstr("\n");
 	free(o);
+	ft_putstr("\n");
 	return ;
 }
 
-void	debug_str_add(char *str, void *add)
+void	debug_matrix_single_line(t_mat *mat)
 {
+	t_dbl	*h;
 	char	*o;
 
-	if (!debug_pass())
-		return ;
-	debug_str(str, add);
-	ft_putstr("\b");
-	ft_putstr(DEB_DIV);
-	o = ft_ptoa(&add);
+	o = ft_strnew();
+	h = mat->i;
+	while (h)
+	{
+		o = ft_strcatx(o, ft_dtoa(h->d));
+		h = h->nx;
+		if (h)
+			o = ft_strcatxl(o, " ");
+	}
 	ft_putstr(o);
-	ft_putstr("\n");
 	free(o);
 	return ;
 }

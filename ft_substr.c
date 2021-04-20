@@ -6,11 +6,11 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 15:34:24 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/11 15:29:41 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/08 23:33:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "common.h"
 
 /*
 ** Returns allocated substring, keeps original as is.

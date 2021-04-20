@@ -6,11 +6,11 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 18:56:48 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/01/28 14:46:48 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/08 22:58:01 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "common.h"
 
 void	ft_bzero(void *s, size_t n)
 {

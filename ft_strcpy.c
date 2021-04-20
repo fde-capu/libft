@@ -6,11 +6,11 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:24:58 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/06 08:29:32 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/09 14:36:39 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "common.h"
 
 char	*ft_strcpy(char *dst, const char *src)
 {

@@ -6,11 +6,11 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:46:48 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/10 10:50:04 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/09 14:23:26 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "common.h"
 
 /*
 ** Frees arg1, returns arg2.

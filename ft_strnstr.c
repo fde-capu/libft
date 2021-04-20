@@ -6,11 +6,11 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 11:34:40 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/19 11:49:28 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/04/19 21:19:36 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "common.h"
 
 static int	isneedle(char *h, char *n)
 {
@@ -19,10 +19,12 @@ static int	isneedle(char *h, char *n)
 		h++;
 		n++;
 	}
-	return (*n ? 0 : 1);
+	if (*n)
+		return (0);
+	return (1);
 }
 
-char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	char	*h;
 	char	*n;
@@ -53,12 +55,23 @@ char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
 **  = find (this on this), give me address or nothing'.
 */
 
-char		*ft_strstr(const char *a, const char *b)
+char	*ft_strstr(const char *a, const char *b)
 {
 	return (ft_strnstr(b, a, ft_strlen(b)));
 }
 
-int			ft_strbegins(const char *str, const char *beg)
+int	ft_strbegins(const char *str, const char *beg)
 {
-	return (ft_strstr(beg, str) == str ? 1 : 0);
+	if (ft_strstr(beg, str) == str)
+		return (1);
+	return (0);
+}
+
+int	ft_strbeginsxl(char *str, char *beg)
+{
+	int	o;
+
+	o = ft_strbegins(str, beg);
+	free(str);
+	return (o);
 }

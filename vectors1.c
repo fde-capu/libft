@@ -6,37 +6,60 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 13:46:38 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/15 15:22:43 by fde-capu         ###   ########.fr       */
+/*   Updated: 2020/08/29 03:04:06 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_i2d	ft_i2d(int x, int y)
+void	vector_destroy(t_vec *vec)
 {
-	t_i2d	o;
-
-	o.x = x;
-	o.y = y;
-	return (o);
+	matrix_destroy((t_mat *)vec);
+	return ;
 }
 
-t_d3d	ft_d3d(double x, double y, double z)
+t_vec	*vector_empty(int len)
 {
-	t_d3d	o;
+	t_vec	*vec;
 
-	o.x = x;
-	o.y = y;
-	o.z = z;
-	return (o);
+	vec = ft_calloc(sizeof(t_vec), 1);
+	vec->m = len;
+	vec->n = 1;
+	while (len--)
+		vec->i = lstdbl_addlast(vec->i, 0.0);
+	return (vec);
 }
 
-t_vec	ft_vec(double x, double y, double z)
+t_vec	*vector_build(int len, ...)
 {
-	return (ft_vector(x, y, z));
+	va_list	ap;
+	t_vec	*vec;
+	double	d;
+
+	va_start(ap, len);
+	vec = ft_calloc(sizeof(t_vec), 1);
+	vec->n = 1;
+	vec->m = 0;
+	while (len--)
+	{
+		d = va_arg(ap, double);
+		vec->i = lstdbl_addlast(vec->i, d);
+		vec->m++;
+	}
+	va_end(ap);
+	return (vec);
 }
 
-t_vec	ft_vector(double x, double y, double z)
+t_mat	*vector_transpose(t_vec *v)
 {
-	return ((t_vec)ft_d3d(x, y, z));
+	return (matrix_transpose((t_mat *)v));
+}
+
+t_mvec	*matvec_new(void)
+{
+	t_mvec	*mvec;
+
+	mvec = ft_calloc(sizeof(t_mvec), 1);
+	mvec->n = 1;
+	return (mvec);
 }
