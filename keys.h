@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 18:46:07 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/23 16:34:04 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:29:35 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct		s_key {
 # define XCLOSE			17
 # define MLEAVEWIN		5
 
-t_key				*g_key;
+extern t_key		*g_key;
 int					keys_init(void);
 int					keys_destroy(void);
 t_key				*key(int id);

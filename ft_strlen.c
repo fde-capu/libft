@@ -6,11 +6,11 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:24:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/10 23:04:13 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:25:42 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "common.h"
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

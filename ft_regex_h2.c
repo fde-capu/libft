@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "common.h"
+#include "libft.h"
 
 char	*rgx_chk_function(int mode, char *sh, char *blk)
 {

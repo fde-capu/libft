@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "common.h"
+#include "libft.h"
 
 void	ft_print_stdout(const char *str)
 {

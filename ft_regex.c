@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "common.h"
+#include "libft.h"
 
 static char	*test_options(const char *sh, char *rh)
 {

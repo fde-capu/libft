@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "common.h"
+#include "libft.h"
 
 void	rgx_mm_mod(int *mm, int oblig, int optio)
 {

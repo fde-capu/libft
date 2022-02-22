@@ -6,7 +6,7 @@
 #    By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/20 14:30:12 by fde-capu          #+#    #+#              #
-#    Updated: 2020/06/11 20:29:07 by fde-capu         ###   ########.fr        #
+#    Updated: 2022/02/22 17:34:12 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ AR		=	ar -rcs
 
 SRCS	=	$(shell find . -name '*.c' ! -name "main.c")
 
-HEADS	=	$(shell find . -name '*.h')
+HEADS	=	$(shell find . -name '*.h') Makefile
 
 CHILD	=	libbezier
 

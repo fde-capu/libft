@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/24 12:22:09 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/24 12:38:39 by fde-capu         ###   ########.fr       */
+/*   Created: 2022/02/22 16:31:57 by fde-capu          #+#    #+#             */
+/*   Updated: 2022/02/22 16:46:35 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,23 @@ char	*ft_args(int argc, char **argv, char *test)
 		argc--;
 	}
 	return (0);
+}
+
+bool	validate_args(int argc, char **argv, int argc_min, int argc_max, char **valid_args)
+{
+	char **va;
+	if (argc < argc_min || argc > argc_max)
+		return false;
+	while (argc)
+	{
+		va = valid_args;
+		while (*va)
+		{
+			if (ft_stridentical(argv[argc], *va))
+				return true;
+			va++;
+		}
+		argc--;
+	}
+	return false;
 }

@@ -6,11 +6,11 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 10:48:36 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/04/19 21:22:02 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:12:27 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "common.h"
+#include "libft.h"
 
 static char	*stc_skip_c(char *s, char c)
 {

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 19:07:30 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/23 20:01:20 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:24:50 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int		keys_init(void)
 {
+#ifndef g_key
 	g_key = ft_calloc(sizeof(t_key), 1);
+#endif
 	return (1);
 }
 

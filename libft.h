@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/22 14:50:04 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:33:50 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@
 # include "types_libft.h"
 # include "debug.h"
 # include "keys.h"
+# include "common.h"
 
+bool	validate_args(int argc, char **argv, int argc_min, int argc_max, char **valid_args);
 t_rgb			light_decay(t_lht *light, t_hit *hit, t_rgb base);
 int				bad_file_extension(char *fn, char *required_extension);
 long long		ft_abs(long long value);
@@ -394,11 +396,12 @@ double			hit_primitive(t_prm *primitive, t_ray *ray);
 double			ray_destroy_and_return(t_ray *ray, double val);
 t_hit			*hit_new(double max);
 
-t_vec			*g_x;
-t_vec			*g_y;
-t_vec			*g_z;
-t_mrt			*g_mrt;
-
+#ifndef g_x
+extern t_vec			*g_x;
+extern t_vec			*g_y;
+extern t_vec			*g_z;
+extern t_mrt			*g_mrt;
+#endif
 
 int				ft_ternary_i(int x, int vt, int vf);
 char			*ft_ternary_c(int x, char *vt, char *vf);
