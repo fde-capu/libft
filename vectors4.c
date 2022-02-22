@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 12:15:00 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/08/30 05:03:29 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/22 14:48:38 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 void	vector_normalize(t_vec *mv)
 {
-	double	d;
 	t_dbl	*h;
 	double	mag;
 
 	mag = vector_magnitude(mv);
 	if (!mag)
 		return ;
-	d = 0;
 	h = mv->i;
 	while (h)
 	{

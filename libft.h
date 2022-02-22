@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/09 13:27:41 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/22 14:50:04 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -398,6 +398,11 @@ t_vec			*g_x;
 t_vec			*g_y;
 t_vec			*g_z;
 t_mrt			*g_mrt;
+
+
+int				ft_ternary_i(int x, int vt, int vf);
+char			*ft_ternary_c(int x, char *vt, char *vf);
+long long		freec_and_retll(char *f, long long r);
 
 /*
 ** Debugs:

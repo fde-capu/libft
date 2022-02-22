@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 16:00:14 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/08/20 15:25:51 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/22 14:51:50 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,12 @@ void	matrix_put_element(t_mat *dst, int i, int j, double d)
 
 void	matrix_put_matrix(t_mat *dest, t_mat *ref, int i, int j)
 {
-	t_dbl	*h;
 	int		vector_num;
 	t_vec	*vec;
 	t_dbl	*vh;
 	int		v_count;
 
-	h = matrix_goto_element(dest, i, j);
+	matrix_goto_element(dest, i, j);
 	vector_num = 1;
 	vec = vector_new();
 	while (vector_num <= ref->n)
