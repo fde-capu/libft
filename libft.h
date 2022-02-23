@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/23 12:50:55 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/23 14:00:42 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t count, size_t size);
 int				ft_ceil(double d);
 char			*ft_check(const char *str, char *reg);
+bool			ft_check_full(const char *str, char *reg);
 int				ft_chrinset(char r, char const *set);
 int				ft_chrsame(char a, char b);
 char			*ft_chrtostr(char chr);
