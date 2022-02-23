@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 14:46:36 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/23 14:16:21 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/23 15:19:16 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ bool	ft_check_full(const char *sh, char *rh)
 //		ft_print("not full");
 		return 0;
 	}
-	if ((!rh) || (!*rh) && (*sh))
+	if ((!rh) || (!*rh) && (!*sh))
 	{
 //		ft_print("complete\n");
 		return ((char *)sh);
