@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 14:46:36 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/23 13:03:30 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/23 13:25:37 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,20 +83,20 @@ char	*ft_check(const char *sh, char *rh)
 	char	*blk;
 	int		fun;
 
-	ft_print(sh); ft_print(" || "); ft_print(rh); ft_print("\n");
+//	ft_print(sh); ft_print(" || "); ft_print(rh); ft_print("\n");
 	if (rh && *rh == '$' && (*sh))
 	{
-		ft_print("$\n");
+//		ft_print("$\n");
 		return (0);
 	}
 	if ((!rh) || (!*rh))
 	{
-		ft_print("rh\n");
+//		ft_print("rh\n");
 		return ((char *)sh);
 	}
 	if (ft_insp_count(rh, '|') != 1)
 	{
-		ft_print("|\n");
+//		ft_print("|\n");
 		return (test_options(sh, rh));
 	}
 	fun = rgx_function_n(rh);
@@ -106,7 +106,7 @@ char	*ft_check(const char *sh, char *rh)
 	sh = test_function(fun, mm, (char *)sh, blk);
 	if (!sh)
 	{
-		ft_print("sh\n");
+//		ft_print("sh\n");
 		return (0);
 	}
 	if (rgx_fun_in(fun))
