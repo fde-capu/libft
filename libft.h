@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/22 17:33:50 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/23 12:50:55 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@
 # include "keys.h"
 # include "common.h"
 
-bool	validate_args(int argc, char **argv, int argc_min, int argc_max, char **valid_args);
+bool			validate_args(int argc, char **argv, int argc_min, int argc_max, char *valid_args_csv);
+bool			validate_args_regex(int argc, char **argv, int argc_min, int argc_max, char *valid_args_regex_pipesv);
 t_rgb			light_decay(t_lht *light, t_hit *hit, t_rgb base);
 int				bad_file_extension(char *fn, char *required_extension);
 long long		ft_abs(long long value);
@@ -75,6 +76,11 @@ int				ft_isdigit(int c);
 int				ft_islower(int c);
 int				ft_isnumber(char *str);
 int				ft_isprint(int c);
+void			ft_print_stdout(const char *str);
+void			ft_print_x(char *str);
+void			ft_print(const char *str);
+int				ft_print_and_return_int(char *message, int return_value);
+int				ft_print2_and_return_int(char *messageA, char *messageB, int return_value);
 int				ft_isupper(int c);
 char			*ft_itoa(int n);
 t_rgb			ft_itoargb(unsigned int i);
@@ -140,6 +146,7 @@ int				ft_strchrinset(char *t, char const *sset);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strdup(const char *s1);
 void			ft_strfree2d(char **str);
+bool			ft_strfree2d_and_return_bool(char **str, bool ret_val);
 int				ft_stridentical(const char *s1, const char *s2);
 char			*ft_strjoin(char const *s1, char const *s2);
 size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);

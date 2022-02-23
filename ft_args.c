@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:31:57 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/22 16:46:35 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/23 12:59:05 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,42 @@ char	*ft_args(int argc, char **argv, char *test)
 	return (0);
 }
 
-bool	validate_args(int argc, char **argv, int argc_min, int argc_max, char **valid_args)
+bool	validate_args(int argc, char **argv, int argc_min, int argc_max, char *valid_args_csv)
 {
+	char **valid_args = ft_split(valid_args_csv, ',');
 	char **va;
+
 	if (argc < argc_min || argc > argc_max)
-		return false;
-	while (argc)
+		return ft_strfree2d_and_return_bool(valid_args, false);
+	while (--argc)
 	{
 		va = valid_args;
 		while (*va)
 		{
 			if (ft_stridentical(argv[argc], *va))
-				return true;
-			va++;
+				return ft_strfree2d_and_return_bool(valid_args, true);
+			**va++;
 		}
-		argc--;
 	}
-	return false;
+	return ft_strfree2d_and_return_bool(valid_args, false);
+}
+
+bool	validate_args_regex(int argc, char **argv, int argc_min, int argc_max, char *valid_args_regex_pipesv)
+{
+	char ** valid_args = ft_split(valid_args_regex_pipesv, '|');
+	char **va;
+	if (argc < argc_min || argc > argc_max)
+		return ft_strfree2d_and_return_bool(valid_args, false);
+	while (--argc)
+	{
+		va = valid_args;
+		while (*va)
+		{
+			ft_print (*va); ft_print("---"); ft_print(argv[argc]); ft_print("\n");
+			if (ft_check(argv[argc], *va))
+				return ft_strfree2d_and_return_bool(valid_args, true);
+			**va++;
+		}
+	}
+	return ft_strfree2d_and_return_bool(valid_args, false);
 }

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 11:26:36 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/08 23:17:48 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/23 12:16:43 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,10 @@ void	ft_strfree2d(char **str)
 		free(*p++);
 	free(str);
 	return ;
+}
+
+bool	ft_strfree2d_and_return_bool(char **str, bool ret_val)
+{
+	ft_strfree2d(str);
+	return ret_val;
 }

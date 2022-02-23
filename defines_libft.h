@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 11:54:27 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/08/28 01:23:19 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/23 13:16:33 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@
 # define FUN_PAR				2
 # define FUN_SET				3
 # define FUN_CHR				4
+# define FUN_WORD				5
+# define WORD_CHARS				"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_"
 
 # define TYPE_SP_NM				"Sphere"
 # define TYPE_SP				1
