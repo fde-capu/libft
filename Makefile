@@ -6,7 +6,7 @@
 #    By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/20 14:30:12 by fde-capu          #+#    #+#              #
-#    Updated: 2022/02/22 17:34:12 by fde-capu         ###   ########.fr        #
+#    Updated: 2022/02/23 11:08:45 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,6 @@ T0		=	$(ELINE); $(LINE); $(PUTS)
 T2		=	; $(LINE)
 
 all		:	$(HEADS) $(CHILD) $(NAME)
-	@$(T0) ALL DONE! $(T2); $(ELINE)
 
 $(SRCS)	:
 	@$(T0) Create object $(OBJS): $(T2)
@@ -44,6 +43,7 @@ $(SRCS)	:
 $(NAME)	:	$(OBJS) $(HEADS)
 	@$(T0) Compiling library: $(T2)
 	$(AR) $(NAME) $(OBJS)
+	@$(T0) ALL DONE! $(T2); $(ELINE)
 
 $(CHILD) :
 	@$(T0) Make child $(CHILD): $(T2)
