@@ -3,58 +3,41 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/01/20 14:30:12 by fde-capu          #+#    #+#              #
-#    Updated: 2022/02/23 11:08:45 by fde-capu         ###   ########.fr        #
+#    Created: 2022/02/23 11:38:47 by fde-capu          #+#    #+#              #
+#    Updated: 2022/02/23 11:42:38 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+ifndef OUTPUT
+.SILENT:
+endif
+
 NAME	=	libft.a
-
-CC		=	$(GCC) $(FLAGS) 
-
-GCC		=	clang
-
-FLAGS	=	-Wall -Wextra -Werror -g
-
-AR		=	ar -rcs
-
 SRCS	=	$(shell find . -name '*.c' ! -name "main.c")
-
-HEADS	=	$(shell find . -name '*.h') Makefile
-
+HEAD	=	$(shell find . -name '*.h') Makefile
+SHELL	=	/bin/sh
+CC		=	cc
+CCFLAGS	=	-Wall -Wextra -Werror -g
+AR		=	ar -rcs
 CHILD	=	libbezier
-
 OBJS	=	$(SRCS:.c=.o)
-
 ELINE	=	echo	""; echo ""
 LINE	=	echo	"================== from $(NAME) ==============================================="
 PUTS	=	echo	
 T0		=	$(ELINE); $(LINE); $(PUTS)
 T2		=	; $(LINE)
 
-all		:	$(HEADS) $(CHILD) $(NAME)
-
-$(SRCS)	:
-	@$(T0) Create object $(OBJS): $(T2)
-	$(GCC) -o $(OBJS) -c $(SRCS) $(FLAGS) 
-
-$(NAME)	:	$(OBJS) $(HEADS)
-	@$(T0) Compiling library: $(T2)
-	$(AR) $(NAME) $(OBJS)
-	@$(T0) ALL DONE! $(T2); $(ELINE)
-
+all		:	$(CHILD) $(NAME)
 $(CHILD) :
-	@$(T0) Make child $(CHILD): $(T2)
-	cd $(CHILD) && $(MAKE)
-
+	cd $(CHILD) && $(MAKE) && cd -
+$(NAME)	:	$(OBJS)
+	$(AR) $(NAME) $(OBJS)
+$(OBJS)  : %.o : %.c $(HEAD)
+	$(CC) $(FLAGS) -o $@ -c $<
 clean	:
-	@$(T0) Clean: $(T2)
 	rm -f $(OBJS)
-
 fclean	:	clean
-	@$(T0) Full: $(T2)
 	rm -f $(NAME)
-
 re		:	fclean all
