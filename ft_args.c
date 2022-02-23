@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:31:57 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/23 18:23:49 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/23 18:37:13 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ bool	validate_args(int argc, char **argv, int argc_min, int argc_max, char *vali
 
 bool	validate_args_regex(int argc, char **argv, int argc_min, int argc_max, char *valid_args_regex_pipesv)
 {
-	char ** valid_args = ft_split(valid_args_regex_pipesv, '|');
+	char **valid_args = ft_split(valid_args_regex_pipesv, '|');
 	char **va;
 	if (argc < argc_min || argc > argc_max)
 		return ft_strfree2d_and_return_bool(valid_args, false);
