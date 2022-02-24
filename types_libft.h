@@ -13,6 +13,8 @@
 #ifndef TYPES_LIBFT_H
 # define TYPES_LIBFT_H
 
+typedef char* str;
+
 typedef struct			s_list
 {
 	void				*content;
