@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/23 11:38:47 by fde-capu          #+#    #+#              #
-#    Updated: 2022/02/25 14:09:41 by fde-capu         ###   ########.fr        #
+#    Updated: 2022/02/25 14:35:52 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,12 @@ LINE	=	echo	"================== from $(NAME) ===================================
 PUTS	=	echo	
 T0		=	$(ELINE); $(LINE); $(PUTS)
 T2		=	; $(LINE)
+VAL		=	valgrind
+VALFLAG	=	--tool=memcheck \
+			--leak-check=full \
+			--show-leak-kinds=all \
+			--track-origins=yes \
+			--show-reachable=yes
 
 all		:	$(CHILD) $(NAME)
 $(CHILD) :
@@ -43,4 +49,4 @@ fclean	:	clean
 re		:	fclean all
 t		:	all
 	$(CC) $(CCFLAGS) main.c -L. -lft
-	./a.out
+	$(VAL) $(VALFLAG) ./a.out
