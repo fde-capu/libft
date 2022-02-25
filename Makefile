@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/23 11:38:47 by fde-capu          #+#    #+#              #
-#    Updated: 2022/02/23 18:30:13 by fde-capu         ###   ########.fr        #
+#    Updated: 2022/02/25 14:09:41 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,3 +41,6 @@ clean	:
 fclean	:	clean
 	rm -f $(NAME)
 re		:	fclean all
+t		:	all
+	$(CC) $(CCFLAGS) main.c -L. -lft
+	./a.out

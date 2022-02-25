@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/23 14:00:42 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/25 14:09:14 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,24 @@
 # include "debug.h"
 # include "keys.h"
 # include "common.h"
+
+typedef struct node
+{
+	size_t			index;
+	str				name;
+	str				value;
+	struct node		*attribute;
+	struct node		*nx;
+	struct node		*pv;
+} node;
+
+typedef struct json
+{
+	node*	base_node;
+} json;
+
+json new_json();
+str	get(json* data, str path);
 
 bool			validate_args(int argc, char **argv, int argc_min, int argc_max, char *valid_args_csv);
 bool			validate_args_regex(int argc, char **argv, int argc_min, int argc_max, char *valid_args_regex_pipesv);
