@@ -49,3 +49,13 @@ int	ident(char *a, char *b)
 	out = ft_stridentical(a, b);
 	return (out);
 }
+
+int ft_stridentical_insensitive(const char *s1, const char *s2)
+{
+	char *a = ft_lcase(s1);
+	char *b = ft_lcase(s2);
+	int out = ft_stridentical(a, b);
+	free(a);
+	free(b);
+	return out;
+}
