@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/25 16:53:02 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/25 17:15:24 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,44 @@ str* path_split(str path)
 
 node* node_goto(json* data, str path)
 {
-	node* h = data->base_node->nx;
+	node* n = data->base_node->nx;
+	node* r = 0;
+
 	str* splitpath = path_split(path);
-	for (str* h = splitpath; *h; *h++)
+	str* p = splitpath;
+
+	while (n)
 	{
-		printf("--> %s\n", *h);
+		if (ft_stridentical(n->name, *p))
+		{
+			r = n;
+			if (*p + 1)
+			{
+				n = n->attribute;
+				*p++;
+			}
+			else
+				break ;
+		}
+		n = n->nx;
 	}
 	ft_strfree2d(splitpath);
-	return h;
+	return r;
 }
 
 str	json_get(json* data, str path)
 {
 	node* h = node_goto(data, path);
-	str out = ft_strdup(data->base_node->name);
+	str out;
+
+	if (!h)
+	{
+		out = ft_str();
+	}
+	else
+	{
+		str out = ft_strdup(h->name);
+	}
 	return out;
 }
 
