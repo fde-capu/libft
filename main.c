@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:40:07 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/25 20:34:51 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/25 20:42:40 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main()
 	str out_put = json_put(data, "/test/haha");
 	if (out_put)
 		printf("out_put: %s\n", out_put);
-	str out_get = json_get(data, "/test/hahaw");
+	str out_get = json_get(data, "/test/hahas");
 	if (out_get)
 		printf("out_get: %s\n", out_get);
 	json_clean(data);

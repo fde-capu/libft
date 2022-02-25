@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/25 20:36:46 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/25 20:42:54 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ node* node_goto(json* data, str path)
 			n = n->nx;
 		}
 	}
-	if (*p)
+	if (!ft_stridentical(r->name, *p))
 		r = 0;
 	ft_strfree2d(splitpath);
 	return r;
