@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/25 17:15:24 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/25 20:20:23 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ str* path_split(str path)
 
 node* node_goto(json* data, str path)
 {
-	node* n = data->base_node->nx;
-	node* r = 0;
+	node* n = data->base_node->attribute;
+	node* r = data->base_node;
 
 	str* splitpath = path_split(path);
 	str* p = splitpath;
@@ -31,7 +31,52 @@ node* node_goto(json* data, str path)
 		if (ft_stridentical(n->name, *p))
 		{
 			r = n;
-			if (*p + 1)
+			if (*(p + 1))
+			{
+				if (n->attribute)
+				{
+					n = n->attribute;
+					*p++;
+				}
+				else
+				{
+					break ;
+				}
+			}
+			else
+				break ;
+		}
+		else
+		{
+			n = n->nx;
+		}
+	}
+//	if (*(p + 1))
+//		r = 0;
+	ft_strfree2d(splitpath);
+	return r;
+}
+
+node* node_new()
+{
+	node* out = calloc(sizeof(node), 1);
+	return out;
+}
+
+str json_put(json* data, str path)
+{
+	node* n = data->base_node->attribute;
+	node* b = data->base_node;
+	
+	str* splitpath = path_split(path);
+	str* p = splitpath;
+
+	while (n)
+	{
+		if (ft_stridentical(n->name, *p))
+		{
+			b = n;
+			if (*(p + 1))
 			{
 				n = n->attribute;
 				*p++;
@@ -39,10 +84,20 @@ node* node_goto(json* data, str path)
 			else
 				break ;
 		}
-		n = n->nx;
+		else
+		{
+			n = n->nx;
+		}
+	}
+	while (*p)
+	{
+		b->attribute = node_new();
+		b = b->attribute;
+		b->name = ft_strdup(*p);
+		*p++;
 	}
 	ft_strfree2d(splitpath);
-	return r;
+	return ft_strdup(b->name);
 }
 
 str	json_get(json* data, str path)
@@ -50,27 +105,22 @@ str	json_get(json* data, str path)
 	node* h = node_goto(data, path);
 	str out;
 
-	if (!h)
+	if (h)
 	{
-		out = ft_str();
+		printf("get got: ## %s ##\n", h->name);
+		out = ft_strdup(h->name);
 	}
 	else
 	{
-		str out = ft_strdup(h->name);
+		out = ft_str("NAN (address not found)");
 	}
-	return out;
-}
-
-node* new_node()
-{
-	node* out = calloc(sizeof(node), 1);
 	return out;
 }
 
 json* json_new()
 {
 	json* new_json = calloc(sizeof(json), 1);
-	new_json->base_node = new_node();
+	new_json->base_node = node_new();
 	new_json->base_node->name = ft_str("baseNode");
 	return new_json;
 }
