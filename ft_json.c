@@ -6,14 +6,35 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/25 14:38:03 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/25 14:49:36 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+
+str* path_split(str path)
+{
+	str f = ft_strdup(path);
+	str to_free = f;
+	for (f; *f; f++)
+	{
+		printf("-%s-", f);
+	}
+	free(to_free);
+}
+
+node* node_goto(json* data, str path)
+{
+	node* h = data->base_node->nx;
+	str* splitpath = path_split(path);
+	(void)splitpath;
+	return h;
+}
 
 str	json_get(json* data, str path)
 {
+	node* h = node_goto(data, path);
 	str out = data->base_node->name;
 	return out;
 }
