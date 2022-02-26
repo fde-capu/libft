@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:40:07 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/26 15:07:24 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 18:16:18 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 str api_request(str method, str command, json* base)
 {
 	printf("(%s %s) ", method, command);
+	if (ft_stridentical_insensitive(method, "del"))
+		return json_del(base, command);
 	if (ft_strstr("value", command))
-		return ft_str("300 protected keyword");
+		return ft_str("409 read the docs");
 	if (ft_stridentical_insensitive(method, "get"))
 		return json_get(base, command);
 	if (ft_stridentical_insensitive(method, "put"))
 		return json_put(base, command);
-	if (ft_stridentical_insensitive(method, "del"))
-		return json_del(base, command);
 	if (ft_stridentical_insensitive(method, "post"))
 		return json_post(base, command);
 	return ft_str("404 ki ki ki");

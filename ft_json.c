@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/26 15:06:16 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 18:30:49 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ node* node_goto(json* data, str path)
 {
 	node* n = data->base_node->nx;
 	node* r = data->base_node;
-
 	str* splitpath = path_split(path);
 	str* p = splitpath;
 
@@ -47,14 +46,17 @@ node* node_goto(json* data, str path)
 		else
 			n = n->dn;
 	}
+
 //	if (r)
-//		printf("r: %s\n", r->name);
+//		printf("\n#[ r: %s ]", r->name);
 //	if (*p)
-//		printf("p: %s\n", *p);
+//		printf("\n#[ p: %s ]", *p);
 //	if (n)
-//		printf("n: %s\n", n->name);
+//		printf("\n#[ n: %s ]", n->name);
+
 	if (*(p + 1) || !ft_stridentical_insensitive(r->name, *p))
 		r = 0;
+
 	ft_strfree2d(splitpath);
 	return r;
 }
@@ -248,22 +250,43 @@ str json_post(json* data, str path)
 	return json_render_node(h->pv, 0, 0);
 }
 
+str no_reserved(str path)
+{
+	char * h = ft_strnstr(path, "value", ft_strlen(path));
+	return h > path ? ft_substr(path, 0, h - path) : ft_strdup(path);
+}
+
 str json_del(json* data, str path)
 {
-	node *h = node_goto(data, path);
-	if (!h)
-		return 0;
-//	printf("1"); fflush(stdout);
-	h = h->pv;
-//	printf("2"); fflush(stdout);
-	node* nxnx = h->nx ? h->nx->dn : 0;
-//	printf("3"); fflush(stdout);
-	node_del(h->nx);
-//	printf("4"); fflush(stdout);
-	h->nx = nxnx;
-//	printf("5"); fflush(stdout);
-	if (h->nx)
-		h->nx->pv = h;
-//	printf("6"); fflush(stdout);
-	return json_render_node(h, 0, 0);
+	str path_no_reserved = no_reserved(path);
+	if (ft_stridentical(path, path_no_reserved))
+	{
+		node *h = node_goto(data, path);
+		free(path_no_reserved);
+		if (!h)
+			return 0;
+		//	printf("1"); fflush(stdout);
+		h = h->pv;
+		//	printf("2"); fflush(stdout);
+		node* nxnx = h->nx ? h->nx->dn : 0;
+		//	printf("3"); fflush(stdout);
+		node_del(h->nx);
+		//	printf("4"); fflush(stdout);
+		h->nx = nxnx;
+		//	printf("5"); fflush(stdout);
+		if (h->nx)
+			h->nx->pv = h;
+		//	printf("6"); fflush(stdout);
+		return json_render_node(h, 0, 0);
+	}
+	else
+	{
+		node *h = node_goto(data, path_no_reserved);
+		free(path_no_reserved);
+		if (!h)
+			return 0;
+		free(h->value);
+		h->value = 0;
+		return json_render_node(h, 0, 0);
+	}
 }
