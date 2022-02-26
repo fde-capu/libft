@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:40:07 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/26 13:24:44 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 14:05:26 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,33 +70,33 @@ int main()
 	printf("> %s\n", out);
 	json_render(data);
 
-	out = ft_x(out, api_request("post", "/universe/galaxy/Andromeda/color_bv='0.92',contrast_index=0.98,surface_brightness='13.35'", data));
-	printf("> %s\n", out);
-	json_render(data);
-
-	out = ft_x(out, api_request("post", "/universe/galaxy/Andromeda/surface_brightness/unit='mag/arcmin2'", data));
-	printf("> %s\n", out);
-	json_render(data);
-
-	out = ft_x(out, api_request("put", "/universe/galaxy/star/", data));
-	printf("> %s\n", out);
-	json_render(data);
-
-	out = ft_x(out, api_request("post", "/universe/galaxy/star='Zubenelgenubi 1'", data));
-	printf("> %s\n", out);
-	json_render(data);
-
-	out = ft_x(out, api_request("post", "/universe/galaxy/star/Zubenelgenubi 2", data));
-	printf("> %s\n", out);
-	json_render(data);
-
-	out = ft_x(out, api_request("post", "/universe/galaxy/star/type='binary'", data));
-	printf("> %s\n", out);
-	json_render(data);
-
-	out = ft_x(out, api_request("post", "/universe/galaxy/star/type='binary'", data));
-	printf("> %s\n", out);
-	json_render(data);
+//	out = ft_x(out, api_request("post", "/universe/galaxy/Andromeda/color_bv='0.92',contrast_index=0.98,surface_brightness='13;35'", data));
+//	printf("> %s\n", out);
+//	json_render(data);
+//
+//	out = ft_x(out, api_request("post", "/universe/galaxy/Andromeda/surface_brightness/unit='mag/arcmin2'", data));
+//	printf("> %s\n", out);
+//	json_render(data);
+//
+//	out = ft_x(out, api_request("put", "/universe/galaxy/star/", data));
+//	printf("> %s\n", out);
+//	json_render(data);
+//
+//	out = ft_x(out, api_request("post", "/universe/galaxy/star='Zubenelgenubi 1'", data));
+//	printf("> %s\n", out);
+//	json_render(data);
+//
+//	out = ft_x(out, api_request("post", "/universe/galaxy/star/Zubenelgenubi 2", data));
+//	printf("> %s\n", out);
+//	json_render(data);
+//
+//	out = ft_x(out, api_request("post", "/universe/galaxy/star/type='binary'", data));
+//	printf("> %s\n", out);
+//	json_render(data);
+//
+//	out = ft_x(out, api_request("post", "/universe/galaxy/star/type='binary'", data));
+//	printf("> %s\n", out);
+//	json_render(data);
 
 	free(out);
 	json_clear(data);

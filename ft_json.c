@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/26 13:29:10 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 14:11:26 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,15 +137,6 @@ str json_render_node(node* h, int go_dn, int show_name)
 	return out;
 }
 
-str	json_get(json* data, str path)
-{
-	str out = 0;
-	node* h = node_goto(data, path);
-	if (h)
-		out = json_render_node(h, 0, 0);
-	return out;
-}
-
 str json_render(json* data)
 {
 	str out = json_render_node(data->base_node->nx, 1, 1);
@@ -155,8 +146,19 @@ str json_render(json* data)
 	return 0;
 }
 
+str	json_get(json* data, str path)
+{
+	str out = 0;
+	node* h = node_goto(data, path);
+	if (h)
+		out = json_render_node(h, 0, 0);
+	return out;
+}
+
 str json_put(json* data, str path)
 {
+	if (ft_strstr("=", path))
+		return json_post(data, path);
 	node* b = data->base_node;
 	node* n = data->base_node->nx;
 	node* x;
@@ -186,8 +188,7 @@ str json_put(json* data, str path)
 	}
 	while (*p)
 	{
-		x = node_last_nx(b->nx);
-		if (!x)
+		if (!b->nx)
 		{
 			b->nx = node_new();
 			b->nx->pv = b;
@@ -196,6 +197,7 @@ str json_put(json* data, str path)
 		}
 		else
 		{
+			x = node_last_nx(b->nx);
 			x->dn = node_new();
 			x->dn->up = x;
 			x->dn->name = ft_strdup(*p);
@@ -205,6 +207,23 @@ str json_put(json* data, str path)
 	}
 	ft_strfree2d(splitpath);
 	return json_render_node(b, 0, 0);
+}
+
+str json_post(json* data, str path)
+{
+	str* chain = ft_split_set(path, "=;");
+	str foo = json_put(data, chain[0]);
+	if (!foo)
+	{
+		ft_strfree2d(chain);
+		printf(" -- NOOUT -- ");
+		return 0;
+	}
+	free(foo);
+	node *h = node_goto(data, chain[0]);
+	h->value = ft_str(chain[1]);
+	ft_strfree2d(chain);
+	return json_render_node(h, 1, 0);
 }
 
 str json_del(json* data, str path)
@@ -225,9 +244,4 @@ str json_del(json* data, str path)
 		h->nx->pv = h;
 //	printf("6"); fflush(stdout);
 	return json_render_node(h, 0, 0);
-}
-
-str json_post(json* data, str path)
-{
-	return json_get(data, path);
 }
