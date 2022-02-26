@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/25 19:27:16 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/25 21:45:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ json* json_new();
 str	json_get(json* data, str path);
 str json_put(json* data, str path);
 void json_clean(json *this);
+str json_del(json* data, str path);
 
 bool			validate_args(int argc, char **argv, int argc_min, int argc_max, char *valid_args_csv);
 bool			validate_args_regex(int argc, char **argv, int argc_min, int argc_max, char *valid_args_regex_pipesv);
