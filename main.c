@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:40:07 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/26 14:05:26 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 15:07:24 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 str api_request(str method, str command, json* base)
 {
 	printf("(%s %s) ", method, command);
+	if (ft_strstr("value", command))
+		return ft_str("300 protected keyword");
 	if (ft_stridentical_insensitive(method, "get"))
 		return json_get(base, command);
 	if (ft_stridentical_insensitive(method, "put"))
@@ -69,6 +71,24 @@ int main()
 	out = ft_x(out, api_request("post", "/universe/galaxy/Andromeda/type='SA(s)b'", data));
 	printf("> %s\n", out);
 	json_render(data);
+
+	out = ft_x(out, api_request("put", "/universe/galaxy/Andromeda/type/sub=(s)b", data));
+	printf("> %s\n", out);
+	json_render(data);
+
+	out = ft_x(out, api_request("put", "/universe/galaxy/Andromeda/type/value='X'", data));
+	printf("> %s\n", out);
+	json_render(data);
+
+	out = ft_x(out, api_request("del", "/universe/galaxy/Andromeda/type/value", data));
+	printf("> %s\n", out);
+	json_render(data);
+
+	out = ft_x(out, api_request("del", "/universe/galaxy/Andromeda/type/sub", data));
+	printf("> %s\n", out);
+	json_render(data);
+
+// put universe/galaxy/Andromeda/type/sa
 
 //	out = ft_x(out, api_request("post", "/universe/galaxy/Andromeda/color_bv='0.92',contrast_index=0.98,surface_brightness='13;35'", data));
 //	printf("> %s\n", out);

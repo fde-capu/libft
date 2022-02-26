@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/26 13:24:59 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 14:50:48 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ typedef struct node
 {
 	str				name;
 	str				value;
-	struct node		*nx;
-	struct node		*pv;
-	struct node		*dn;
 	struct node		*up;
+	struct node		*nx;
+	struct node		*dn;
+	struct node		*pv;
 } node;
 
 typedef struct json
