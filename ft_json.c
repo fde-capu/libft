@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/26 02:04:37 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 02:45:43 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,20 +182,22 @@ void json_clear(json *this)
 	return ;
 }
 
-str json_render_node(node* h)
+str json_render_node(node* h, int go_dn, int show_name)
 {
 	if (!h)
 		return 0;
+	str out = show_name ? ft_strcat_variadic(3, "'", h->name, "' : { ") : ft_str("{ ");
 	str index = ft_itoa(h->index);
-	str out = ft_strcat_variadic(5, "'", h->name, "' : { 'index' : ", index, " , ");
+	out = ft_x(out, ft_strcat_variadic(4, out, "'index' : ", index, " , "));
 	free(index);
 	if (h->value)
-		out = ft_strcat_variadic(3, "'value' : '", h->value, "' , ");
+		out = ft_x(out, ft_strcat_variadic(4, out, "'value' : '", h->value, "' , "));
 	if (h->nx)
-		out = ft_strcatxx(out, json_render_node(h->nx));
+		out = ft_strcatxx(out, json_render_node(h->nx, 1, 1));
 	out = ft_strcatxl(out, "} , ");
+	if (go_dn && h->dn)
+		out = ft_strcatxx(out, json_render_node(h->dn, 1, 1));
 	return out;
-//	return ft_strcatxx(out, json_render_node(h->dn));
 }
 
 str	json_get(json* data, str path)
@@ -203,13 +205,13 @@ str	json_get(json* data, str path)
 	str out = 0;
 	node* h = node_goto(data, path);
 	if (h)
-		out = json_render_node(h);
+		out = json_render_node(h, 0, 0);
 	return out;
 }
 
 str json_render(json* data)
 {
-	str out = json_render_node(data->base_node->nx);
+	str out = json_render_node(data->base_node->nx, 1, 1);
 	printf("%s\n\n", out);
 	if (out)
 		free(out);
