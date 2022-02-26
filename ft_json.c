@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/26 00:48:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 02:01:37 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,44 +59,34 @@ node* node_goto(json* data, str path)
 	return r;
 }
 
-node* node_goto_before_last(json *data, str path)
-{
-	node* n = data->base_node->nx;
-	node* b = data->base_node;
-	node* o = b;
-	str* splitpath = path_split(path);
-	str* p = splitpath;
-
-	while (n)
-	{
-		if (ft_stridentical(n->name, *p))
-		{
-			o = b;
-			b = n;
-			if (*(p + 1))
-			{
-				n = n->nx;
-				*p++;
-			}
-			else
-				break ;
-		}
-		else
-			n = n->dn;
-	}
-	ft_strfree2d(splitpath);
-	return o;
-}
-
-void nodelist_free(node* n)
+void nodelist_clear(node* n)
 {
 	if (!n)
 		return ;
-	if (n->dn)
-		nodelist_free(n->dn);
-	nodelist_free(n->nx);
 	free(n->name);
 	free(n->value);
+	nodelist_clear(n->nx);
+	nodelist_clear(n->dn);
+	free(n);
+	return ;
+}
+
+void node_del(node* n)
+{
+	if (!n)
+	{
+		return ;
+	}
+	free(n->name);
+	free(n->value);
+	if (n->pv && n->nx)
+	{
+		n->pv->nx = n->nx;
+		n->nx->pv = n->pv;
+	}
+	else if (n->pv && !n->nx)
+		n->pv->nx = n->nx;
+	node_del(n->nx);
 	free(n);
 	return ;
 }
@@ -119,8 +109,8 @@ node* node_last_nx(node* h)
 
 str json_put(json* data, str path)
 {
-	node* n = data->base_node->nx;
 	node* b = data->base_node;
+	node* n = data->base_node->nx;
 	node* x;
 	str* splitpath = path_split(path);
 	str* p = splitpath;
@@ -147,12 +137,14 @@ str json_put(json* data, str path)
 		if (!x)
 		{
 			b->nx = node_new();
+			b->nx->pv = b;
 			b->nx->name = ft_strdup(*p);
 			b = b->nx;
 		}
 		else
 		{
 			x->dn = node_new();
+			x->dn->up = x;
 			x->dn->name = ft_strdup(*p);
 			b = x->dn;
 		}
@@ -162,23 +154,16 @@ str json_put(json* data, str path)
 	return ft_strdup(b->name);
 }
 
-str	json_get(json* data, str path)
-{
-	str out = 0;
-	node* h = node_goto(data, path);
-	if (h)
-		out = ft_strdup(h->name);
-	return out;
-}
-
 str json_del(json* data, str path)
 {
-	node* h = node_goto(data, path);
+	node *h = node_goto(data, path);
 	if (!h)
 		return 0;
-	h = node_goto_before_last(data, path);
-	nodelist_free(h->nx);
-	h->nx = 0;
+	h = h->pv;
+	node* nxnx = h->nx->dn;
+	node_del(h->nx);
+	h->nx = nxnx;
+	h->nx->pv = h->nx;
 	return ft_strdup(h->name);
 }
 
@@ -190,9 +175,9 @@ json* json_new()
 	return new_json;
 }
 
-void json_clean(json *this)
+void json_clear(json *this)
 {
-	nodelist_free(this->base_node);
+	nodelist_clear(this->base_node);
 	free(this);
 	return ;
 }
@@ -208,14 +193,24 @@ str json_render_node(node* h)
 		out = ft_strcat_variadic(3, "'value' : '", h->value, "' , ");
 	if (h->nx)
 		out = ft_strcatxx(out, json_render_node(h->nx));
-	out = ft_strcatxl(out, "}, ");
+	out = ft_strcatxl(out, "} , ");
 	return ft_strcatxx(out, json_render_node(h->dn));
+}
+
+str	json_get(json* data, str path)
+{
+	str out = 0;
+	node* h = node_goto(data, path);
+	if (h)
+		out = json_render_node(h);
+	return out;
 }
 
 str json_render(json* data)
 {
 	str out = json_render_node(data->base_node->nx);
 	printf("%s\n\n", out);
-	free(out);
+	if (out)
+		free(out);
 	return 0;
 }

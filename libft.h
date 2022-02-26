@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/26 00:36:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 01:36:04 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ typedef struct node
 	size_t			index;
 	str				value;
 	struct node		*nx;
+	struct node		*pv;
 	struct node		*dn;
+	struct node		*up;
 } node;
 
 typedef struct json
@@ -51,7 +53,7 @@ typedef struct json
 json* json_new();
 str	json_get(json* data, str path);
 str json_put(json* data, str path);
-void json_clean(json *this);
+void json_clear(json *this);
 str json_del(json* data, str path);
 str json_render(json* data);
 
