@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/26 02:01:37 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 02:04:37 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,7 +194,8 @@ str json_render_node(node* h)
 	if (h->nx)
 		out = ft_strcatxx(out, json_render_node(h->nx));
 	out = ft_strcatxl(out, "} , ");
-	return ft_strcatxx(out, json_render_node(h->dn));
+	return out;
+//	return ft_strcatxx(out, json_render_node(h->dn));
 }
 
 str	json_get(json* data, str path)
