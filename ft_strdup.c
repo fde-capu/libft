@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 03:12:02 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/10 23:39:47 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/25 22:41:05 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,4 @@ char	*ft_strnew(void)
 char	*ft_str(char *str)
 {
 	return (ft_strdup(str));
-}
-
-char	*ft_strx(char *s1, char *s2)
-{
-	return (ft_x(s2, ft_strdup(s1)));
 }

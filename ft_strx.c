@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 13:59:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/06/10 10:52:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/25 22:36:37 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** Usually: str = (new_str, str);
 */
 
-char	*ft_strx(char *s1, char *s2)
+char	*ft_strx(char *to_clone, char *to_free)
 {
-	return (ft_x(s2, ft_strdup(s1)));
+	return (ft_x(to_free, ft_strdup(to_clone)));
 }
