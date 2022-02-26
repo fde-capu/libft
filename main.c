@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:40:07 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/25 23:41:41 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 00:45:59 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,18 @@ int main()
 	str com;
 
 	json_render(data);
-	printf("\n\n");
 
 	com = ft_str("/universe/galaxy");
 	out_put = json_put(data, com);
 	if (out_put) { printf("put %s: %s\n", com, out_put); }
 	
 	json_render(data);
-	printf("\n\n");
 
 	com = ft_strx("/universe/gas_cloud", com);
 	out_put = ft_x(out_put, json_put(data, com));
 	if (out_put) { printf("put %s: %s\n", com, out_put); }
 	
 	json_render(data);
-	printf("\n\n");
 
 	out_get = json_get(data, "/universe/galaxy");
 	if (out_get)

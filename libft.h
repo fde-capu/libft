@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/25 23:19:17 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 00:36:40 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,8 @@ char			*ft_strcatchrx(char *dst, char *c);
 char			*ft_strcatx(char *dst, char *src);
 char			*ft_strcatxl(char *s1, char *s2);
 char			*ft_strcatxr(char *s1, char *s2);
+char			*ft_strcatxx(char *s1, char *s2);
+str				ft_strcat_variadic(int argc, ...);
 int				ft_strcmp(const char *s1, const char *s2);
 char			*ft_strchr(char *str, char c);
 char			*ft_strchrcat(const char *dst, const char src);

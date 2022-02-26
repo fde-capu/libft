@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 19:18:03 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/09 14:45:25 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 00:47:13 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,15 @@ char	*ft_strcatxx(char *s1, char *s2)
 	free(s1);
 	free(s2);
 	return (x);
+}
+
+str		ft_strcat_variadic(int argc, ...)
+{
+	str out = "";
+	va_list h;
+	va_start(h, argc);
+	while (argc--)
+		out = ft_strcatxl(out, va_arg(h, char *));
+	va_end(h);
+	return out;
 }

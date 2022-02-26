@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/25 23:42:15 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 00:48:40 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,20 +200,22 @@ void json_clean(json *this)
 str json_render_node(node* h)
 {
 	if (!h)
-	{
 		return 0;
-	}
-	printf("%s = { ", h->name);
-	printf("index: %d, ", h->index);
+	str index = ft_itoa(h->index);
+	str out = ft_strcat_variadic(5, "'", h->name, "' : { 'index' : ", index, " , ");
+	free(index);
 	if (h->value)
-		printf("value: \"%s\", ", h->value);
+		out = ft_strcat_variadic(3, "'value' : '", h->value, "' , ");
 	if (h->nx)
-		json_render_node(h->nx);
-	printf("}, ");
-	json_render_node(h->dn);
+		out = ft_strcatxx(out, json_render_node(h->nx));
+	out = ft_strcatxl(out, "}, ");
+	return ft_strcatxx(out, json_render_node(h->dn));
 }
 
 str json_render(json* data)
 {
-	return json_render_node(data->base_node->nx);
+	str out = json_render_node(data->base_node->nx);
+	printf("%s\n\n", out);
+	free(out);
+	return 0;
 }
