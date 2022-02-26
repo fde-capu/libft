@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/26 18:57:19 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 20:02:44 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,16 +233,30 @@ str json_put(json* data, str path)
 	return json_render_node(b, 0, 0);
 }
 
+str correct_quotes(str in)
+{
+	int len = ft_strlen(in);
+
+	if
+	(
+		in[0] == in[len - 1] \
+		&&
+		ft_chrinset(in[0], "\"'[{")
+	)
+	{
+		str out = ft_substr(in, 1, len - 2);
+		out = ft_x(out, ft_strcat_variadic(3, "'", out, "'"));
+		return out;
+	}
+	return ft_strcat_variadic(3, "'", in, "'");
+}
+
 str json_post(json* data, str path)
 {
 	str* chain = ft_split_set(path, "=;");
+	str foo = json_put(data, chain[0]);
+	free(foo);
 	node *h = node_goto(data, chain[0]);
-	if (!h)
-	{
-		str foo = json_put(data, chain[0]);
-		free(foo);
-		node *h = node_goto(data, chain[0]);
-	}
 	if (!h)
 	{
 		ft_strfree2d(chain);
@@ -250,7 +264,7 @@ str json_post(json* data, str path)
 	}
 	if (h->value)
 		free(h->value);
-	h->value = ft_strdup(chain[1]);
+	h->value = correct_quotes(chain[1]);
 	ft_strfree2d(chain);
 	return json_render_node(h->pv, 0, 0);
 }
