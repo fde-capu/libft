@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:40:07 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/26 18:16:18 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 18:35:24 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,18 @@ int main()
 	printf("> %s\n", out);
 	json_render(data);
 
-// put universe/galaxy/Andromeda/type/sa
+	out = ft_x(out, api_request("post", "/universe/galaxy/Andromeda/type=SA(s)b", data));
+	printf("> %s\n", out);
+	json_render(data);
+
+	out = ft_x(out, api_request("put", "/universe/galaxy/Andromeda/type=SA(s)b", data));
+	printf("> %s\n", out);
+	json_render(data);
+
+	out = ft_x(out, api_request("del", "/universe/galaxy/Andromeda/type/value", data));
+	printf("> %s\n", out);
+	json_render(data);
+
 
 //	out = ft_x(out, api_request("post", "/universe/galaxy/Andromeda/color_bv='0.92',contrast_index=0.98,surface_brightness='13;35'", data));
 //	printf("> %s\n", out);

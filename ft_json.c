@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/26 18:30:49 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/26 18:57:19 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -236,16 +236,21 @@ str json_put(json* data, str path)
 str json_post(json* data, str path)
 {
 	str* chain = ft_split_set(path, "=;");
-	str foo = json_put(data, chain[0]);
-	if (!foo)
+	node *h = node_goto(data, chain[0]);
+	if (!h)
+	{
+		str foo = json_put(data, chain[0]);
+		free(foo);
+		node *h = node_goto(data, chain[0]);
+	}
+	if (!h)
 	{
 		ft_strfree2d(chain);
-		printf(" -- NOOUT -- ");
 		return 0;
 	}
-	free(foo);
-	node *h = node_goto(data, chain[0]);
-	h->value = ft_str(chain[1]);
+	if (h->value)
+		free(h->value);
+	h->value = ft_strdup(chain[1]);
 	ft_strfree2d(chain);
 	return json_render_node(h->pv, 0, 0);
 }
