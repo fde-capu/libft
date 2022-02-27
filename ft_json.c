@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 15:09:26 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 18:58:20 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,38 +45,34 @@ str json_put(json* data, str path)
 
 	str* splitpath = path_split(path);
 	str* h_path = splitpath;
-	node* h = data->base_node->nx;
 	node* ret = data->base_node;
+	node* nd = data->base_node->nx;
 
-	while (h)
+	while (nd)
 	{
-		if (ft_stridentical_insensitive(h->name, *h_path))
+		logger(4, " ? ", nd->name, " - ", *h_path);
+		if (ft_stridentical_insensitive(nd->name, *h_path))
 		{
-			ret = h;
-			if (*(h_path + 1) && h->nx)
-			{
-				h = h->nx;
-				*h_path++;
-			}
-			else
-				break ;
+			ret = nd;
+			nd = nd->nx;
+			*h_path++;
 		}
 		else
-			h = h->dn;
+			nd = nd->dn;
 	}
+	
+//	logger(4, " -c ", nd->name, " (->) ", *h_path);
 
-	logger(6, " - ", ret->name, " (->) ", *h_path, "/", *(h_path + 1));
-	if ((!*(h_path + 1) && ret != data->base_node)
-	&&  (1))
-	{
-		ft_strfree2d(splitpath);
-		logger(1, " Nothing to do.");
-		return json_render_node(ret, 0, 0);
-	}
+//	if (!*(h_path + 1) && ret != data->base_node)
+//	{
+//		ft_strfree2d(splitpath);
+//		logger(1, " Nothing to do.");
+//		return json_render_node(ret, 0, 0);
+//	}
 
 	if (ret) logger(2, " - ret ", ret->name);
 	if (*h_path) logger(2, " - h_path ", *h_path);
-	if (h) logger(2, " - h ", h->name);
+	if (nd) logger(2, " - nd ", nd->name);
 
 	node *up = 0;
 	node *nx = 0;
@@ -109,17 +105,17 @@ str json_post(json* data, str path)
 	json_render(data);
 	logger(3, "Keep posting. Now try ", chain[0], ".");
 	free(foo);
-	node *h = node_goto(data, chain[0]);
-	if (!h)
+	node *nd = node_goto(data, chain[0]);
+	if (!nd)
 	{
 		logger(3, "Did not find ", chain[0], ".");
 		ft_strfree2d(chain);
 		return 0;
 	}
-	logger(2, "Can post as a child of ", h->name);
-	h->value = ft_x(h->value, correct_quotes(chain[1]));
+	logger(2, "Can post as a child of ", nd->name);
+	nd->value = ft_x(nd->value, correct_quotes(chain[1]));
 	ft_strfree2d(chain);
-	return json_render_node(h->pv, 0, 1);
+	return json_render_node(nd->pv, 0, 1);
 }
 
 str json_del(json* data, str path)

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 10:33:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 14:38:33 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 18:11:49 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,51 +14,51 @@
 
 node* node_goto(json* data, str path)
 {
-	node* n = data->base_node->nx;
-	node* r = data->base_node;
+	node* nd = data->base_node->nx;
+	node* ret = data->base_node;
 	str* splitpath = path_split(path);
-	str* p = splitpath;
+	str* h_path = splitpath;
 
-	while (n)
+	while (nd)
 	{
-		if (ft_stridentical_insensitive(n->name, *p))
+		if (ft_stridentical_insensitive(nd->name, *h_path))
 		{
-			r = n;
-			if (*(p + 1) && n->nx)
+			ret = nd;
+			if (*(h_path + 1) && nd->nx)
 			{
-				n = n->nx;
-				*p++;
+				nd = nd->nx;
+				*h_path++;
 			}
 			else
 				break ;
 		}
 		else
-			n = n->dn;
+			nd = nd->dn;
 	}
 
-//	if (r)
-//		logger(3, " # goto [ r: ", r->name, " ]");
-//	if (*p)
-//		logger(3, " # goto [ p: ", *p, " ]");
-//	if (n)
-//		logger(3, " # goto [ n: ", n->name, " ]");
+//	if (ret)
+//		logger(3, " # goto [ ret: ", ret->name, " ]");
+//	if (*h_path)
+//		logger(3, " # goto [ h_path: ", *h_path, " ]");
+//	if (nd)
+//		logger(3, " # goto [ nd: ", nd->name, " ]");
 
-	if (*(p + 1) || !ft_stridentical_insensitive(r->name, *p))
-		r = 0;
+	if (*(h_path + 1) || !ft_stridentical_insensitive(ret->name, *h_path))
+		ret = 0;
 
 	ft_strfree2d(splitpath);
-	return r;
+	return ret;
 }
 
-void nodelist_clear(node* n)
+void nodelist_clear(node* nd)
 {
-	if (!n)
+	if (!nd)
 		return ;
-	free(n->name);
-	free(n->value);
-	nodelist_clear(n->nx);
-	nodelist_clear(n->dn);
-	free(n);
+	free(nd->name);
+	free(nd->value);
+	nodelist_clear(nd->nx);
+	nodelist_clear(nd->dn);
+	free(nd);
 	return ;
 }
 
@@ -78,7 +78,10 @@ void node_del(node* nd)
 	if (nd->up)
 		nd->up->dn = nd->dn;
 	else
+	{
 		nd->pv->nx = nd->dn ? nd->dn : nd->nx;
+		nd->pv->nx->up = 0;
+	}
 
 	free(nd->name);
 	free(nd->value);

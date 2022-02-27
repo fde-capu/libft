@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 10:48:11 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 17:07:21 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void node_del(node* n);
 node* node_new(str name, str value, node* up, node* nx, node* dn, node* pv);
 node* node_last_dn(node* h);
 node* node_last_nx(node* h);
+node* node_goto_soft(json* data, str path);
 
 
 
@@ -184,6 +185,7 @@ char			**ft_split_set(char const *s, const char *c);
 size_t			ft_strarrlen(char **s);
 int				ft_strbegins(const char *str, const char *beg);
 char			*ft_strcat(const char *dst, const char *src);
+str				ft_strcat2d(str* s);
 char			*ft_strcatchrx(char *dst, char *c);
 char			*ft_strcatx(char *dst, char *src);
 char			*ft_strcatxl(char *s1, char *s2);
@@ -201,6 +203,7 @@ bool			ft_strfree2d_and_return_bool(char **str, bool ret_val);
 int				ft_stridentical(const char *s1, const char *s2);
 int				ft_stridentical_insensitive(const char *s1, const char *s2);
 char			*ft_strjoin(char const *s1, char const *s2);
+str				ft_strjoin2d(str* s, str divisor);
 size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t			ft_strlen(const char *s);
