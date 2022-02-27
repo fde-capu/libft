@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 12:31:16 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 13:29:41 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,16 +81,19 @@ str json_put(json* data, str path)
 	node *dn = 0;
 	node *pv = 0;
 
-	while (*++h_path || (*--h_path && ret == data->base_node))
+	if (ret == data->base_node)
+		*h_path--;
+
+	int a = 1;
+	while (*++h_path)
 	{
 		logger(4, " # ", ret->name, "->", *h_path);
 		pv = ret;
 		if (ret->nx)
 			up = node_last_dn(ret->nx);
 		ret = node_new(ft_strdup(*h_path), 0, up, nx, dn, pv);
+		logger_rose(ret);
 	}
-
-	logger_rose(ret);
 
 	ft_strfree2d(splitpath);
 	logger(1, "/");

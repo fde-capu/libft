@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:40:07 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 11:34:53 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 13:37:15 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ int main()
 	json_render(data);
 
 	out = api_request("put", "universe", data);
+	logger(2, "> ", out);
+	json_render(data);
+	
+	out = ft_x(out, api_request("put", "another_universe", data));
 	logger(2, "> ", out);
 	json_render(data);
 	
