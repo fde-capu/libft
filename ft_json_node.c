@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 10:33:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 10:47:59 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 12:32:49 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,7 @@ void node_del(node* n)
 
 node* node_new(str name, str value, node* up, node* nx, node* dn, node* pv)
 {
-	logger(5, "  * node_nw, ", name, " '", value, "' will have:");
-	logger(2, "\t\tup->", up ? up->name : "0");
-	logger(4, "\tpv->", pv ? pv->name : "0", "\tnx->", nx ? nx->name : "0");
-	logger(2, "\t\tdn->", dn ? dn->name : "0");
+	logger(5, "   \\ ", name, " : '", value, "'");
 	node* nw = calloc(sizeof(node), 1);
 	nw->name = name;
 	nw->value = value;
@@ -109,8 +106,6 @@ node* node_new(str name, str value, node* up, node* nx, node* dn, node* pv)
 	}
 	if (pv && !pv->nx)
 		pv->nx = nw;
-	logger_rose(nw);
-	logger(3, "  * // ", name, ".");
 	return nw;
 }
 

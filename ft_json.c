@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 11:37:18 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 12:31:16 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,73 +38,63 @@ str	json_get(json* data, str path)
 
 str json_put(json* data, str path)
 {
-	logger(3, "Try to put ", path, ".");
-
 	if (ft_strstr("=", path))
 		return json_post(data, path);
 
-	node* n = data->base_node->nx;
-	node* r = data->base_node;
-	str* splitpath = path_split(path);
-	str* p = splitpath;
+	logger(2, "\\ put ", path);
 
-	while (n)
+	str* splitpath = path_split(path);
+	str* h_path = splitpath;
+	node* h = data->base_node->nx;
+	node* ret = data->base_node;
+
+	while (h)
 	{
-		if (ft_stridentical_insensitive(n->name, *p))
+		if (ft_stridentical_insensitive(h->name, *h_path))
 		{
-			r = n;
-			if (*(p + 1) && n->nx)
+			ret = h;
+			if (*(h_path + 1) && h->nx)
 			{
-				n = n->nx;
-				*p++;
+				h = h->nx;
+				*h_path++;
 			}
 			else
 				break ;
 		}
 		else
-			n = n->dn;
+			h = h->dn;
 	}
 
-	if (r) logger(2, " # r ", r->name);
-	if (*p) logger(2, " # p ", *p);
-	if (n) logger(2, " # n ", n->name);
-
-	if (ft_stridentical(r->name, *p))
+	if (!*(h_path + 1) && ret != data->base_node)
 	{
-		if (!*(p + 1))
-		{
-			ft_strfree2d(splitpath);
-			logger(1, " Nothing to do.");
-			return json_render_node(r, 0, 0);
-		}
-		*p++;
+		ft_strfree2d(splitpath);
+		logger(1, " Nothing to do.");
+		return json_render_node(ret, 0, 0);
 	}
 
-	while (*p)
+	if (ret) logger(2, " - ret ", ret->name);
+	if (*h_path) logger(2, " - h_path ", *h_path);
+	if (h) logger(2, " - h ", h->name);
+
+	node *up = 0;
+	node *nx = 0;
+	node *dn = 0;
+	node *pv = 0;
+
+	while (*++h_path || (*--h_path && ret == data->base_node))
 	{
-		logger(7, " ", r->name, " - followed to ", *p, " in ", path, ".");
-		if (!r->nx)
-		{
-			logger(5, " # ", r->name, " is last, from here create ", *(p + 0), ".");
-			r->nx = node_new(ft_strdup(*(p + 0)), 0, 0, 0, 0, r);
-			r = r->nx;
-			*p++;
-		}
-		else
-		{
-			logger(5, " # ", r->name, "->nx is ", r->nx->name, ".");
-			node *x = node_last_dn(r->nx);
-			logger(7, " Can put ", *p, " below ", x->name, ", pv to ", r->name, ".");
-			x->dn = node_new(ft_strdup(*p), 0, x, 0, 0, r);
-			r = x->dn;
-			*p++;
-		}
-//		*p++;
+		logger(4, " # ", ret->name, "->", *h_path);
+		pv = ret;
+		if (ret->nx)
+			up = node_last_dn(ret->nx);
+		ret = node_new(ft_strdup(*h_path), 0, up, nx, dn, pv);
 	}
+
+	logger_rose(ret);
 
 	ft_strfree2d(splitpath);
-	logger(3, "/Try: put ", r->name, ".");
-	return json_render_node(r, 0, 0);
+	logger(1, "/");
+	return json_render_node(ret, 0, 0);
 }
 
 str json_post(json* data, str path)

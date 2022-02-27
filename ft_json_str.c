@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 10:35:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 11:17:05 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 12:23:05 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ str no_reserved(str path)
 
 void logger_rose(node *nd)
 {
-	str out = ft_str("\t% ");
+	str out = ft_str("\t@ ");
 	if (nd->up)
 	{
 		out = ft_strcatxx(out, ft_str(nd->up->name));
@@ -99,7 +99,7 @@ void logger_rose(node *nd)
 			out = ft_strcatxx(out, ft_strcat_variadic(5, out, nd->up->name, "-X->(", nd->up->dn ? nd->up->dn->name : 0, ")\n"));
 	}
 	else
-		out = ft_strcatxl(out, "-\n");
+		out = ft_strcatxl(out, "\n");
 
 	out = ft_strcatxl(out, "\tV ");
 	if (nd->nx)
@@ -111,7 +111,7 @@ void logger_rose(node *nd)
 			out = ft_strcatxx(out, ft_strcat_variadic(5, out, nd->nx->name, "-X->(", nd->nx->pv ? nd->nx->pv->name : 0, ")\n"));
 	}
 	else
-		out = ft_strcatxl(out, "-\n");
+		out = ft_strcatxl(out, "\n");
 
 	out = ft_strcatxl(out, "\t/ ");
 	if (nd->dn)
@@ -123,17 +123,21 @@ void logger_rose(node *nd)
 			out = ft_strcatxx(out, ft_strcat_variadic(5, out, nd->dn->name, "-X->(", nd->dn->up ? nd->dn->up->name : 0, ")\n"));
 	}
 	else
-		out = ft_strcatxl(out, "-\n");
+		out = ft_strcatxl(out, "\n");
 
 	out = ft_strcatxl(out, "\t| ");
 	if (nd->pv)
 	{
 		out = ft_strcatxx(out, ft_str(nd->pv->name));
 		if (nd->pv->nx == nd)
-			out = ft_strcatxl(out, "-><-!\n");
+			out = ft_strcatxl(out, "-><-!");
 		else
-			out = ft_strcatxx(out, ft_strcat_variadic(5, out, nd->pv->name, "-X->(", nd->pv->nx ? nd->pv->nx->name : 0, ")\n"));
+			out = ft_strcatxx(out, ft_strcat_variadic(5, out, nd->pv->name, "-X->(", nd->pv->nx ? nd->pv->nx->name : 0, ")"));
 	}
 	else
-		out = ft_strcatxl(out, "-\n");
+		out = ft_strcatxl(out, "");
+
+	logger(1, out);
+	free(out);
+	return ;
 }
