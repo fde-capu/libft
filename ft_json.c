@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 13:29:41 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 15:09:26 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,9 @@ str json_put(json* data, str path)
 			h = h->dn;
 	}
 
-	if (!*(h_path + 1) && ret != data->base_node)
+	logger(6, " - ", ret->name, " (->) ", *h_path, "/", *(h_path + 1));
+	if ((!*(h_path + 1) && ret != data->base_node)
+	&&  (1))
 	{
 		ft_strfree2d(splitpath);
 		logger(1, " Nothing to do.");
@@ -81,10 +83,9 @@ str json_put(json* data, str path)
 	node *dn = 0;
 	node *pv = 0;
 
-	if (ret == data->base_node)
-		*h_path--;
+//	if (ret == data->base_node)
+		*h_path--; // danger zone
 
-	int a = 1;
 	while (*++h_path)
 	{
 		logger(4, " # ", ret->name, "->", *h_path);
@@ -123,8 +124,9 @@ str json_post(json* data, str path)
 
 str json_del(json* data, str path)
 {
-	logger(3, "Try del ", path, ".");
+	logger(2, "\\ del ", path);
 	str path_no_reserved = no_reserved(path);
+	node* ret;
 	if (ft_stridentical(path, path_no_reserved))
 	{
 		node *h = node_goto(data, path);
@@ -134,15 +136,17 @@ str json_del(json* data, str path)
 			logger(3, " Could not go to ", path, ". Die.");
 			return 0;
 		}
-//		logger_rose(h);
+		logger_rose(h);
+		ret = h->pv;
+		node_del(h);
 //		if(!h->up)
 //		{
 //			h->pv->nx = h->dn;
 //			node_del(h);
 //		}
 
-		logger(2, "//del ", h->name);
-		return json_render_node(h, 0, 0);
+		logger(1, "/");
+		return json_render_node(ret, 0, 0);
 	}
 	else
 	{

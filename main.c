@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:40:07 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 13:37:15 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 14:52:46 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,58 @@ int main()
 	logger(2, "> ", out);
 	json_render(data);
 	
-//	out = api_request("put", "universe/galaxy", data);
-//	logger(2, "> ", out);
-//	json_render(data);
-//	
-//	out = ft_x(out, api_request("put", "/universe/galaxy", data));
+	out = ft_x(out, api_request("put", "universe/galaxy", data));
+	logger(2, "> ", out);
+	json_render(data);
+	
+	out = ft_x(out, api_request("put", "another_universe/gas_cloud", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+	out = ft_x(out, api_request("del", "another_universe/gas_cloud", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+	out = ft_x(out, api_request("put", "another_universe/gas_cloud", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+	out = ft_x(out, api_request("del", "another_universe", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+	out = ft_x(out, api_request("put", "another_universe/gas_cloud", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+	out = ft_x(out, api_request("del", "universe/galaxy", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+	out = ft_x(out, api_request("put", "universe/galaxy", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+	out = ft_x(out, api_request("del", "universe", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+	out = ft_x(out, api_request("put", "universe/galaxy/milkyway", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+	out = ft_x(out, api_request("put", "another_universe/galaxy/inverted_milkyway", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+//	out = ft_x(out, api_request("put", "yau/galaxy_cluster/unknown", data));
 //	logger(2, "> ", out);
 //	json_render(data);
 //
-//	out = ft_x(out, api_request("put", "/universe/gas_cloud", data));
+//	out = ft_x(out, api_request("del", "another_universe", data));
 //	logger(2, "> ", out);
 //	json_render(data);
-//
+
 //	out = ft_x(out, api_request("get", "/universe", data));
 //	logger(2, "> ", out);
 //	json_render(data);
@@ -128,6 +168,11 @@ int main()
 //	out = ft_x(out, api_request("post", "/universe/galaxy/star/type='binary'", data));
 //	json_render(data);
 
+// put repeated
+//	out = ft_x(out, api_request("put", "/universe/galaxy", data));
+//	logger(2, "> ", out);
+//	json_render(data);
+//
 	free(out);
 	json_clear(data);
 
