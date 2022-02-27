@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/26 14:50:48 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 10:48:11 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@
 # include "keys.h"
 # include "common.h"
 
+
+/*
+** JSON related.
+*/
+
+# define NEW_LINE "\n"
+# define LOG_FD 1
+
 typedef struct node
 {
 	str				name;
@@ -49,6 +57,7 @@ typedef struct json
 	node*	base_node;
 } json;
 
+void logger_rose(node *n);
 json* json_new();
 str	json_get(json* data, str path);
 str json_put(json* data, str path);
@@ -56,6 +65,22 @@ void json_clear(json *this);
 str json_del(json* data, str path);
 str json_render(json* data);
 str json_post(json* data, str path);
+void logger(int argc, ...);
+str* path_split(str path);
+str json_render_as_attr(node* h);
+str json_render_node(node* h, int go_dn, int show_name);
+str correct_quotes(str in);
+str no_reserved(str path);
+node* node_goto(json* data, str path);
+void nodelist_clear(node* n);
+void node_del(node* n);
+node* node_new(str name, str value, node* up, node* nx, node* dn, node* pv);
+node* node_last_dn(node* h);
+node* node_last_nx(node* h);
+
+
+
+
 
 bool			validate_args(int argc, char **argv, int argc_min, int argc_max, char *valid_args_csv);
 bool			validate_args_regex(int argc, char **argv, int argc_min, int argc_max, char *valid_args_regex_pipesv);
