@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 18:58:20 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 19:45:32 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ str json_del(json* data, str path)
 		free(path_no_reserved);
 		if (!h)
 		{
-			logger(3, " Could not go to ", path, ". Die.");
+			logger(3, "  - Could not go to ", path, ". Die.");
 			return 0;
 		}
 		logger_rose(h);

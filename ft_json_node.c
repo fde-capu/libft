@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 10:33:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 19:26:53 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 19:56:44 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,20 +64,22 @@ void nodelist_clear(node* nd)
 
 void node_del(node* nd)
 {
+	if (nd->nx)
+		node_del(nd->nx);
+
 	if (!nd)
 	{
 		logger(1, "  |- 0");
 		return ;
 	}
 
-	while (nd->nx)
-		node_del(nd->nx);
-
 	logger(2, "  |- ", nd->name);
-	
+
 	if (nd->up)
 	{
 		nd->up->dn = nd->dn;
+		if (nd->dn)
+			nd->dn->up = nd->up;
 	}
 	else
 	{
