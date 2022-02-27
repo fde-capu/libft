@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:40:07 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 19:50:58 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:14:57 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,11 +113,47 @@ int main()
 	logger(2, "> ", out);
 	json_render(data);
 
+	logger(1, "16)");
+	out = ft_x(out, api_request("put", "universe/galaxy/milkyway", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+	logger(1, "17)");
+	out = ft_x(out, api_request("put", "universe/galaxy/andromeda", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+	logger(1, "18)");
+	out = ft_x(out, api_request("del", "universe/galaxy/milkyway", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+	logger(1, "19)");
+	out = ft_x(out, api_request("put", "universe/galaxy/milkyway", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+	logger(1, "20)");
+	out = ft_x(out, api_request("del", "universe/galaxy/andromeda", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+	logger(1, "21)");
+	out = ft_x(out, api_request("put", "universe/galaxy/andromeda", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+	logger(1, "22)");
+	out = ft_x(out, api_request("del", "universe/galaxy", data));
+	logger(2, "> ", out);
+	json_render(data);
+
+
 //	logger(1, "16)");
 //	out = ft_x(out, api_request("get", "/universe", data));
 //	logger(2, "> ", out);
 //	json_render(data);
-//
+
 //	logger(1, "18)");
 //	out = ft_x(out, api_request("DEL", "/universe/galaxy", data));
 //	logger(2, "> ", out);

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 10:35:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 15:10:41 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:07:07 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ str no_reserved(str path)
 
 void logger_rose(node *nd)
 {
-	str out = ft_str("\t@ ");
+	str out = ft_strcat_variadic(3, "\t  ", nd->name, "\n\t@ ");
 	if (nd->up)
 	{
 		out = ft_strcatxx(out, ft_str(nd->up->name));
