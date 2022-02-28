@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 10:33:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 21:24:48 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 22:35:30 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ node* node_goto_force(json* data, str path)
 node* node_goto(json* data, str path)
 {
 	node* nd = data->base_node->nx;
+	if (!nd)
+		return data->base_node;
 	node* ret = data->base_node;
 	str* splitpath = path_split(path);
 	str* h_path = splitpath;

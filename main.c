@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:40:07 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 21:47:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 22:33:40 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,13 @@ str api_request(str method, str command, json* base)
 int main()
 {
 	json* data = json_new();
-	str out;
+	str out = ft_str("unit for json");
 
 	json_render(data);
 
+	if (0) {
 	logger(1, "1)");
-	out = api_request("put", "universe", data);
+	out = ft_x(out, api_request("put", "universe", data));
 	logger(2, "> ", out);
 	json_render(data);
 	
@@ -249,6 +250,26 @@ int main()
 	logger(2, "> ", out);
 	json_render(data);
 
+
+	logger(1, "-----------------------");
+	logger(1, "-----------------------");
+	logger(1, "-----------------------");
+	logger(1, "-----------------------");
+
+	out = ft_x(out, api_request("del", "universe", data));
+	json_render(data);
+
+	logger(1, "-----------------------");
+	logger(1, "-----------------------");
+	logger(1, "-----------------------");
+	logger(1, "-----------------------");
+
+}
+
+	logger(1, ")");
+	out = ft_x(out, api_request("get", "/", data));
+	logger(2, "> ", out);
+	json_render(data);
 
 
 	free(out);
