@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 12:32:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 20:13:47 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:44:42 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,16 @@ str json_put(json* data, str path)
 {
 	if (ft_strstr("=", path))
 		return json_post(data, path);
+	node* nd = node_goto(data, path);
+	if (nd)
+		return json_render_node(nd, 0, 0);
 
 	logger(2, "\\ put ", path);
 
 	str* splitpath = path_split(path);
 	str* h_path = splitpath;
 	node* ret = data->base_node;
-	node* nd = data->base_node->nx;
+	nd = data->base_node->nx;
 
 	while (nd)
 	{
@@ -60,28 +63,13 @@ str json_put(json* data, str path)
 		else
 			nd = nd->dn;
 	}
-	
-//	logger(4, " -c ", nd->name, " (->) ", *h_path);
-
-//	if (!*(h_path + 1) && ret != data->base_node)
-//	{
-//		ft_strfree2d(splitpath);
-//		logger(1, " Nothing to do.");
-//		return json_render_node(ret, 0, 0);
-//	}
-
-	if (ret) logger(2, " - ret ", ret->name);
-	if (*h_path) logger(2, " - h_path ", *h_path);
-	if (nd) logger(2, " - nd ", nd->name);
 
 	node *up = 0;
 	node *nx = 0;
 	node *dn = 0;
 	node *pv = 0;
 
-//	if (ret == data->base_node)
-		*h_path--; // danger zone
-
+	*h_path--; // danger zone
 	while (*++h_path)
 	{
 		up = 0; nx = 0; dn = 0; pv = 0;
@@ -100,23 +88,33 @@ str json_put(json* data, str path)
 
 str json_post(json* data, str path)
 {
-	logger(3, "Try to post ", path, ".");
+	if (!ft_strstr("=", path))
+		return json_put(data, path);
+
 	str* chain = ft_split_set(path, "=,");
-	str foo = json_put(data, chain[0]);
-	json_render(data);
-	logger(3, "Keep posting. Now try ", chain[0], ".");
-	free(foo);
-	node *nd = node_goto(data, chain[0]);
-	if (!nd)
-	{
-		logger(3, "Did not find ", chain[0], ".");
-		ft_strfree2d(chain);
-		return 0;
-	}
-	logger(2, "Can post as a child of ", nd->name);
+	node *nd = node_goto_force(data, chain[0]);
+	logger(2, "\\ post ", path);
 	nd->value = ft_x(nd->value, correct_quotes(chain[1]));
+	str raw_path = node_raw_path(data, nd->pv);
+	logger(2, "  - raw ", raw_path);
+	if (chain[2])
+	{
+		nd = nd->pv;
+		int i = 2;
+		while (chain[i])
+		{
+			logger(4, "  # ", chain[i], " : ", chain[i + 1]);
+			str new_el = ft_strcat_variadic(2, raw_path, chain[i]);
+			nd = node_goto_force(data, new_el);
+			nd->value = ft_x(nd->value, correct_quotes(chain[i + 1]));
+			free(new_el);
+			i += 2;
+		}
+	}
+	free(raw_path);
 	ft_strfree2d(chain);
-	return json_render_node(nd->pv, 0, 1);
+	logger(1, "/");
+	return json_render_node(nd, 0, 1);
 }
 
 str json_del(json* data, str path)
@@ -141,13 +139,14 @@ str json_del(json* data, str path)
 	}
 	else
 	{
-		logger(3, "Will use ", path_no_reserved, " instead.");
+		logger(3, "  - Will use ", path_no_reserved, " instead.");
 		node *h = node_goto(data, path_no_reserved);
 		free(path_no_reserved);
 		if (!h)
 			return 0;
 		free(h->value);
 		h->value = 0;
+		logger(1, "/");
 		return json_render_node(h, 0, 0);
 	}
 }

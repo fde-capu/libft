@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:19:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 17:07:21 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:22:54 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct json
 	node*	base_node;
 } json;
 
+str node_raw_path(json* data, node* nd);
 void logger_rose(node *n);
 json* json_new();
 str	json_get(json* data, str path);
@@ -72,6 +73,7 @@ str json_render_node(node* h, int go_dn, int show_name);
 str correct_quotes(str in);
 str no_reserved(str path);
 node* node_goto(json* data, str path);
+node* node_goto_force(json* data, str path);
 void nodelist_clear(node* n);
 void node_del(node* n);
 node* node_new(str name, str value, node* up, node* nx, node* dn, node* pv);

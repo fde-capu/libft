@@ -6,11 +6,34 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 10:33:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 20:17:04 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:24:48 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+str node_raw_path(json* data, node* nd)
+{
+	str out = "/";
+	while (nd != data->base_node)
+	{
+		out = ft_x(out, ft_strcat_variadic(3, "/", nd->name, out));
+		nd = nd->pv;
+	}
+	return out;
+}
+
+node* node_goto_force(json* data, str path)
+{
+	node* nd = node_goto(data, path);
+	if (!nd)
+	{
+		str foo = json_put(data, path);
+		free(foo);
+		nd = node_goto(data, path);
+	}
+	return nd;
+}
 
 node* node_goto(json* data, str path)
 {
