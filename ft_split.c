@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 10:48:36 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/01/29 09:10:10 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:12:27 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ static int	stc_count(char *s, char c)
 		n++;
 	while ((*s) && (*s != c))
 		s++;
-	return (*s ? n + stc_count(s, c) : n);
+	if (*s)
+		return (n + stc_count(s, c));
+	return (n);
 }
 
 static int	stc_len(char *s, char c)
@@ -45,24 +47,26 @@ static int	stc_len(char *s, char c)
 	return (n);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**spl;
 	char	*z;
 	int		i;
 	int		w;
 
+	if (!s)
+		return (0);
 	z = (char *)s;
 	spl = (char **)ft_calloc(sizeof(char *) * (stc_count(z, c) + 1), 1);
 	if (!spl)
-		return (NULL);
+		return (0);
 	i = 0;
 	z = stc_skip_c(z, c);
 	while (*z)
 	{
 		spl[i] = (char *)ft_calloc(stc_len(z, c) + 1, 1);
 		if (!spl[i])
-			return (NULL);
+			return (0);
 		w = 0;
 		while ((*z) && (*z != c))
 			spl[i][w++] = *z++;

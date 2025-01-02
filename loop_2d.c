@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   loop_2d.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/05 01:47:38 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/09 10:09:15 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/07/14 11:56:53 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/07/14 11:57:14 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(const char *str)
+int		loop_2d(int x, int y)
 {
-	char	*new;
+	static int	c = -1;
 
-	new = ft_calloc(ft_strlen(str) + 1, 1);
-	if (!new)
-		return (NULL);
-	ft_strcpy(new, str);
-	return (new);
+	if (c == -1)
+		c = (x * y) + 1;
+	if (--c)
+		return (c);
+	c = -1;
+	return (0);
 }

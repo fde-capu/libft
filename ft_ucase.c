@@ -16,7 +16,7 @@
 ** Returns allocated char* upper-cased.
 */
 
-char	*ft_ucase(char *str)
+char	*ft_ucase(const char *str)
 {
 	char	*dst;
 	int		i;

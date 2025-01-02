@@ -6,17 +6,11 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:29:16 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/02 16:29:17 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/04/19 22:36:57 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#ifndef INT_MAX
-# define INT_MAX 2147483647
-#endif
-#ifndef INT_MIN
-# define INT_MIN -2147483648
-#endif
 
 static int	st_sum_dign(char *a)
 {
@@ -33,28 +27,29 @@ static int	st_sum_dign(char *a)
 
 long long	ft_atoi(const char *str)
 {
-	char		*a;
-	char		*b;
+	char		*a[3];
 	int			l;
 	long long	r;
-	int			neg;
 
-	a = ft_strtrim((char *)str, " \t\n\r\v\f");
-	neg = *a == '-' ? 1 : 0;
-	a += *a == '-' || *a == '+' ? 1 : 0;
-	b = a;
-	l = 0 + st_sum_dign(a);
-	a += st_sum_dign(a);
+	if ((!str) || (!*str))
+		return (0);
+	a[0] = ft_strtrim((char *)str, TRIM_SET);
+	a[1] = a[0];
+	if (*a[1] == '-' || *a[1] == '+')
+		a[1]++;
+	a[2] = a[1];
+	l = 0 + st_sum_dign(a[1]);
+	a[1] += st_sum_dign(a[1]);
 	r = 0;
-	a = b;
-	while ((l--) && (ft_isdigit(*a)))
+	a[1] = a[2];
+	while ((l--) && (ft_isdigit(*a[1])))
 	{
-		r += (*a - '0');
-		if (((!neg) && (r > INT_MAX)) || ((neg) && (r * -1 < INT_MIN)))
-			return (!neg ? -1 : 0);
-		r *= l ? 10 : 1;
-		a++;
+		r += (*a[1]++ - '0');
+		if (((*a[0] != '-') && (r > INT_MAX))
+			|| ((*a[0] == '-') && (r * -1 < INT_MIN)))
+			return (ft_ternary_i(*a[0] != '-', -1, 0));
+		r *= ft_ternary_i(l, 10, 1);
 	}
-	r *= neg ? -1 : 1;
-	return (r);
+	r *= ft_ternary_i(*a[0] == '-', -1, 1);
+	return (freec_and_retll(a[0], r));
 }

@@ -6,18 +6,24 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:46:48 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/11 15:29:02 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 16:29:04 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Frees arg1, returns arg2.
+** Frees to_free, returns to_return.
 */
 
-void	*ft_xlloc(void *arg1, void *arg2)
+void	*ft_xlloc(void *to_free, void *to_return)
 {
-	free(arg1);
-	return (arg2);
+	if (to_free)
+		free(to_free);
+	return (to_return);
+}
+
+void	*ft_x(void *to_free, void *to_return)
+{
+	return (ft_xlloc(to_free, to_return));
 }

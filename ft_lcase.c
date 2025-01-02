@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_lcase(char *str)
+char	*ft_lcase(const char *str)
 {
 	char	*dst;
 	int		i;

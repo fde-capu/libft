@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_2dfit.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/21 12:24:30 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/01/27 14:36:36 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/06/23 09:48:34 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/06/23 10:49:15 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_max2d(int *x, int *y, int x_lim, int y_lim)
 {
-	char	*p;
-
-	p = (char *)s;
-	if (!c)
-	{
-		while (*p)
-			p++;
-		return (p);
-	}
-	while ((*p) && (*p != c))
-		p++;
-	return (*p ? p : 0);
+	*x = *x > x_lim ? x_lim : *x;
+	*y = *y > y_lim ? y_lim : *y;
+	return ;
 }

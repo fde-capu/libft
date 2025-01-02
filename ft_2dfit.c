@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcatxl.c                                      :+:      :+:    :+:   */
+/*   ft_2dfit.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/05 03:55:26 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/11 15:30:33 by fde-capu         ###   ########.fr       */
+/*   Created: 2020/06/23 09:48:34 by fde-capu          #+#    #+#             */
+/*   Updated: 2020/06/23 10:49:15 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcatxl(char *s1, char *s2)
+void	ft_max2d(int *x, int *y, int x_lim, int y_lim)
 {
-	char	*x;
-
-	x = ft_strcat(s1, s2);
-	free(s1);
-	return (x);
+	*x = *x > x_lim ? x_lim : *x;
+	*y = *y > y_lim ? y_lim : *y;
+	return ;
 }

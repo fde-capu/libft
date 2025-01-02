@@ -6,7 +6,7 @@
 /*   By: fde-capu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 19:18:03 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/03/04 03:01:00 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 16:20:57 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,58 @@ char	*ft_strcat(const char *dst, const char *src)
 		r++;
 	}
 	return (ret);
+}
+
+char	*ft_strcatxl(char *s1, char *s2)
+{
+	char	*x;
+
+	x = ft_strcat(s1, s2);
+	if (s1)
+		free(s1);
+	return (x);
+}
+
+char	*ft_strcatxr(char *s1, char *s2)
+{
+	char	*x;
+
+	x = ft_strcat(s1, s2);
+	free(s2);
+	return (x);
+}
+
+char	*ft_strcatxx(char *s1, char *s2)
+{
+	char	*x;
+
+	x = ft_strcat(s1, s2);
+	if (s1)
+		free(s1);
+	if (s2)
+		free(s2);
+	return (x);
+}
+
+str		ft_strcat_variadic(int argc, ...)
+{
+	va_list h;
+	va_start(h, argc);
+	str out = ft_str("");
+	while (argc--)
+		out = ft_x(out, ft_strcat(out, va_arg(h, char *)));
+	va_end(h);
+	return out;
+}
+
+str		ft_strcat2d(str* s)
+{
+	str *h = s;
+	str out = ft_str("");
+	while (*h)
+	{
+		out = ft_strcatxx(out, ft_str(*h));
+		*h++;
+	}
+	return out;
 }

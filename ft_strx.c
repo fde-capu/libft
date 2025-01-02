@@ -6,21 +6,19 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 13:59:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2020/05/08 15:08:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/25 22:36:37 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strx(char *s1, char *s2)
-{
-	char	*x1;
-	char	*x2;
+/*
+** ft_strx
+** Usage: new_str = ft_strx(new_val, str_to_free);
+** Usually: str = (new_str, str);
+*/
 
-	x1 = s1;
-	x2 = s2;
-	s2 = ft_strdup(s1);
-	free(x1);
-	free(x2);
-	return (s2);
+char	*ft_strx(char *to_clone, char *to_free)
+{
+	return (ft_x(to_free, ft_strdup(to_clone)));
 }
