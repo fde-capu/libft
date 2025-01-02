@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 10:35:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 20:07:07 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 22:51:40 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 str json_render(json* data)
 {
 	str out = json_render_node(data->base_node->nx, 1, 1);
-	logger(3, "------\n", out, "\n------");
-	if (out)
-		free(out);
-	return 0;
+	return out;
 }
 
 void logger(int argc, ...)

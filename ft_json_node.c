@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 10:33:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2022/02/27 22:35:30 by fde-capu         ###   ########.fr       */
+/*   Updated: 2022/02/27 23:36:07 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@ node* node_goto_force(json* data, str path)
 
 node* node_goto(json* data, str path)
 {
+	path = ft_x(path, ft_trim(path));
 	node* nd = data->base_node->nx;
-	if (!nd)
-		return data->base_node;
+	if (!nd || !*path || ft_stridentical(path, "/"))
+		return 0;
 	node* ret = data->base_node;
 	str* splitpath = path_split(path);
 	str* h_path = splitpath;
@@ -60,13 +61,6 @@ node* node_goto(json* data, str path)
 		else
 			nd = nd->dn;
 	}
-
-//	if (ret)
-//		logger(3, " # goto [ ret: ", ret->name, " ]");
-//	if (*h_path)
-//		logger(3, " # goto [ h_path: ", *h_path, " ]");
-//	if (nd)
-//		logger(3, " # goto [ nd: ", nd->name, " ]");
 
 	if (*(h_path + 1) || !ft_stridentical_insensitive(ret->name, *h_path))
 		ret = 0;
